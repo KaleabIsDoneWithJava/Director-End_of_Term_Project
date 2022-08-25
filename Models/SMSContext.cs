@@ -25,7 +25,7 @@ namespace Director.Models
         public virtual DbSet<Parent> Parents { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<staff> staff { get; set; }
+        public virtual DbSet<Staff> Staff { get; set; }
 
        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -314,7 +314,7 @@ namespace Director.Models
                     .HasConstraintName("FK__Subject__StaffID__2C3393D0");
             });
 
-            modelBuilder.Entity<staff>(entity =>
+            modelBuilder.Entity<Staff>(entity =>
             {
                 entity.ToTable("Staff");
 

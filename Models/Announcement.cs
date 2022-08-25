@@ -13,6 +13,6 @@ namespace Director.Models
         public DateTime? AnnouncementDate { get; set; }
         public int? StaffId { get; set; }
 
-        public virtual staff Staff { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

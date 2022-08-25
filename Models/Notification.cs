@@ -16,7 +16,7 @@ namespace Director.Models
         public int? StudentId { get; set; }
 
         public virtual Parent Parent { get; set; }
-        public virtual staff Staff { get; set; }
+        public virtual Staff Staff { get; set; }
         public virtual Student Student { get; set; }
     }
 }
