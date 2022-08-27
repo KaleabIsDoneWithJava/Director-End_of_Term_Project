@@ -30,6 +30,7 @@ svg {
 }
 
 /*To be used along with the custom TagHelper*/
+/*
 section:active {
     background-color: #fff;
     box-shadow: 4px 0 0#2e65f3 inset;
@@ -37,6 +38,7 @@ section:active {
     color: #2e65f3;
     stroke: #2e65f3;
 }
+    */
 
 svg:active {
     fill: none;

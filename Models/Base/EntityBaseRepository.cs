@@ -33,6 +33,17 @@ namespace Director.Models.Base
             var result = await _context.Set<T>().ToListAsync();
             return result;
         }
+
+        //Not sure aobut this
+        public async Task<IEnumerable<T>> GetListByIdAsync(long id)
+        {
+            var result = await _context.Set<T>().Where(n => n.Id == id).ToListAsync();
+            return result;
+        }
+
+       
+
+
         public async Task<T> GetByIdAsync(long id)
         {
             var result = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);

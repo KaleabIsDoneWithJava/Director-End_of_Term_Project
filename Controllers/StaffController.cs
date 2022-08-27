@@ -25,13 +25,13 @@ namespace Director.Controllers
 
         }
         //Appointments, Notifications, & Staff lists are on the My Staff page
-        public async Task <ActionResult> IndexAsync(int staffid)
+       /* public async Task <ActionResult> IndexAsync(int staffId)
         {
             dynamic myStaff = new ExpandoObject();
-            myStaff.Appointments = await _appointmentService.GetAllAsync();
-            myStaff.Notifications = await _notificationService.GetAllAsync();
+            myStaff.Appointments = await _appointmentService.GetListByIdAsync(staffId);
+            myStaff.Notifications = await _notificationService.GetListByIdAsync(staffId);
             return View(myStaff);
-        }
+        }*/
 
 
         // GET: StaffController

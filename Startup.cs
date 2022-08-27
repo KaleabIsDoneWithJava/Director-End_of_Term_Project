@@ -34,9 +34,7 @@ namespace Director
 
 
             services.AddControllersWithViews();
-            //services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
-            //"DefaultConnection")));
-            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();// for the custom tag helper
+            services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
         }
 

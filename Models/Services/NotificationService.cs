@@ -33,5 +33,10 @@ namespace Director.Models.Services
         {
             throw new NotImplementedException();
         }
+
+        Task<IEnumerable<Notification>> IEntityBaseRepository<Notification>.GetListByIdAsync(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

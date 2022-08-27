@@ -10,6 +10,10 @@ button, input, optgroup, select, textarea {
     margin: 0;
 }
 
+a, a:hover{
+    width:100%;
+    text-decoration:none;
+}
 
 .student-management-system2 {
     cursor: pointer;
