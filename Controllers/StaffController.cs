@@ -2,10 +2,7 @@
 using Director.Models.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Director.Controllers
@@ -14,18 +11,22 @@ namespace Director.Controllers
     {
         private readonly IStaffService _staffService;
         private readonly IAppointmentService _appointmentService;
-       // private readonly INotificationService _notificationService
+        //private readonly INotificationService _notificationService;
         public StaffController(IStaffService service)
         {
             _staffService = service;
         }
+        public StaffController(IAppointmentService service)
+        {
+            _appointmentService = service;
 
+        }
         //Appointments, Notifications, & Staff lists are on the My Staff page
         public async Task <ActionResult> IndexAsync(int staffid)
         {
             dynamic myStaff = new ExpandoObject();
             myStaff.Appointments = await _appointmentService.GetAllAsync();
-           // myStaff.Notifications = await _notificationService.GetAllAsync();
+            myStaff.Notifications = await _notificationService.GetAllAsync();
             return View(myStaff);
         }
 

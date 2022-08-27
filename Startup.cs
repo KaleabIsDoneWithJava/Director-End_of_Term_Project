@@ -30,6 +30,7 @@ namespace Director
         {
             services.AddScoped<IStaffService, StaffService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<INotificationService, NotificationService>();
 
 
             services.AddControllersWithViews();

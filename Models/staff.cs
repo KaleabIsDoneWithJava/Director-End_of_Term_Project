@@ -18,6 +18,8 @@ namespace Director.Models
             ClassStaffs = new HashSet<Class>();
             Notifications = new HashSet<Notification>();
             Subjects = new HashSet<Subject>();
+            //the datatpe is HashSet because we need to access the data from these tables randomly not sequenctially
+            //Plus it can't contain duplicate items. The code is generated from the database scaffold though
         }
 
         public string Role { get; set; }
