@@ -14,6 +14,10 @@ namespace Director.Controllers
         {
             return View();
         }
+         public ActionResult AddStaff()
+        {
+            return View();
+        }
 
         // GET: StaffController/Details/5
         public ActionResult Details(int id)

@@ -1,0 +1,388 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="main-panel-div2">
+    <b class="add-staff-b">Add Staff</b>
+    <form class="form-add-staff" method="post">
+        <div class="add-staff-main-panel">
+            <div class="dashboard-div2">
+                <div class="column-1-add-staff">
+                    <div class="name-label-input">
+                        <div class="date-of-birth">Name</div>
+                        <input class="input-field-default-withou"
+                               type="text"
+                               defaultvalue="Name"
+                               placeholder="Enter Name Here..." />
+                    </div>
+                    <div class="name-label-input">
+                        <div class="date-of-birth">Date of Birth</div>
+                        <input class="input-field-default-withou1" type="date" />
+                    </div>
+                    <div class="gender-staff-type">
+                        <div class="staff-type-label-dropdown">
+                            <div class="staff-type-div">Staff Type</div>
+                            <select id='staff-type-dropdown' class="dropdown-default-basic1" required onchange="toggleInput();">
+                                <option value="Office Staff">Office Staff</option>
+                                <option value="Teacher">Teacher</option>
+                            </select>
+
+                        </div>
+                        <div class="gender-label-dropdown">
+                            <div class="staff-type-label-dropdown1">
+                                <div class="staff-type-div">Gender</div>
+                                <select class="dropdown-default-basic1" required>
+                                    <option value="Female">F</option>
+                                    <option value="Male">M</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-1-add-staff">
+                    <div class="name-label-input">
+                        <div class="date-of-birth">Father’s Name</div>
+                        <input class="input-field-default-withou"
+                               type="text"
+                               placeholder="Enter Father's Name Here..." />
+                    </div>
+                    <div class="name-label-input">
+                        <div class="date-of-birth">Email</div>
+                        <input class="input-field-default-withou1"
+                               type="email"
+                               defaultvalue="Email"
+                               placeholder="Enter Email Here..." />
+                    </div>
+                    <div class="grade-homeroom-label-dro">
+                        <div class="homeroom-label-dropdown">
+                            <div class="grade-div">Grade</div>
+                            <select id="dropdown-default-basic4" class="dropdown-default-basic3" disabled>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="homeroom-label-dropdown">
+                            <div class="grade-div">Homeroom</div>
+                            <select id="dropdown-default-basic3" class="dropdown-default-basic3" disabled>
+                                <option value="None">None</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="name-label-input">
+                        <div class="subject-div">Subject</div>
+                        <select id="dropdown-default-basic5" class="dropdown-default-basic5" disabled>
+                            <option value="English">English</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Civics">Civics</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="column-3-add-staff">
+                    <div class="name-label-input">
+                        <div class="date-of-birth">Grandfather’s Name</div>
+                        <input class="input-field-default-withou"
+                               type="text"
+                               defaultvalue="Name"
+                               placeholder="Enter Grandfather's Name Here..." />
+                    </div>
+                    <div class="name-label-input">
+                        <div class="date-of-birth">Phone Number</div>
+                        <input class="input-field-default-withou1"
+                               type="tel"
+                               placeholder="Enter Phone Number Here..." />
+                    </div>
+                    <div class="grade-section-label-inpu">
+                        <div class="sections-label-checkbox-gr">
+                            <div class="sections-div">Sections</div>
+                            <div class="checkboxgroup-select-section">
+                                <div class="email-label-input1">
+                                    <div class="checkbox-section-a">
+                                        <input id="checkbox-selected"
+                                               class="checkbox-selected"
+                                               type="checkbox"
+                                               defaultchecked="{false}"
+                                               disabled /><label class="a-label">A</label>
+                                    </div>
+                                    <div class="checkbox-section-a">
+                                        <input id="checkbox-selected2"
+                                               class="checkbox-selected"
+                                               type="checkbox"
+                                               defaultchecked="{false}"
+                                               disabled /><label class="a-label">B</label>
+                                    </div>
+                                    <div class="checkbox-section-a">
+                                        <input id="checkbox-selected3"
+                                               class="checkbox-selected"
+                                               type="checkbox"
+                                               defaultchecked="{false}"
+                                               disabled /><label class="a-label">C</label>
+                                    </div>
+                                </div>
+                                <div class="email-label-input1">
+                                    <div class="checkbox-section-a">
+                                        <input id="checkbox-selected4"
+                                               class="checkbox-selected"
+                                               type="checkbox"
+                                               defaultchecked="{false}"
+                                               disabled /><label class="d-label">D</label>
+                                    </div>
+                                    <div class="checkbox-section-a">
+                                        <input id="checkbox-selected5"
+                                               class="checkbox-selected"
+                                               type="checkbox"
+                                               defaultchecked="{false}"
+                                               disabled /><label class="a-label">E</label>
+                                    </div>
+                                    <div class="checkbox-section-a">
+                                        <input id="checkbox-selected6"
+                                               class="checkbox-selected"
+                                               type="checkbox"
+                                               defaultchecked="{false}"
+                                               disabled /><label class="a-label">F</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons-add-clear">
+            <button class="button-add-staff-member2" autofocus>
+                <b class="button-label2">Add</b>
+            </button><button class="button-remove-staff-member">
+                <b class="button-label3">Clear</b>
+            </button>
+        </div>
+    </form>
+    <div class="added-staff-queue" id="Table - Added Staff Queue">
+        <div class="column-name">
+            <div class="header-div8"><div class="classes-div">Name</div></div>
+            <div class="content-div8">
+                <div class="text-group-basic15">
+                    <b class="levi-ackemann-b">Levi Ackemann</b>
+                    <div class="div4">11023</div>
+                </div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div8">
+                <div class="text-group-basic15">
+                    <b class="levi-ackemann-b">Annie Leonheart</b>
+                    <div class="div4">123301</div>
+                </div>
+            </div>
+        </div>
+        <div class="column-staff-type">
+            <div class="header-div9">
+                <div class="classes-div">Staff Type</div>
+            </div>
+            <div class="content-div10">
+                <div class="office-staff-div">Office Staff</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div10">
+                <div class="office-staff-div">Teacher</div>
+            </div>
+        </div>
+        <div class="column-name">
+            <div class="header-div9"><div class="classes-div">Email</div></div>
+            <div class="content-div12">
+                <div class="ltlevieldiamailcom-div">lt.levi@Eldiamail.com</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div12">
+                <div class="ltlevieldiamailcom-div">
+                    annieleonheart@Marleymail.com
+                </div>
+            </div>
+        </div>
+        <div class="column-staff-type">
+            <div class="header-div9">
+                <div class="classes-div">Phone number</div>
+            </div>
+            <div class="content-div14">
+                <div class="office-staff-div">0912131415</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div14">
+                <div class="office-staff-div">0953436373</div>
+            </div>
+        </div>
+        <div class="column-staff-type">
+            <div class="header-div9">
+                <div class="classes-div">Subject</div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">-</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div14">
+                <div class="office-staff-div">English</div>
+            </div>
+        </div>
+        <div class="column-homeroom">
+            <div class="header-div9">
+                <div class="classes-div">Homeroom</div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">-</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">9A</div>
+            </div>
+        </div>
+        <div class="column-classes2">
+            <div class="header-div9">
+                <div class="classes-div">Classes</div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">-</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div21">
+                <div class="office-staff-div">9 - A, B, C, D</div>
+            </div>
+        </div>
+        <div class="column-edit-delete-from-qu">
+            <div class="header-div15">
+                <div class="classes-div">Actions</div>
+            </div>
+            <div class="content-div22">
+                <button class="pencil-alt-button">
+                    <img class="vector-icon3" alt="" src="public/vector3.svg" />
+                </button>
+                <div class="classes-div">|</div>
+                <button class="pencil-alt-button">
+                    <img class="vector-icon4" alt="" src="public/vector4.svg" />
+                </button>
+            </div>
+            <div class="divider-solid30">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div23">
+                <button class="pencil-alt-button">
+                    <img class="vector-icon3" alt="" src="public/vector3.svg" />
+                </button>
+                <div class="classes-div">|</div>
+                <button class="pencil-alt-button">
+                    <img class="vector-icon4" alt="" src="public/vector4.svg" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-done">
+        <!--<div style = "display: flex; -ms-flex-align: center; -ms-flex-item-align: end;">-->
+        <button class="button-add-staff-member3" id="buttonAddStaffMember1">
+            <b class="button-label4">Cancel</b>
+        </button>
+        <!--</div>-->
+        <button class="button-add-staff-member3" id="buttonAddStaffMember1">
+            <b class="button-label4">Done</b>
+        </button>
+    </div>
+</div>
+
+<script>
+    var myStaffContainer = document.getElementById("Navbar - Home");
+    if (myStaffContainer) {
+        myStaffContainer.addEventListener("click", function (e) {
+            window.location.href = "./index.html"
+        });
+    }
+
+    var homeContainer = document.getElementById("Navbar - MyStaff");
+    if (homeContainer) {
+        homeContainer.addEventListener("click", function (e) {
+            window.location.href = "./my-staff.html"
+        });
+    }
+
+    var announcementsContainer = document.getElementById("Navbar - Announcements");
+    if (announcementsContainer) {
+        announcementsContainer.addEventListener("click", function (e) {
+            // Please sync "Announcements" to the project
+        });
+    }
+
+    var buttonAddStaffMember1 = document.getElementById("buttonAddStaffMember1");
+    if (buttonAddStaffMember1) {
+        buttonAddStaffMember1.addEventListener("click", function (e) {
+            window.location.href = "./my-staff.html"
+        });
+    }
+
+    /*function selectType(){
+      if()
+
+      }*/
+
+    function toggleInput() {
+        if ($('#staff-type-dropdown').val() == "Teacher") {
+
+            $('#dropdown-default-basic4').prop('disabled', false);
+            $('#dropdown-default-basic3').prop('disabled', false);
+            $('#dropdown-default-basic5').prop('disabled', false);
+
+            $('#checkbox-selected').prop('disabled', false);
+            $('#checkbox-selected2').prop('disabled', false);
+            $('#checkbox-selected3').prop('disabled', false);
+            $('#checkbox-selected4').prop('disabled', false);
+            $('#checkbox-selected5').prop('disabled', false);
+            $('#checkbox-selected6').prop('disabled', false);
+
+
+
+        } else {
+            $('#dropdown-default-basic4').prop('disabled', true);
+            $('#dropdown-default-basic3').prop('disabled', true);
+            $('#dropdown-default-basic5').prop('disabled', true);
+
+            $('#checkbox-selected').prop('disabled', true);
+            $('#checkbox-selected2').prop('disabled', true);
+            $('#checkbox-selected3').prop('disabled', true);
+            $('#checkbox-selected4').prop('disabled', true);
+            $('#checkbox-selected5').prop('disabled', true);
+            $('#checkbox-selected6').prop('disabled', true);
+
+
+
+        }
+    }
+</script>
+
+
