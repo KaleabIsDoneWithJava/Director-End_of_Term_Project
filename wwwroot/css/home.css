@@ -42,160 +42,7 @@ svg:active {
     fill: none;
     stroke: inherit;
 }
-.student-management-system {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  align-self: stretch;
-  position: relative;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  line-height: 20px;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-family: Inter;
-  color: #2e65f3;
-  text-align: center;
-  display: inline-block;
-}
-.logo-div {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.vector-icon {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-.auto-layout-home {
-  display: flex;
-  flex-direction: row;
-  padding: 3px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.home-b {
-  position: relative;
-  letter-spacing: 0.1em;
-  line-height: 20px;
-  text-transform: uppercase;
-  display: inline-block;
-}
-.home-div1 {
-  align-self: stretch;
-  background-color: #fff;
-  box-shadow: 4px 0 0#2e65f3 inset;
-  display: flex;
-  flex-direction: column;
-  padding: 8px 10px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #2e65f3;
-}
-.icon-staff {
-  position: relative;
-  width: 22px;
-  height: 18px;
-  flex-shrink: 0;
-}
-.auto-layout-students {
-  display: flex;
-  flex-direction: column;
-  padding: 4px 2px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.my-staff-div,
-.my-studens-div {
-  align-self: stretch;
-  padding: 8px 10px;
-  box-sizing: border-box;
-  gap: 8px;
-}
-.my-studens-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.my-staff-div {
-  cursor: pointer;
-}
-.auto-layout-announcements,
-.my-staff-div,
-.nav-items-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.auto-layout-announcements {
-  padding: 3px;
-  box-sizing: border-box;
-}
-.nav-items-div {
-  flex: 1;
-  align-self: stretch;
-  gap: 20px;
-}
-.icon-profile {
-  position: relative;
-  width: 29.25px;
-  height: 29.25px;
-  flex-shrink: 0;
-}
-.auto-layout-profile,
-.logout-icon {
-  width: 35px;
-  height: 35px;
-  flex-shrink: 0;
-}
-.auto-layout-profile {
-  display: flex;
-  flex-direction: row;
-  padding: 4px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.logout-icon {
-  position: relative;
-  overflow: hidden;
-}
-.navigation-primary-left,
-.profile-logout {
-  align-self: stretch;
-  background-color: #e6e6e6;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  align-items: center;
-}
-.profile-logout {
-  height: 100px;
-  padding: 10px;
-  justify-content: center;
-  gap: 30px;
-}
-.navigation-primary-left {
-  width: 140px;
-  padding: 20px 0;
-  justify-content: flex-start;
-  gap: 50px;
-  text-align: center;
-}
+
 .home-b1 {
   align-self: stretch;
   position: relative;
@@ -470,7 +317,7 @@ svg:active {
   width: 400px;
   flex-shrink: 0;
   flex-direction: column;
-  padding: 30px 20px;
+  padding: 40px 20px;
   box-sizing: border-box;
   gap: 50px;
   font-size: 16px;
@@ -479,11 +326,12 @@ svg:active {
   position: relative;
   background-color: #fff;
   width: 100%;
-  height: 768px;
+  height: 100vh;
   flex-direction: row;
   gap: 10px;
   text-align: left;
   font-size: 12px;
   color: #232325;
   font-family: Inter;
+  
 }
