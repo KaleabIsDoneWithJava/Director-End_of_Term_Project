@@ -16,11 +16,11 @@ namespace Director.Controllers
         {
             _staffService = service;
         }
-        public StaffController( IStaffService s, IAppointmentService ss, INotificationService sss )
+        public StaffController( IStaffService ss, IAppointmentService ass, INotificationService ns )
         {
-            _staffService = s;
-            _appointmentService = ss;
-            _notificationService = sss;
+            _staffService = ss;
+            _appointmentService = ass;
+            _notificationService = ns;
 
 
         }
