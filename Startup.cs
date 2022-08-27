@@ -29,10 +29,12 @@ namespace Director
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IStaffService, StaffService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
+
 
             services.AddControllersWithViews();
-            services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
-            "DefaultConnection")));
+            //services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
+            //"DefaultConnection")));
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();// for the custom tag helper
 
         }

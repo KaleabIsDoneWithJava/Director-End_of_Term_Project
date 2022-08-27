@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Director.Models;
+using Director.Models.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,14 +12,39 @@ namespace Director.Controllers
 {
     public class StaffController : Controller
     {
-        // GET: StaffController
-        public ActionResult Index()
+        private readonly IStaffService _staffService;
+        private readonly IAppointmentService _appointmentService;
+       // private readonly INotificationService _notificationService
+        public StaffController(IStaffService service)
         {
-            return View();
+            _staffService = service;
         }
-         public ActionResult AddStaff()
+
+        //Appointments, Notifications, & Staff lists are on the My Staff page
+        public async Task <ActionResult> IndexAsync(int staffid)
         {
-            return View();
+            dynamic myStaff = new ExpandoObject();
+            myStaff.Appointments = await _appointmentService.GetAllAsync();
+           // myStaff.Notifications = await _notificationService.GetAllAsync();
+            return View(myStaff);
+        }
+
+
+        // GET: StaffController
+        public async Task<ActionResult> IndexAsync() //the details page
+        {
+            var data = await _staffService.GetAllAsync();
+            return View(data);
+        }
+         public async Task<ActionResult> AddStaffAsync(Staff staff)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            await _staffService.AddAsync(staff);
+            return RedirectToAction(nameof(IndexAsync));
+
         }
 
         // GET: StaffController/Details/5
@@ -38,7 +66,7 @@ namespace Director.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -59,7 +87,7 @@ namespace Director.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -80,7 +108,7 @@ namespace Director.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {

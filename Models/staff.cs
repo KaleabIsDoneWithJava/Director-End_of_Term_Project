@@ -38,6 +38,7 @@ namespace Director.Models
         public virtual ICollection<Class> ClassStaffs { get; set; }
         public virtual ICollection<Notification> Notifications { get; set; }
         public virtual ICollection<Subject> Subjects { get; set; }
+        
         //This is an intellisense fix... might or might not workout
         public long Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
