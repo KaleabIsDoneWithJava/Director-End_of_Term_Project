@@ -11,14 +11,17 @@ namespace Director.Controllers
     {
         private readonly IStaffService _staffService;
         private readonly IAppointmentService _appointmentService;
-        //private readonly INotificationService _notificationService;
+        private readonly INotificationService _notificationService;
         public StaffController(IStaffService service)
         {
             _staffService = service;
         }
-        public StaffController(IAppointmentService service)
+        public StaffController( IStaffService s, IAppointmentService ss, INotificationService sss )
         {
-            _appointmentService = service;
+            _staffService = s;
+            _appointmentService = ss;
+            _notificationService = sss;
+
 
         }
         //Appointments, Notifications, & Staff lists are on the My Staff page

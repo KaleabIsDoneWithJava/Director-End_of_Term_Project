@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Director.Models.Services
 {
    
-    public interface INotificationService : IEntityBaseRepository<Appointment>
+    public interface INotificationService : IEntityBaseRepository<Notification>
     {
 
     }
