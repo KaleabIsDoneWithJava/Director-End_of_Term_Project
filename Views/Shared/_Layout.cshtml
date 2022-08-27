@@ -1,48 +1,136 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Director</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+
+    <!--add all the css files here-->
+    <link rel="stylesheet" href="~/css/add-staff.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Director</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+
+        <nav class="navigation-primary-left2" id="Navbar">
+            <div class="logo-div2">
+                <label class="student-management-system2">Student Management System</label>
+            </div>
+            <div class="nav-items-div2">
+                <section class="my-staff-div3" id="Navbar - Home">
+                    <div class="auto-layout-home2">
+                        <!--<img class="vector-icon2" alt="" src="~/Assets/IconHome.svg" />-->
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 10.0006L3 8.00061M3 8.00061L10 1.00061L17 8.00061M3 8.00061V18.0006C3 18.2658 3.10536 18.5202 3.29289 18.7077C3.48043 18.8953 3.73478 19.0006 4 19.0006H7M17 8.00061L19 10.0006M17 8.00061V18.0006C17 18.2658 16.8946 18.5202 16.7071 18.7077C16.5196 18.8953 16.2652 19.0006 16 19.0006H13M7 19.0006C7.26522 19.0006 7.51957 18.8953 7.70711 18.7077C7.89464 18.5202 8 18.2658 8 18.0006V14.0006C8 13.7354 8.10536 13.481 8.29289 13.2935C8.48043 13.106 8.73478 13.0006 9 13.0006H11C11.2652 13.0006 11.5196 13.106 11.7071 13.2935C11.8946 13.481 12 13.7354 12 14.0006V18.0006C12 18.2658 12.1054 18.5202 12.2929 18.7077C12.4804 18.8953 12.7348 19.0006 13 19.0006M7 19.0006H13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                    <b class="home-b3">HOME</b>
+                </section>
+                <section class="my-studens-div2">
+                    <div class="auto-layout-students2">
+
+                        <!--<img class="icon-staff6" alt="" src="~/Assets/IconMyStudents.svg" />-->
+                        <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 17.0006H21V15.0006C21 14.3771 20.8057 13.7692 20.4441 13.2612C20.0826 12.7533 19.5718 12.3706 18.9827 12.1664C18.3937 11.9621 17.7556 11.9465 17.1573 12.1216C16.5589 12.2968 16.03 12.654 15.644 13.1436M16 17.0006H6M16 17.0006V15.0006C16 14.3446 15.874 13.7176 15.644 13.1436M15.644 13.1436C15.2726 12.2156 14.6318 11.4201 13.804 10.8597C12.9762 10.2994 11.9996 9.99991 11 9.99991C10.0004 9.99991 9.02376 10.2994 8.196 10.8597C7.36825 11.4201 6.72736 12.2156 6.356 13.1436M6 17.0006H1V15.0006C1.00005 14.3771 1.19434 13.7692 1.55586 13.2612C1.91739 12.7533 2.42819 12.3706 3.01725 12.1664C3.60632 11.9621 4.24438 11.9465 4.84274 12.1216C5.4411 12.2968 5.97003 12.654 6.356 13.1436M6 17.0006V15.0006C6 14.3446 6.126 13.7176 6.356 13.1436M14 4.00061C14 4.79626 13.6839 5.55932 13.1213 6.12193C12.5587 6.68454 11.7956 7.00061 11 7.00061C10.2044 7.00061 9.44129 6.68454 8.87868 6.12193C8.31607 5.55932 8 4.79626 8 4.00061C8 3.20496 8.31607 2.4419 8.87868 1.87929C9.44129 1.31668 10.2044 1.00061 11 1.00061C11.7956 1.00061 12.5587 1.31668 13.1213 1.87929C13.6839 2.4419 14 3.20496 14 4.00061ZM20 7.00061C20 7.53104 19.7893 8.03975 19.4142 8.41482C19.0391 8.7899 18.5304 9.00061 18 9.00061C17.4696 9.00061 16.9609 8.7899 16.5858 8.41482C16.2107 8.03975 16 7.53104 16 7.00061C16 6.47018 16.2107 5.96147 16.5858 5.5864C16.9609 5.21132 17.4696 5.00061 18 5.00061C18.5304 5.00061 19.0391 5.21132 19.4142 5.5864C19.7893 5.96147 20 6.47018 20 7.00061ZM6 7.00061C6 7.53104 5.78929 8.03975 5.41421 8.41482C5.03914 8.7899 4.53043 9.00061 4 9.00061C3.46957 9.00061 2.96086 8.7899 2.58579 8.41482C2.21071 8.03975 2 7.53104 2 7.00061C2 6.47018 2.21071 5.96147 2.58579 5.5864C2.96086 5.21132 3.46957 5.00061 4 5.00061C4.53043 5.00061 5.03914 5.21132 5.41421 5.5864C5.78929 5.96147 6 6.47018 6 7.00061Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                    <b class="home-b3">My students</b>
+                </section>
+                <section class="my-studens-div2" id="Navbar - MyStaff">
+                    <div class="auto-layout-home2">
+
+                        <!--<img class="icon-staff6" alt="" src="~/Assets/IconMyStaff.svg" />-->
+                        <div class="icon-staff6">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 2.35461C10.5374 1.74531 11.2477 1.31412 12.0362 1.1184C12.8247 0.922689 13.6542 0.971734 14.4142 1.25901C15.1741 1.54629 15.8286 2.05818 16.2905 2.72657C16.7524 3.39496 16.9998 4.18815 16.9998 5.00061C16.9998 5.81307 16.7524 6.60626 16.2905 7.27465C15.8286 7.94304 15.1741 8.45493 14.4142 8.74221C13.6542 9.02949 12.8247 9.07853 12.0362 8.88282C11.2477 8.6871 10.5374 8.25591 10 7.64661M13 19.0006H1V18.0006C1 16.4093 1.63214 14.8832 2.75736 13.758C3.88258 12.6328 5.4087 12.0006 7 12.0006C8.5913 12.0006 10.1174 12.6328 11.2426 13.758C12.3679 14.8832 13 16.4093 13 18.0006V19.0006ZM13 19.0006H19V18.0006C19.0001 16.9473 18.723 15.9125 18.1965 15.0003C17.6699 14.0881 16.9125 13.3305 16.0004 12.8038C15.0882 12.2771 14.0535 11.9998 13.0002 11.9998C11.9469 11.9997 10.9122 12.277 10 12.8036M11 5.00061C11 6.06148 10.5786 7.07889 9.82843 7.82904C9.07828 8.57918 8.06087 9.00061 7 9.00061C5.93913 9.00061 4.92172 8.57918 4.17157 7.82904C3.42143 7.07889 3 6.06148 3 5.00061C3 3.93975 3.42143 2.92233 4.17157 2.17218C4.92172 1.42204 5.93913 1.00061 7 1.00061C8.06087 1.00061 9.07828 1.42204 9.82843 2.17218C10.5786 2.92233 11 3.93975 11 5.00061Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                    </div>
+                    <b class="home-b3">My Staff</b>
+                </section>
+                <section class="announcements-div2" id="Navbar - Announcements">
+                    <div class="auto-layout-announcements2">
+                        <!--<img class="vector-icon2" alt="" src="~/Assets/IconAnnouncements.svg" />-->
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.99972 3.88261V17.2406C8.99943 17.6551 8.85287 18.0561 8.58587 18.3732C8.31887 18.6902 7.94855 18.9028 7.54017 18.9735C7.13179 19.0443 6.71153 18.9686 6.35345 18.7599C5.99537 18.5512 5.72243 18.2228 5.58272 17.8326L3.43572 11.6826M3.43572 11.6826C2.58694 11.3217 1.88891 10.6797 1.45975 9.86328C1.0306 9.04688 0.896679 8.10729 1.08066 7.20351C1.26464 6.29973 1.75522 5.48726 2.46937 4.90361C3.18353 4.31996 4.0774 4.00096 4.99972 4.00061H6.83172C10.9317 4.00061 14.4567 2.76661 15.9997 1.00061V15.0006C14.4567 13.2346 10.9327 12.0006 6.83172 12.0006H4.99972C4.46236 12.0014 3.93037 11.8926 3.43572 11.6826ZM15.9997 11.0006C16.7954 11.0006 17.5584 10.6845 18.121 10.1219C18.6837 9.55932 18.9997 8.79626 18.9997 8.00061C18.9997 7.20496 18.6837 6.4419 18.121 5.87929C17.5584 5.31668 16.7954 5.00061 15.9997 5.00061V11.0006Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                    <b class="home-b3">Announcements</b>
+                </section>
+            </div>
+            <div class="profile-logout2">
+                <section class="auto-layout-profile2">
+
+                    <!--<img class="icon-profile2" alt="" src="~/Assets/IconProfile.svg" />-->
+
+                    <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.96812 23.9642C8.02832 22.2345 11.4848 21.328 15 21.3333C18.6458 21.3333 22.0685 22.2885 25.0319 23.9642M19.375 12.5833C19.375 13.7437 18.9141 14.8565 18.0936 15.6769C17.2731 16.4974 16.1603 16.9583 15 16.9583C13.8397 16.9583 12.7269 16.4974 11.9064 15.6769C11.0859 14.8565 10.625 13.7437 10.625 12.5833C10.625 11.423 11.0859 10.3102 11.9064 9.48974C12.7269 8.66927 13.8397 8.20833 15 8.20833C16.1603 8.20833 17.2731 8.66927 18.0936 9.48974C18.9141 10.3102 19.375 11.423 19.375 12.5833ZM28.125 15.5C28.125 17.2236 27.7855 18.9303 27.1259 20.5227C26.4663 22.1151 25.4995 23.562 24.2808 24.7808C23.062 25.9995 21.6151 26.9663 20.0227 27.6259C18.4303 28.2855 16.7236 28.625 15 28.625C13.2764 28.625 11.5697 28.2855 9.97728 27.6259C8.38488 26.9663 6.93799 25.9995 5.71922 24.7808C4.50045 23.562 3.53367 22.1151 2.87408 20.5227C2.21449 18.9303 1.875 17.2236 1.875 15.5C1.875 12.019 3.25781 8.68064 5.71922 6.21922C8.18064 3.75781 11.519 2.375 15 2.375C18.481 2.375 21.8194 3.75781 24.2808 6.21922C26.7422 8.68064 28.125 12.019 28.125 15.5Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+
+
+                </section>
+                <section class="auto-layout-profile2">
+                    <img class="logout-icon2" alt="" src="~/Assets/IconLogout.svg" />
+                    <!-- <svg  width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.75 5.25C5.28587 5.25 4.84075 5.43437 4.51256 5.76256C4.18437 6.09075 4 6.53587 4 7V28C4 28.4641 4.18437 28.9092 4.51256 29.2374C4.84075 29.5656 5.28587 29.75 5.75 29.75C6.21413 29.75 6.65925 29.5656 6.98744 29.2374C7.31563 28.9092 7.5 28.4641 7.5 28V7C7.5 6.53587 7.31563 6.09075 6.98744 5.76256C6.65925 5.43437 6.21413 5.25 5.75 5.25V5.25ZM23.7628 21.5128C23.444 21.8428 23.2676 22.2849 23.2716 22.7437C23.2756 23.2025 23.4596 23.6415 23.7841 23.9659C24.1085 24.2904 24.5475 24.4744 25.0063 24.4784C25.4651 24.4824 25.9072 24.306 26.2372 23.9872L31.4873 18.7372C31.8153 18.4091 31.9996 17.964 31.9996 17.5C31.9996 17.036 31.8153 16.5909 31.4873 16.2628L26.2372 11.0128C26.0758 10.8456 25.8827 10.7123 25.6692 10.6206C25.4557 10.5289 25.2261 10.4806 24.9937 10.4786C24.7613 10.4765 24.5309 10.5208 24.3158 10.6088C24.1008 10.6968 23.9054 10.8267 23.7411 10.9911C23.5767 11.1554 23.4468 11.3508 23.3588 11.5658C23.2708 11.7809 23.2265 12.0113 23.2286 12.2437C23.2306 12.4761 23.2789 12.7057 23.3706 12.9192C23.4623 13.1327 23.5956 13.3258 23.7628 13.4872L26.0255 15.75H12.75C12.2859 15.75 11.8408 15.9344 11.5126 16.2626C11.1844 16.5908 11 17.0359 11 17.5C11 17.9641 11.1844 18.4092 11.5126 18.7374C11.8408 19.0656 12.2859 19.25 12.75 19.25H26.0255L23.7628 21.5128V21.5128Z" fill="#000" />
+                </svg>
+                -->
+                </section>
+
             </div>
         </nav>
+
+        <!--
+       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+           <div class="container">
+               <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Director</a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                       aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                   <ul class="navbar-nav flex-grow-1">
+                       <li class="nav-item">
+                           <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </nav>
+    -->
     </header>
-    <div class="container">
+  
+
+    <main class="rendered-body">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Director - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    </main>
+  
+    <!-- <footer class="border-top footer text-muted">
+         <div class="container">
+             &copy; 2022 - Director - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+         </div>
     </footer>
+    -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
