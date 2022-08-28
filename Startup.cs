@@ -33,8 +33,6 @@ namespace Director
             //services.AddScoped<INotificationService, NotificationService>();
             //services.AddScoped<IAnnouncementService, AnnouncementService>();
 
-
-
             services.AddControllersWithViews();
             services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

@@ -55,7 +55,8 @@ namespace Director.Controllers
                 return View();
             }
             await _staffService.AddAsync(staff);
-            return RedirectToAction(nameof(IndexAsync));
+            return View(RedirectToAction(nameof(AddStaffAsync)));
+                //RedirectToAction(nameof(IndexAsync))
 
         }
 

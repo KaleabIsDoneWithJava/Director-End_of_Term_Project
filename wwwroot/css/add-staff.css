@@ -3,12 +3,7 @@
 }
 /*Wrote the Nav css here*/
 
-button, input, optgroup, select, textarea {
-    font-family: sans-serif;
-    font-size: medium;
-    line-height: 1.15;
-    margin: 0;
-}
+
 
 a, a:hover{
     width:100%;
@@ -605,7 +600,7 @@ a, a:hover{
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
 }
 .header-div9 {
   background-color: #fff;
@@ -640,7 +635,7 @@ a, a:hover{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
 }
 .ltlevieldiamailcom-div {
   flex: 1;
@@ -662,7 +657,7 @@ a, a:hover{
 .content-div16 {
   align-self: stretch;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .content-div14 {
   flex-direction: row;
@@ -672,7 +667,7 @@ a, a:hover{
 }
 .column-homeroom,
 .content-div16 {
-  justify-content: center;
+  justify-content: start;
 }
 .content-div16 {
   flex-direction: row;
@@ -719,7 +714,7 @@ a, a:hover{
   border-left: 0 solid #000;
   box-sizing: border-box;
   position: relative;
-  height: 40px;
+  height: 42px;
   flex-shrink: 0;
   flex-direction: row;
   padding: 8px 8px 8px 16px;
@@ -797,6 +792,24 @@ a, a:hover{
   flex-direction: column;
   color: #e0e2e7;
 }
+
+.view-staff {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 20px;
+    background-color: #fbfbfb;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: relative;
+    height: 293px;
+    flex-shrink: 0;
+    flex-direction: row;
+    font-size: 16px;
+}
+
 .added-staff-queue {
   border-radius: 20px;
   background-color: #fbfbfb;

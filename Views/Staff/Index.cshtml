@@ -1,9 +1,64 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    
     //MyStaff Page
 *@
 @{
 }
+
+<style>
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: -moz-available;
+        border: 1px solid #ddd;
+        
+    }
+
+    th, td {
+        display: flex;
+        text-align: left;
+        padding-left:15px;
+        padding-right: 15px;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    tr {
+        display: flex;
+        
+        
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+ 
+    }
+    .displayEmail{
+
+        width:270px;
+    }
+    .displayName{
+        width:130px;
+    }
+    .displayPhone{
+        width:135px;
+    }
+    .displayStaffType{
+        width:70px;
+    }
+    .displaySubject {
+        width:75px;
+    }
+    
+    .displayHomeroom{
+        width:90px;
+    }
+    .displayClasses {
+        width:100px
+    
+    }
+</style>
+
 <div class="main-panel-div1">
     <div class="main-panel-upper1">
         <b class="my-staff-b2">My Staff</b>
@@ -15,101 +70,225 @@
             <div class="dropdown-default-basic">
                 <div class="helper-button-icon">
                     <div class="helper-button-label">Subject...</div>
-                    <img class="chevron-down-icon"
-                         alt=""
-                         src="public/chevrondown.svg" />
+                    <!--
+                <img class="chevron-down-icon"
+                        alt=""
+                        src="public/chevrondown.svg" />
+                -->
                 </div>
             </div>
         </div>
         <div class="buttons-add-remove-staff">
-            <b class="teachers-b">Office Staff</b><button class="button-add-staff-member"
-                                                          autofocus
-                                                          id="buttonAddStaffMember">
+            <b class="teachers-b">Office Staff</b>
+            <button class="button-add-staff-member"
+                    onclick="location.href = @Url.Action("AddStaff","Staff")"
+                    autofocus
+                    id="buttonAddStaffMember">
                 <b class="button-label">Add Staff</b>
             </button>
         </div>
-        <div class="dashboard-div1" id="Table - View Office Staff">
-            <div class="column-div">
-                <div class="header-div2"><div class="name-div">Name</div></div>
-                <div class="content-div">
-                    <div class="text-group-basic7">
-                        <b class="amy-matthews-b">Amy Matthews</b>
-                        <div class="div">11023</div>
-                    </div>
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
-                </div>
-                <div class="content-div">
-                    <div class="text-group-basic7">
-                        <b class="amy-matthews-b">Bernard Lane</b>
-                        <div class="div">99201</div>
-                    </div>
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
+        <div style="overflow-x: auto; overflow-y: auto; width: -moz-available;">
+            <table>
+                <tr>
+                    <th class="displayName">Name</th>
+                    <th class="displayStaffType">Staff Type</th>
+                    <th class="displayEmail">Email</th>
+                    <th class="displayPhone">Phone</th>
+                    <th class=" displaySubject">Subject</th>
+                    <th class="displayHomeroom">Homeroom</th>
+                    <th class="displayClasses">Classes</th>
+                    <th>Actions</th>
+                    
+                </tr>
+                <tr>
+                    <td class="displayName">Jill Anderson</td>
+                    <td class="displayStaffType">Office Staff</td>
+                    <td class="displayEmail">JillhatesJack@forever.com</td>
+                    <td class="displayPhone">+251962254236</td">
+                    <td class=" displaySubject">-</td>
+                    <td class="displayHomeroom">-</td>
+                    <td class="displayClasses">-</td>
+                    <td>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                        </button>
+                        <div class="classes-div">|</div>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="displayName">Eve is Dope</td>
+                    <td class="displayStaffType">Teacher</td>
+                    <td class="displayEmail">Eveatetheapple@nomoreheaven.com</tdclass="displayEmail">
+                    <td class="displayPhone">+251945859632</td>
+                    <td class=" displaySubject">English</td>
+                    <td class="displayHomeroom">9A</td>
+                    <td class="displayClasses">9A, 9B, 9C</td>
+                    <td>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                        </button>
+                        <div class="classes-div">|</div>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                        </button>
+                    </td>
+                 </tr>
+                <tr>
+                    <td class="displayName">Adem Muktar Abubaker</td>
+                    <td class="displayStaffType">Teacher</td>
+                    <td class="displayEmail">Ademcantdivorceeve@nooptions.com</tdclass="displayEmail">
+                    <td class="displayPhone">+251978596321</td>
+                    <td class=" displaySubject">Biology</td>
+                    <td class="displayHomeroom">9B</td>
+                    <td class="displayClasses">9A, 9B, 9C</td>
+                    <td>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                        </button>
+                        <div class="classes-div">|</div>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--
+    <div class="view-staff" id="Table - Added Staff Queue">
+        <div class="column-name">
+            <div class="header-div8"><div class="classes-div">Name</div></div>
+            <div class="content-div8">
+                <div class="text-group-basic15">
+                    <b class="levi-ackemann-b">Levi Ackemann</b>
+                    <div class="div4">11023</div>
                 </div>
             </div>
-            <div class="column-div">
-                <div class="header-div3"><div class="name-div">Role</div></div>
-                <div class="content-div2">
-                    <div class="helper-button-label">Secretary</div>
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
-                </div>
-                <div class="content-div3">
-                    <div class="helper-button-label">Associate</div>
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
-                </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
             </div>
-            <div class="column-div2">
-                <div class="header-div4"><div class="name-div">Status</div></div>
-                <div class="content-div4">
-                    <div class="pills-outline">
-                        <div class="pill-label-div">Active</div>
-                        <img class="x-icon" alt="" src="public/x.svg" />
-                    </div>
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
-                </div>
-                <div class="content-div5">
-                    <div class="pills-outline1">
-                        <div class="pill-label-div">Inactive</div>
-                        <img class="x-icon" alt="" src="public/x.svg" />
-                    </div>
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
-                </div>
-            </div>
-            <div class="column-div3">
-                <div class="header-div5"><div class="name-div">Actions</div></div>
-                <div class="content-div6">
-                    <img class="chevron-down-icon"
-                         alt=""
-                         src="public/pencilalt.svg" />
-                    <div class="name-div">|</div>
-                    <img class="chevron-down-icon" alt="" src="public/trash.svg" />
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
-                </div>
-                <div class="content-div6">
-                    <img class="chevron-down-icon"
-                         alt=""
-                         src="public/pencilalt1.svg" />
-                    <div class="name-div">|</div>
-                    <img class="chevron-down-icon" alt="" src="public/trash.svg" />
-                </div>
-                <div class="divider-solid8">
-                    <div class="baseline-div8"></div>
+            <div class="content-div8">
+                <div class="text-group-basic15">
+                    <b class="levi-ackemann-b">Annie Leonheart</b>
+                    <div class="div4">123301</div>
                 </div>
             </div>
         </div>
+        <div class="column-staff-type">
+            <div class="header-div9">
+                <div class="classes-div">Type</div>
+            </div>
+            <div class="content-div10">
+                <div class="office-staff-div">Office Staff</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div10">
+                <div class="office-staff-div">Teacher</div>
+            </div>
+        </div>
+        <div class="column-name">
+            <div class="header-div9"><div class="classes-div">Email</div></div>
+            <div class="content-div12">
+                <div class="ltlevieldiamailcom-div">lt.levi@Eldiamail.com</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div12">
+                <div class="ltlevieldiamailcom-div">
+                    annieleonheart@Marleymail.com
+                </div>
+            </div>
+        </div>
+        <div class="column-staff-type">
+            <div class="header-div9">
+                <div class="classes-div">Phone</div>
+            </div>
+            <div class="content-div14">
+                <div class="office-staff-div">0912131415</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div14">
+                <div class="office-staff-div">0953436373</div>
+            </div>
+        </div>
+        <div class="column-staff-type">
+            <div class="header-div9">
+                <div class="classes-div">Subject</div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">-</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div14">
+                <div class="office-staff-div">English</div>
+            </div>
+        </div>
+        <div class="column-homeroom">
+            <div class="header-div9">
+                <div class="classes-div">Homeroom</div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">-</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">9A</div>
+            </div>
+        </div>
+        <div class="column-classes2">
+            <div class="header-div9">
+                <div class="classes-div">Classes</div>
+            </div>
+            <div class="content-div16">
+                <div class="office-staff-div">-</div>
+            </div>
+            <div class="divider-solid23">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div21">
+                <div class="office-staff-div">9 - A, B, C, D</div>
+            </div>
+        </div>
+        <div class="column-edit-delete-from-qu">
+            <div class="header-div15">
+                <div class="classes-div">Actions</div>
+            </div>
+            <div class="content-div22">
+                <button class="pencil-alt-button">
+                    <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                </button>
+                <div class="classes-div">|</div>
+                <button class="pencil-alt-button">
+                    <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                </button>
+            </div>
+            <div class="divider-solid30">
+                <div class="baseline-div23"></div>
+            </div>
+            <div class="content-div23">
+                <button class="pencil-alt-button">
+                    <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                </button>
+                <div class="classes-div">|</div>
+                <button class="pencil-alt-button">
+                    <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                </button>
+            </div>
+        </div>
+    </div>
+        -->
     </div>
     <div class="buttons-add-remove-staff">
         <b class="teachers-b">Teachers</b>
@@ -124,35 +303,38 @@
                 <p class="lower-primary">Lower Primary</p>
                 <p class="p">1-4</p>
             </b>
-        </button><button class="add-office-staff2">
+        </button>
+        <button class="add-office-staff2">
             <b class="lower-primary-1-4">
                 <p class="lower-primary">Middle Primary</p>
                 <p class="p">5 - 6</p>
             </b>
-        </button><button class="add-office-staff2">
+        </button>
+        <button class="add-office-staff2">
             <b class="lower-primary-1-4">
                 <p class="lower-primary">Upper Primary</p>
                 <p class="p">7 - 8</p>
             </b>
         </button>
-        <div class="add-teachers-div1">
+        <button class="add-teachers-div1">
             <b class="lower-secondary-8-10">
                 <p class="lower-primary">Lower Secondary</p>
                 <p class="p">8-10</p>
             </b>
-        </div>
-        <div class="add-teachers-div1">
+        </button>
+        <button class="add-teachers-div1">
             <b class="lower-secondary-8-10">
                 <p class="lower-primary">Preparatory</p>
                 <p class="p">11 - 12</p>
             </b>
-        </div>
+        </button>
+
     </div>
 </div>
 <div class="right-panel-div1">
     <div class="notifications-div1" id="Table - Notifications">
         <div class="header-div6">
-            <img class="bell-icon1" alt="" src="public/bell.svg" /><b class="teachers-b">Notifications</b>
+            <img class="bell-icon1" alt="" src="~/Assets/IconBell.svg" /><b class="teachers-b">Notifications</b>
         </div>
         <div class="divider-solid16"><div class="baseline-div16"></div></div>
         <div class="notifications-row-11">
@@ -186,7 +368,7 @@
     <div class="view-office-staff-accounts1" id="Table - Appointments">
         <div class="header-div6">
             <div class="auto-layout-home1">
-                <img class="vector-icon1" alt="" src="public/icon--staff2.svg" />
+                <img class="vector-icon1" alt="" src="~/Assets/IconAppointments.svg" />
             </div>
             <b class="teachers-b">Appointments</b>
         </div>
