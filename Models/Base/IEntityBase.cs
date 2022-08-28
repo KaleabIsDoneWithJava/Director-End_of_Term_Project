@@ -7,6 +7,6 @@ namespace Director.Models.Base
 {
    public interface IEntityBase
     {
-        long Id { get; set; }
+        int Id { get; set; }
     }
 }

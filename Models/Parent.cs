@@ -14,7 +14,7 @@ namespace Director.Models
             Students = new HashSet<Student>();
         }
 
-        public int ParentId { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string FatherName { get; set; }
         public string GrandFatherName { get; set; }

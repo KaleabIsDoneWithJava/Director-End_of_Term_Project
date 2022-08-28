@@ -25,8 +25,8 @@ namespace Director.Models
         public virtual DbSet<Parent> Parents { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<staff> staff { get; set; }
-
+        public virtual DbSet<Staff> Staffs { get; set; }
+/*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,7 +35,7 @@ namespace Director.Models
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;");
             }
         }
-
+*/
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -43,8 +43,6 @@ namespace Director.Models
             modelBuilder.Entity<Announcement>(entity =>
             {
                 entity.ToTable("Announcement");
-
-                entity.Property(e => e.AnnouncementId).HasColumnName("AnnouncementID");
 
                 entity.Property(e => e.AnnouncementDate).HasColumnType("date");
 
@@ -106,17 +104,17 @@ namespace Director.Models
                     .HasMaxLength(4)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Section)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
                 entity.Property(e => e.StaffId).HasColumnName("StaffID");
 
                 entity.Property(e => e.StudentId).HasColumnName("StudentID");
 
                 entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
+
+                entity.HasOne(d => d.Class)
+                    .WithMany(p => p.Assessments)
+                    .HasForeignKey(d => d.ClassId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Assessmen__Class__3B75D760");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Assessments)
@@ -135,30 +133,22 @@ namespace Director.Models
                     .HasForeignKey(d => d.SubjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Assessmen__Subje__398D8EEE");
-
-                entity.HasOne(d => d.Class)
-                    .WithMany(p => p.Assessments)
-                    .HasForeignKey(d => new { d.Grade, d.Section })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Assessment__3B75D760");
             });
 
             modelBuilder.Entity<Class>(entity =>
             {
-                entity.HasKey(e => new { e.Grade, e.Section })
-                    .HasName("PK__Class__6804AB50177003E6");
-
                 entity.ToTable("Class");
 
-                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8DB8E650CB")
+                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8DDF6A3E5B")
                     .IsUnique();
 
+                entity.Property(e => e.HomeroomId).HasColumnName("HomeroomID");
+
                 entity.Property(e => e.Section)
+                    .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
-
-                entity.Property(e => e.HomeroomId).HasColumnName("HomeroomID");
 
                 entity.Property(e => e.StaffId).HasColumnName("StaffID");
 
@@ -216,8 +206,6 @@ namespace Director.Models
             {
                 entity.ToTable("Parent");
 
-                entity.Property(e => e.ParentId).HasColumnName("ParentID");
-
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
                 entity.Property(e => e.Email)
@@ -250,8 +238,6 @@ namespace Director.Models
             {
                 entity.ToTable("Student");
 
-                entity.Property(e => e.StudentId).HasColumnName("StudentID");
-
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
                 entity.Property(e => e.Email)
@@ -281,30 +267,22 @@ namespace Director.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Section)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                entity.HasOne(d => d.Class)
+                    .WithMany(p => p.Students)
+                    .HasForeignKey(d => d.ClassId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Student__ClassId__33D4B598");
 
                 entity.HasOne(d => d.Parent)
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => d.ParentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Student__ParentI__32E0915F");
-
-                entity.HasOne(d => d.Class)
-                    .WithMany(p => p.Students)
-                    .HasForeignKey(d => new { d.Grade, d.Section })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Student__33D4B598");
             });
 
             modelBuilder.Entity<Subject>(entity =>
             {
                 entity.ToTable("Subject");
-
-                entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
 
                 entity.Property(e => e.StaffId).HasColumnName("StaffID");
 
@@ -322,8 +300,6 @@ namespace Director.Models
             modelBuilder.Entity<staff>(entity =>
             {
                 entity.ToTable("Staff");
-
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 

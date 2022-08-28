@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Director.Models.Base;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class staff
+    public partial class Staff:IEntityBase
     {
-        public staff()
+        public Staff()
         {
             Announcements = new HashSet<Announcement>();
             Appointments = new HashSet<Appointment>();
@@ -18,7 +19,7 @@ namespace Director.Models
         }
 
         public string Role { get; set; }
-        public int StaffId { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string FatherName { get; set; }
         public string GrandFatherName { get; set; }

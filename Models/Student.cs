@@ -13,7 +13,7 @@ namespace Director.Models
             Notifications = new HashSet<Notification>();
         }
 
-        public int StudentId { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string FatherName { get; set; }
         public string GrandFatherName { get; set; }
@@ -23,8 +23,7 @@ namespace Director.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public int ParentId { get; set; }
-        public short Grade { get; set; }
-        public string Section { get; set; }
+        public int ClassId { get; set; }
 
         public virtual Class Class { get; set; }
         public virtual Parent Parent { get; set; }

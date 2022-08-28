@@ -9,7 +9,7 @@ namespace Director.Controllers
 {
     public class AppointmentController : Controller
     {
-        private readonly IAppointmentService _appointmentService;
+/*        private readonly IAppointmentService _appointmentService;
         public AppointmentController(IAppointmentService service)
         {
             _appointmentService = service;
@@ -17,6 +17,6 @@ namespace Director.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        }*/
     }
 }

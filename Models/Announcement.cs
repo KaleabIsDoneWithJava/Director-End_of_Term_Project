@@ -7,12 +7,12 @@ namespace Director.Models
 {
     public partial class Announcement
     {
-        public int AnnouncementId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Detail { get; set; }
         public DateTime? AnnouncementDate { get; set; }
         public int StaffId { get; set; }
 
-        public virtual staff Staff { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

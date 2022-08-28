@@ -20,7 +20,7 @@ namespace Director.Models.Base
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task DeleteAsync(int id)
         {
             var entity = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
             EntityEntry entityEntry = _context.Entry<T>(entity);
@@ -35,19 +35,19 @@ namespace Director.Models.Base
         }
 
         //Not sure aobut this
-        public async Task<IEnumerable<T>> GetListByIdAsync(long id)
+        public async Task<IEnumerable<T>> GetListByIdAsync(int id)
         {
             var result = await _context.Set<T>().Where(n => n.Id == id).ToListAsync();
             return result;
         }
 
-        public async Task<T> GetByIdAsync(long id)
+        public async Task<T> GetByIdAsync(int id)
         {
             var result = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
             return result;
         }
 
-        public async Task UpdateAsync(long id, T entity)
+        public async Task UpdateAsync(int id, T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
             // set the state

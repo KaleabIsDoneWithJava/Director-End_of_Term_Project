@@ -9,7 +9,7 @@ namespace Director.Controllers
 {
     public class NotificationController : Controller
     {
-
+/*
         private readonly INotificationService _notificationService;
         public NotificationController(INotificationService service)
         {
@@ -18,6 +18,6 @@ namespace Director.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        }*/
     }
 }

@@ -15,6 +15,6 @@ namespace Director.Models
         public string Title { get; set; }
 
         public virtual Parent Parent { get; set; }
-        public virtual staff Staff { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }
