@@ -41,9 +41,6 @@ namespace Director.Models.Base
             return result;
         }
 
-       
-
-
         public async Task<T> GetByIdAsync(long id)
         {
             var result = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);

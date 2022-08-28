@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-using Director.Models.Base;
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class Staff : IEntityBase
+    public partial class staff
     {
-        public Staff()
+        public staff()
         {
             Announcements = new HashSet<Announcement>();
             Appointments = new HashSet<Appointment>();
@@ -18,8 +15,6 @@ namespace Director.Models
             ClassStaffs = new HashSet<Class>();
             Notifications = new HashSet<Notification>();
             Subjects = new HashSet<Subject>();
-            //the datatpe is HashSet because we need to access the data from these tables randomly not sequenctially
-            //Plus it can't contain duplicate items. The code is generated from the database scaffold though
         }
 
         public string Role { get; set; }
@@ -40,8 +35,5 @@ namespace Director.Models
         public virtual ICollection<Class> ClassStaffs { get; set; }
         public virtual ICollection<Notification> Notifications { get; set; }
         public virtual ICollection<Subject> Subjects { get; set; }
-        
-        //This is an intellisense fix... might or might not workout
-        public long Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

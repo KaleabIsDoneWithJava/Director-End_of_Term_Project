@@ -22,8 +22,8 @@ namespace Director.Models
         public string Gender { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public int? ParentId { get; set; }
-        public short? Grade { get; set; }
+        public int ParentId { get; set; }
+        public short Grade { get; set; }
         public string Section { get; set; }
 
         public virtual Class Class { get; set; }

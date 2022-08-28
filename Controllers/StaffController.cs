@@ -10,12 +10,16 @@ namespace Director.Controllers
     public class StaffController : Controller
     {
         private readonly IStaffService _staffService;
-        private readonly IAppointmentService _appointmentService;
-        private readonly INotificationService _notificationService;
+        //private readonly IAppointmentService _appointmentService;
+        //private readonly INotificationService _notificationService;
+       
+        
         public StaffController(IStaffService service)
         {
             _staffService = service;
         }
+        
+/*
         public StaffController( IStaffService ss, IAppointmentService ass, INotificationService ns )
         {
             _staffService = ss;
@@ -24,15 +28,17 @@ namespace Director.Controllers
 
 
         }
+*/
         //Appointments, Notifications, & Staff lists are on the My Staff page
-       /* public async Task <ActionResult> IndexAsync(int staffId)
+       /*
+        public async Task <ActionResult> IndexAsync(int staffId)
         {
             dynamic myStaff = new ExpandoObject();
             myStaff.Appointments = await _appointmentService.GetListByIdAsync(staffId);
             myStaff.Notifications = await _notificationService.GetListByIdAsync(staffId);
             return View(myStaff);
-        }*/
-
+        }
+       */
 
         // GET: StaffController
         public async Task<ActionResult> IndexAsync() //the details page

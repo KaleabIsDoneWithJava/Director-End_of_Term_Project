@@ -15,11 +15,11 @@ namespace Director.Models
 
         public short Grade { get; set; }
         public string Section { get; set; }
-        public int? StaffId { get; set; }
-        public int? HomeroomId { get; set; }
+        public int StaffId { get; set; }
+        public int HomeroomId { get; set; }
 
-        public virtual Staff Homeroom { get; set; }
-        public virtual Staff Staff { get; set; }
+        public virtual staff Homeroom { get; set; }
+        public virtual staff Staff { get; set; }
         public virtual ICollection<Assessment> Assessments { get; set; }
         public virtual ICollection<Student> Students { get; set; }
     }

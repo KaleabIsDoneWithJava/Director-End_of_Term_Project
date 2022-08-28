@@ -25,13 +25,13 @@ namespace Director.Models
         public virtual DbSet<Parent> Parents { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<staff> staff { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;");
             }
         }
@@ -57,7 +57,7 @@ namespace Director.Models
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Announcements)
                     .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.SetNull)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Announcem__Staff__36B12243");
             });
 
@@ -78,13 +78,13 @@ namespace Director.Models
                 entity.HasOne(d => d.Parent)
                     .WithMany(p => p.Appointments)
                     .HasForeignKey(d => d.ParentId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Appointme__Paren__3F466844");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Appointments)
                     .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Appointme__Staff__403A8C7D");
             });
 
@@ -107,6 +107,7 @@ namespace Director.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Section)
+                    .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
@@ -120,35 +121,36 @@ namespace Director.Models
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Assessments)
                     .HasForeignKey(d => d.StaffId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Assessmen__Staff__3C69FB99");
 
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Assessments)
                     .HasForeignKey(d => d.StudentId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Assessmen__Stude__3A81B327");
 
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.Assessments)
                     .HasForeignKey(d => d.SubjectId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Assessmen__Subje__398D8EEE");
 
                 entity.HasOne(d => d.Class)
                     .WithMany(p => p.Assessments)
                     .HasForeignKey(d => new { d.Grade, d.Section })
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Assessment__3B75D760");
             });
 
             modelBuilder.Entity<Class>(entity =>
             {
                 entity.HasKey(e => new { e.Grade, e.Section })
-                    .HasName("PK__Class__6804AB50286A9113");
+                    .HasName("PK__Class__6804AB50177003E6");
 
                 entity.ToTable("Class");
 
-                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8D25AD25AB")
+                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8DB8E650CB")
                     .IsUnique();
 
                 entity.Property(e => e.Section)
@@ -163,12 +165,13 @@ namespace Director.Models
                 entity.HasOne(d => d.Homeroom)
                     .WithOne(p => p.ClassHomeroom)
                     .HasForeignKey<Class>(d => d.HomeroomId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Class__HomeroomI__29572725");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.ClassStaffs)
                     .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.SetNull)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Class__StaffID__286302EC");
             });
 
@@ -193,18 +196,19 @@ namespace Director.Models
                 entity.HasOne(d => d.Parent)
                     .WithMany(p => p.Notifications)
                     .HasForeignKey(d => d.ParentId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Notificat__Paren__440B1D61");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Notifications)
                     .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.SetNull)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Notificat__Staff__4316F928");
 
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Notifications)
                     .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Notificat__Stude__44FF419A");
             });
 
@@ -278,6 +282,7 @@ namespace Director.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Section)
+                    .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
@@ -285,13 +290,13 @@ namespace Director.Models
                 entity.HasOne(d => d.Parent)
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => d.ParentId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Student__ParentI__32E0915F");
 
                 entity.HasOne(d => d.Class)
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => new { d.Grade, d.Section })
-                    .OnDelete(DeleteBehavior.SetNull)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Student__33D4B598");
             });
 
@@ -310,11 +315,11 @@ namespace Director.Models
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Subjects)
                     .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.SetNull)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Subject__StaffID__2C3393D0");
             });
 
-            modelBuilder.Entity<Staff>(entity =>
+            modelBuilder.Entity<staff>(entity =>
             {
                 entity.ToTable("Staff");
 
