@@ -34,7 +34,7 @@
             </div>
             <div class="nav-items-div2">
                 <a asp-controller="Home" asp-action="Index">
-                    <section class="my-studens-div2 active" id="Navbar - Home">
+                    <section class="my-studens-div2" id="Navbar - Home">
                         <div class="auto-layout-home2">
                             <!--<img class="vector-icon2" alt="" src="~/Assets/IconHome.svg" />-->
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" nav-active-for="/Home/Index">
@@ -58,7 +58,7 @@
                         <b class="home-b3">My students</b>
                     </section>
                 </a>
-                <a href="@Url.Action("Index", "Staff")">
+                <a asp-controller = "Staff" asp-action="Index">
 
                     <section class="my-studens-div2" id="Navbar - MyStaff">
                         <div class="auto-layout-home2">

@@ -297,7 +297,7 @@ namespace Director.Models
                     .HasConstraintName("FK__Subject__StaffID__2C3393D0");
             });
 
-            modelBuilder.Entity<staff>(entity =>
+            modelBuilder.Entity<Staff>(entity =>
             {
                 entity.ToTable("Staff");
 

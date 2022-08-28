@@ -16,7 +16,7 @@ namespace Director.Models
         public string SubjectName { get; set; }
         public int StaffId { get; set; }
 
-        public virtual staff Staff { get; set; }
+        public virtual Staff Staff { get; set; }
         public virtual ICollection<Assessment> Assessments { get; set; }
     }
 }
