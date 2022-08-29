@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Director.Models.Base;
 
 #nullable disable
 
+
 namespace Director.Models
 {
-    public partial class Notification
+    public partial class Notification : IEntityBase
     {
-        public int NotificationId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
         public DateTime? NotificationDate { get; set; }

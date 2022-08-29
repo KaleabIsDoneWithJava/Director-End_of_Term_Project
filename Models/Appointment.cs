@@ -7,7 +7,7 @@ namespace Director.Models
 {
     public partial class Appointment : IEntityBase
     {
-        public int AppointmentId { get; set; }
+        public int Id { get; set; }
         public DateTime? AppointmentDate { get; set; }
         public TimeSpan? AppointmentTime { get; set; }
         public int ParentId { get; set; }

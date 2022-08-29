@@ -63,7 +63,7 @@ namespace Director.Models
             {
                 entity.ToTable("Appointment");
 
-                entity.Property(e => e.AppointmentId).HasColumnName("AppointmentID");
+                entity.Property(e => e.Id).HasColumnName("AppointmentID"); //id change
 
                 entity.Property(e => e.AppointmentDate).HasColumnType("date");
 
@@ -90,7 +90,7 @@ namespace Director.Models
             {
                 entity.ToTable("Assessment");
 
-                entity.Property(e => e.AssessmentId).HasColumnName("AssessmentID");
+                entity.Property(e => e.Id).HasColumnName("AssessmentID");//id change
 
                 entity.Property(e => e.AssessmentType)
                     .HasMaxLength(20)
@@ -169,7 +169,7 @@ namespace Director.Models
             {
                 entity.ToTable("Notification");
 
-                entity.Property(e => e.NotificationId).HasColumnName("NotificationID");
+                entity.Property(e => e.Id).HasColumnName("NotificationID");//id change
 
                 entity.Property(e => e.Details).HasColumnType("text");
 

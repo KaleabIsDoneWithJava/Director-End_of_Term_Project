@@ -57,6 +57,7 @@ ClassId int not null,
 FOREIGN KEY (ClassId) REFERENCES Class(Id)
 )
 
+
 create table Announcement( --------/////
 Id int primary key identity,
 Title text,
@@ -66,7 +67,7 @@ StaffID int references Staff(Id) not null
 )
 
 create table Assessment(--------//////////
-AssessmentID int primary key identity,
+Id int primary key identity,
 SubjectID int references Subject(Id) not null,
 StudentID int references Student(Id) not null,
 AssessmentType varchar(20),
@@ -78,7 +79,7 @@ StaffID int references Staff(Id) not null --add instead of
 )
 
 create table Appointment(------/////////////////////
-AppointmentID int primary key identity,
+Id int primary key identity,
 AppointmentDate date,
 AppointmentTime time,
 ParentID int references Parent(Id) not null,
@@ -87,7 +88,7 @@ Title text
 )
 
 create table Notification(-----------------//////////////////////////////
-NotificationID int primary key identity,
+Id int primary key identity,
 Title text,
 Details text,
 NotificationDate date,
