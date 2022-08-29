@@ -29,10 +29,11 @@ namespace Director
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IStaffService, StaffService>();
-            //services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
             //services.AddScoped<INotificationService, NotificationService>();
-            //services.AddScoped<IAnnouncementService, AnnouncementService>();
-
+            services.AddScoped<IAnnouncementService, AnnouncementService>();
+            services.AddScoped<IAssessmentService, AssessmentService>();
+            services.AddScoped<IClassService, ClassService>();
             services.AddControllersWithViews();
             services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

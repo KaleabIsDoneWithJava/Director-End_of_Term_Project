@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Director.Models.Base;
 
 namespace Director.Models.Services
 {
-    interface IAnnoucementService
+    public interface IAppointmentService : IEntityBaseRepository<Appointment>
     {
+
     }
 }
