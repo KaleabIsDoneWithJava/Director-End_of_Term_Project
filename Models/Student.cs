@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Director.Models.Base;
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class Student
+    public partial class Student : IEntityBase
     {
         public Student()
         {

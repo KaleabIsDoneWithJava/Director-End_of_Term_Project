@@ -30,10 +30,15 @@ namespace Director
         {
             services.AddScoped<IStaffService, StaffService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
-            //services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<IAnnouncementService, AnnouncementService>();
             services.AddScoped<IAssessmentService, AssessmentService>();
             services.AddScoped<IClassService, ClassService>();
+
+            services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IParentService, ParentService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ISubjectService, SubjectService>();
+
             services.AddControllersWithViews();
             services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
