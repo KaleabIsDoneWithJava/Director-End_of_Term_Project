@@ -80,12 +80,18 @@
         </div>
         <div class="buttons-add-remove-staff">
             <b class="teachers-b">Office Staff</b>
-            <button class="button-add-staff-member"
-                    onclick="location.href = @Url.Action("AddStaff","Staff")"
-                    autofocus
-                    id="buttonAddStaffMember">
-                <b class="button-label">Add Staff</b>
-            </button>
+
+                <button class="button-add-staff-member"
+                        onclick=""
+                        autofocus
+                        id="buttonAddStaffMember">
+                    <b class="button-label">
+                        <a asp-controller="Staff" asp-action="AddStaff">
+                            Add Staff
+                        </a>
+                    </b>
+                </button>
+
         </div>
         <div style="overflow-x: auto; overflow-y: auto; width: -moz-available;">
             <table>
