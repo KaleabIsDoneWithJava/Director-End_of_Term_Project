@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Director.Models.Base;
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class Appointment
+    public partial class Appointment : IEntityBase
     {
         public int AppointmentId { get; set; }
         public DateTime? AppointmentDate { get; set; }

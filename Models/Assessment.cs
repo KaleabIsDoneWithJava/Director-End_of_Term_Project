@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Director.Models.Base;
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class Assessment
+    public partial class Assessment : IEntityBase
     {
         public int AssessmentId { get; set; }
         public int SubjectId { get; set; }

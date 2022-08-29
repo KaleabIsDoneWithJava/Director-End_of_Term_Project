@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 namespace Director.Models.Base
 {
    public interface IEntityBaseRepository<T> where T:class, IEntityBase, new()
