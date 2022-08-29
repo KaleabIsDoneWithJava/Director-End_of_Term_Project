@@ -25,8 +25,8 @@ namespace Director.Models
         public virtual DbSet<Parent> Parents { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<Staff> Staffs { get; set; }
-/*
+        public virtual DbSet<Staff> Staff { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,7 +35,7 @@ namespace Director.Models
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;");
             }
         }
-*/
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -63,8 +63,6 @@ namespace Director.Models
             {
                 entity.ToTable("Appointment");
 
-                entity.Property(e => e.AppointmentId).HasColumnName("AppointmentID");
-
                 entity.Property(e => e.AppointmentDate).HasColumnType("date");
 
                 entity.Property(e => e.ParentId).HasColumnName("ParentID");
@@ -89,8 +87,6 @@ namespace Director.Models
             modelBuilder.Entity<Assessment>(entity =>
             {
                 entity.ToTable("Assessment");
-
-                entity.Property(e => e.AssessmentId).HasColumnName("AssessmentID");
 
                 entity.Property(e => e.AssessmentType)
                     .HasMaxLength(20)
@@ -139,7 +135,7 @@ namespace Director.Models
             {
                 entity.ToTable("Class");
 
-                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8DDF6A3E5B")
+                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8D08BB3D82")
                     .IsUnique();
 
                 entity.Property(e => e.HomeroomId).HasColumnName("HomeroomID");
@@ -168,8 +164,6 @@ namespace Director.Models
             modelBuilder.Entity<Notification>(entity =>
             {
                 entity.ToTable("Notification");
-
-                entity.Property(e => e.NotificationId).HasColumnName("NotificationID");
 
                 entity.Property(e => e.Details).HasColumnType("text");
 

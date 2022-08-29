@@ -7,7 +7,7 @@ namespace Director.Models
 {
     public partial class Assessment
     {
-        public int AssessmentId { get; set; }
+        public int Id { get; set; }
         public int SubjectId { get; set; }
         public int StudentId { get; set; }
         public string AssessmentType { get; set; }

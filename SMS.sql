@@ -66,7 +66,7 @@ StaffID int references Staff(Id) not null
 )
 
 create table Assessment(--------//////////
-AssessmentID int primary key identity,
+Id int primary key identity,
 SubjectID int references Subject(Id) not null,
 StudentID int references Student(Id) not null,
 AssessmentType varchar(20),
@@ -78,7 +78,7 @@ StaffID int references Staff(Id) not null --add instead of
 )
 
 create table Appointment(------/////////////////////
-AppointmentID int primary key identity,
+Id int primary key identity,
 AppointmentDate date,
 AppointmentTime time,
 ParentID int references Parent(Id) not null,
@@ -87,7 +87,7 @@ Title text
 )
 
 create table Notification(-----------------//////////////////////////////
-NotificationID int primary key identity,
+Id int primary key identity,
 Title text,
 Details text,
 NotificationDate date,
@@ -100,7 +100,10 @@ insert into Staff values('Teacher', 'Tadele', 'Gemechu', 'Asfaw', 50 , '2002-10-
 insert into Staff values('Teacher', 'Tewoldebirhan', 'Assefa', 'Mulugeta', 30 , '1990-5-7', 'M', 'tesfaye@gmail.com', '0909887657')
 insert into Staff values('Teacher', 'Tesfaye', 'Hunilachew', 'Amde', 30 , '1990-5-7', 'M', 'tesfaye@gmail.com', '0909887657')
 
-insert into Staff values('Staff', 'Teklu', 'Kora', 'Bejigu', 28, '1988-4-6', 'M', 'teklu@gmail.com', '0987654533')
+insert into Staff values('Office Staff', 'Teklu', 'Kora', 'Bejigu', 28, '1988-4-6', 'M', 'teklu@gmail.com', '0987654533')
+
+Select * from staff
+--UPDATE Staff SET role = 'Office Staff' where id=4
 
 /*
 UPDATE Staff  SET FirstName ='Tesfaye' , FatherName = 'Hunilachew', GrandFatherName= 'Amde' WHERE staffId = 3

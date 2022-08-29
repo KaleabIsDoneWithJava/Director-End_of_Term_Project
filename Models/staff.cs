@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Director.Models
 {
-    public partial class Staff:IEntityBase
+    public partial class Staff: IEntityBase
     {
         public Staff()
         {
