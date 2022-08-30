@@ -1,4 +1,4 @@
-dotnet ef dbcontext scaffold "Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;" Microsoft.Entityframeworkcore.SQLServer -o Models
+dotnet ef dbcontext scaffold "Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;" Microsoft.Entityframeworkcore.SQLServer -o Models --force
 
 Initial Catalog = Database Name
 
