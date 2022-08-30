@@ -1,0 +1,347 @@
+html {
+    height: 100vh;
+}
+
+header {
+    height: 100vh;
+    margin: 0;
+    line-height: normal;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    line-height: normal;
+    display:flex;
+    gap:0px;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: serif;
+    font-size: medium;
+    line-height: 1.15;
+    margin: 0;
+}
+
+svg {
+    fill: none;
+    stroke: #000;
+}
+
+/*the main element on the Layout page*/
+.rendered-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    width: 100%;
+    font-family: serif;
+}
+
+/*To be used along with the custom TagHelper*/
+/*
+section:active {
+    background-color: #fff;
+    box-shadow: 4px 0 0#2e65f3 inset;
+    cursor: pointer;
+    color: #2e65f3;
+    stroke: #2e65f3;
+}
+    */
+
+svg:active {
+    fill: none;
+    stroke: inherit;
+}
+
+.home-b1 {
+  align-self: stretch;
+  position: relative;
+  line-height: 60px;
+  display: inline-block;
+}
+.dashboard-div,
+.main-panel-upper {
+  flex: 1;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.dashboard-div {
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  position: relative;
+}
+.main-panel-upper {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+}
+.add-p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.office-staff-p {
+  margin: 0;
+}
+.add-office-staff,
+.add-teachers-b {
+  align-self: stretch;
+  position: relative;
+}
+.add-office-staff {
+  flex: 1;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.add-teachers-b {
+  line-height: 44px;
+  display: inline-block;
+}
+.add-students-div,
+.main-panel-div,
+.main-panel-lower {
+  align-self: stretch;
+  display: flex;
+  box-sizing: border-box;
+}
+.add-students-div {
+  flex: 1;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  position: relative;
+  flex-direction: column;
+  padding: 15px;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.main-panel-div,
+.main-panel-lower {
+  justify-content: flex-start;
+}
+.main-panel-lower {
+  height: 175px;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: 20px 0 10px;
+  align-items: center;
+  gap: 50px;
+  font-size: 32px;
+}
+.main-panel-div {
+  flex: 1;
+  flex-direction: column;
+  padding: 0 20px 30px;
+  align-items: flex-start;
+  font-size: 48px;
+}
+.bell-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.notifications-b {
+  flex: 1;
+  position: relative;
+  line-height: 32px;
+  display: inline-block;
+}
+.baseline-div,
+.header-div {
+  align-self: stretch;
+  position: relative;
+  box-sizing: border-box;
+}
+.header-div {
+  border-radius: 20px 20px 0 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 24px;
+  color: #000;
+}
+.baseline-div {
+  border-top: 1px solid #000;
+  height: 1px;
+  flex-shrink: 0;
+}
+.divider-solid {
+  align-self: stretch;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.weeks-left-div {
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  color: #f32d2d;
+  display: inline-block;
+}
+.text-group-basic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.mins-div {
+  position: relative;
+  letter-spacing: -0.01em;
+  font-weight: 300;
+  display: inline-block;
+}
+.frame-div,
+.notifications-row-1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.frame-div {
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 10px;
+  color: #000;
+}
+.notifications-row-1 {
+  flex-direction: row;
+  padding: 5px 20px;
+  align-items: center;
+  gap: 10px;
+}
+.baseline-div1,
+.divider-solid1,
+.notifications-row-1 {
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.baseline-div1 {
+  position: relative;
+  border-top: 1px solid #d6d6d6;
+  height: 1px;
+  flex-shrink: 0;
+}
+.divider-solid1 {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 20px;
+  align-items: center;
+  justify-content: center;
+}
+.sports-day-will-be-held-on-mar {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.notifications-div {
+  align-self: stretch;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.user-circle-icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.eren-jager-div {
+  flex: 1;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.office-staff-row-1,
+.text-group-basic3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.text-group-basic3 {
+  flex: 1;
+  height: 50px;
+  gap: 10px;
+}
+.office-staff-row-1 {
+  align-self: stretch;
+  padding: 5px 20px;
+  box-sizing: border-box;
+}
+.view-office-staff-accounts {
+  flex: 1;
+  align-self: stretch;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  flex-direction: column;
+  font-size: 20px;
+}
+.home-div,
+.right-panel-div,
+.view-office-staff-accounts {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.right-panel-div {
+  align-self: stretch;
+  width: 400px;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  gap: 50px;
+  font-size: 16px;
+}
+.home-div {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  gap: 10px;
+  text-align: left;
+  font-size: 12px;
+  color: #232325;
+  font-family: Inter;
+  
+}

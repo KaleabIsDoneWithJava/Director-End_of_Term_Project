@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="home-div">
+    <div class="main-panel-div">
+        <div class="main-panel-upper">
+            <b class="home-b1">Home</b>
+            <div class="dashboard-div"></div>
+        </div>
+        <div class="main-panel-lower">
+            <div class="add-office-staff" id="Add Office Staff">
+                <a asp-controller="Staff" asp-action="AddStaff">
+                    <div class="add-teachers-b">
+                        <b class="add-p">Add Staff</b>
+                    </div>
+                </a>
+            </div>
+            <div class="add-students-div" id="AddStudents">
+                <b class="add-teachers-b">Add Students</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-panel-div">
+        <div class="notifications-div">
+            <div class="header-div">
+                <img class="bell-icon" alt="" src="~/Assets/IconBell.svg" /><b class="notifications-b">Notifications</b>
+            </div>
+            <div class="divider-solid"><div class="baseline-div"></div></div>
+            <div class="notifications-row-1">
+                <div class="text-group-basic">
+                    <div class="sports-day-will-be-held-on-mar">
+                        Final Exam is on Feb 26
+                    </div>
+                    <div class="weeks-left-div">2 weeks left</div>
+                </div>
+                <div class="frame-div"><div class="mins-div">05 mins</div></div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="notifications-row-1">
+                <div class="text-group-basic">
+                    <div class="sports-day-will-be-held-on-mar">
+                        Sports day will be held on Mar 16
+                    </div>
+                    <div class="weeks-left-div">3 weeks left</div>
+                </div>
+                <div class="frame-div"><div class="mins-div">25 mins</div></div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="notifications-row-1">
+                <div class="text-group-basic">
+                    <div class="sports-day-will-be-held-on-mar">
+                        Watch found on the 1st floor.
+                    </div>
+                    <div class="weeks-left-div">
+                        Go to the lost and found on the...
+                    </div>
+                </div>
+                <div class="frame-div"><div class="mins-div">2 hrs</div></div>
+            </div>
+        </div>
+        <div class="view-office-staff-accounts" id="OfficeStaffList">
+            <div class="header-div">
+                <div class="auto-layout-home">
+                    <img class="vector-icon" alt="" src="Assets/IconOfficeStaff.svg" />
+                </div>
+                <b class="notifications-b">Office Staff</b>
+            </div>
+            <div class="divider-solid"><div class="baseline-div"></div></div>
+            <div class="office-staff-row-1">
+                <div class="text-group-basic3" id="OfficeStaffRow1">
+                    <img class="user-circle-icon"
+                         alt=""
+                         src="Assets/IconUser.svg" />
+                    <div class="eren-jager-div">Eren Jager</div>
+                </div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="office-staff-row-1">
+                <div class="text-group-basic3">
+                    <img class="user-circle-icon"
+                         alt=""
+                         src="Assets/IconUser.svg" />
+                    <div class="eren-jager-div">Mikasa Ackermann</div>
+                </div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="office-staff-row-1">
+                <div class="text-group-basic3" id="OfficeStaffRow3">
+                    <img class="user-circle-icon"
+                         alt=""
+                         src="~/Assets/IconUser.svg" />
+                    <div class="eren-jager-div">Hange Zoe</div>
+                </div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="office-staff-row-1">
+                <div class="text-group-basic3" id="OfficeStaffRow2">
+                    <img class="user-circle-icon"
+                         alt=""
+                         src="Assets/IconUser.svg" />
+                    <div class="eren-jager-div">Armin Arlelt</div>
+                </div>
+            </div>
+            <div class="divider-solid1" style="color:red"><div class="baseline-div1"></div></div>
+        </div>
+    </div>
+</div>
+
