@@ -124,18 +124,16 @@
 
                     if (staff.Id == subject.StaffId)
                     {
-            <td class="displaySubject">
-                @subject.SubjectName
-            </td>
-found = true;
-        }
-    }
+                        <td class="displaySubject">
+                            @subject.SubjectName
+                        </td>
+                        found = true;
+                    }
+                }
                 @if (found == false)
                 {
-            <td class="displaySubject">-</td>                }
-
-
-
+                    <td class="displaySubject">-</td>                
+                }
                 <td class="displayHomeroom">-</td>
                 <td class="displayClasses">-</td>
 

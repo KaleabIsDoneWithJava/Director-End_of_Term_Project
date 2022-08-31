@@ -1,13 +1,12 @@
 ﻿
-@using Director.Models;
-@model FormModel;
+@model Director.Models.Forms.FormModel;
 
 @{ ViewBag.Title = "Add Staff"; }
 
 <div class="main-panel-div2">
     <b class="add-staff-b">@ViewBag.Title</b>
 
-    <form class="form-add-staff" asp-action="AddStaff" asp-controller="Staff" >
+    <form class="form-add-staff" asp-action="AddStaff" asp-controller="Staff">
         <!--the form starts here-->
         <div class="add-staff-main-panel">
             <div class="dashboard-div2">
@@ -206,6 +205,7 @@
                                                disabled
                                                value="F"
                                                asp-for="@Model.ClassesTaught[5]"
+                                               name="ClassesTaught[5]"
                                                /><label class="a-label">F</label>
                                     </div>
                                 </div>

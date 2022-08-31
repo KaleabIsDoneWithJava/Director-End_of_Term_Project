@@ -108,7 +108,7 @@ namespace Director.Controllers
             }
             else
             {
-                return View(RedirectToAction(nameof(AddStaffAsync)));
+                return View();
 
             }
 
@@ -116,7 +116,7 @@ namespace Director.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View(RedirectToAction(nameof(AddStaffAsync)));
+                return View();
             }
             //await _subjectService.AddAsync(staff);
             //await _classService.AddAsync(classesTaught);
