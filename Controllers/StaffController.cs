@@ -108,7 +108,7 @@ namespace Director.Controllers
             //await _classService.AddAsync(classesTaught);
             await _staffService.AddAsync(staff);
 
-            return View(model);               
+            return View();               
                 //RedirectToAction(nameof(IndexAsync))
         }
 
