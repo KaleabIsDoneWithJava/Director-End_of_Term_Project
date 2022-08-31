@@ -41,7 +41,7 @@ namespace Director.Controllers
         
         //Appointments, Notifications, & Staff lists are on the My Staff page
 
-        public async Task<ActionResult> IndexAsync(int staffId)
+        public async Task<ActionResult> IndexAsync()
         {
             //ViewBag.Title = "My Staff";
             dynamic myStaff = new ExpandoObject();
@@ -50,6 +50,7 @@ namespace Director.Controllers
 
             myStaff.Staffs = await _staffService.GetAllAsync();
             myStaff.Subjects = await _subjectService.GetAllAsync();
+            myStaff.Classes = await _classService.GetAllAsync();
 
             return View(myStaff);
 
@@ -97,15 +98,20 @@ namespace Director.Controllers
         public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
             //need to access class, subject, and the class tables
-            Staff staff = new();
-            if (model != null) { 
-                staff= PassToStaff(model);
-                await _staffService.AddAsync(staff);
-            }
+           
 
             if (!ModelState.IsValid)
             {
                 return View();
+            }
+            else
+            {
+                if (!model.IsEmpty())
+                {
+                    await _staffService.AddAsync(PassToStaff(model));
+
+                }
+
             }
             //await _subjectService.AddAsync(staff);
             //await _classService.AddAsync(classesTaught);

@@ -16,7 +16,6 @@ namespace Director.Models.Forms
         
         //public Staff MiniStaff { get; set; }
         //public string SubjectName { get; set; }
-        public string[] SectionsTaught { get; set; }
 
         [DisplayName("First Name")]
         public string FirstName { get; set; }
@@ -35,18 +34,23 @@ namespace Director.Models.Forms
         [DisplayName("Phone Number 32152")]
         public string Phone { get; set; }
         [DisplayName("Subject")]
+        //Exclusively Teacher's fields
         public string SubjectName { get; set; }
         [DisplayName("Grade")]
         public short Grade { get; set; }
         [DisplayName("Homeroom")]
         public string Section { get; set; }
         //public string Homeroom { get { return Grade + Section; } }
+        public string[] SectionsTaught { get; set; }
 
-        /*public Staff PassToStaff(FormModel model)
+        public bool IsEmpty()
         {
-            Staff MiniStaff = new Staff();
-            return MiniStaff;
-        }     */   
+            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FatherName) || String.IsNullOrEmpty(GrandFatherName)
+                || String.IsNullOrEmpty(Role) || !DateOfBirth.HasValue || String.IsNullOrEmpty(Gender)
+                || String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Phone)) 
+            { return true; }
+            return false;
+        }        
 
     }
 }

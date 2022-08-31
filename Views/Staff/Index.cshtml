@@ -127,15 +127,45 @@
                         <td class="displaySubject">
                             @subject.SubjectName
                         </td>
-                        found = true;
+                       found = true;
                     }
                 }
                 @if (found == false)
                 {
                     <td class="displaySubject">-</td>                
+                    }
+
+                @foreach (var c in Model.Classes)
+                {
+
+                    if (staff.Id == c.HomeroomId)
+                    {
+                        <td class="displayHomeroom">
+                            @c.Grade@c.Section
+                        </td>
+                        found = true;
+                    }
                 }
-                <td class="displayHomeroom">-</td>
-                <td class="displayClasses">-</td>
+                @if (found == false)
+                {
+                    <td class="displayHomeroom">-</td>                
+                }
+
+                @foreach (var classesTaught in Model.Classes)
+                {
+
+                    if (staff.Id == classesTaught.StaffId)
+                    {
+                        <td class="displayClasses">
+                            @classesTaught.Grade@classesTaught.Section </td>
+                       found = true;
+                    }
+                }
+                @if (found == false)
+                {
+                    <td class="displayClasses">-</td>                
+                }
+
 
                 <td>
                     <button class="pencil-alt-button">
