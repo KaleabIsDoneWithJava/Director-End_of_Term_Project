@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Director.Models.Forms;
 
 namespace Director.Controllers
 {
@@ -96,23 +97,8 @@ namespace Director.Controllers
         public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
             //need to access class, subject, and the class tables
-            Staff staff;
-            staff= model.MiniStaff;
-
-            if (staff != null)
-            {
-                staff.Subjects.Add(createSubjectWithSubjectName(model));
-                staff.ClassStaffs = ArrayToICollection(model);
-                await _staffService.AddAsync(staff);
-
-            }
-            else
-            {
-                return View();
-
-            }
-
-
+            Staff staff = new();
+            if (staff != null) { staff= PassToStaff(model); }          
 
             if (!ModelState.IsValid)
             {
@@ -120,20 +106,47 @@ namespace Director.Controllers
             }
             //await _subjectService.AddAsync(staff);
             //await _classService.AddAsync(classesTaught);
+            await _staffService.AddAsync(staff);
 
-            return View(model);
-
-                
+            return View(model);               
                 //RedirectToAction(nameof(IndexAsync))
-
         }
+
+        public Staff PassToStaff(FormModel model)
+        {
+            Staff staff = new ();
+                        
+            if (model.Role == "Teacher")
+            {
+
+                staff.ClassHomeroom.Grade = model.Grade;
+                staff.ClassHomeroom.Section = model.Section;
+                staff.Subjects.Add(createSubjectWithSubjectName(model));
+                staff.ClassStaffs = ArrayToICollection(model);
+
+            }
+            else//model.Role == "Office Staff"
+            {
+                staff.FirstName = model.FirstName;
+                staff.FatherName = model.FatherName;
+                staff.GrandFatherName = model.Role;
+                staff.Role = model.Role;
+                staff.DateOfBirth = model.DateOfBirth;
+                staff.Gender = model.Gender;
+                staff.Email = model.Email;
+                staff.Phone = model.Phone;
+            }
+
+            return staff;
+        }
+
         public ICollection<Class> ArrayToICollection(FormModel model)
         {
             ICollection<Class> classStaffs = null;
-            foreach(var section in model.ClassesTaught)
+            foreach(var section in model.SectionsTaught)
             {
                 if (section == null) { continue; }
-                classStaffs.Add(new Class(model.MiniStaff.ClassHomeroom.Grade, section));
+                classStaffs.Add(new Class(model.Grade, section));
                 
             }
             return classStaffs;

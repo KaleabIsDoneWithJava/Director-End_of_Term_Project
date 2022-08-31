@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,31 +11,42 @@ namespace Director.Models.Forms
     {
         public FormModel()
         {
-            ClassesTaught = new string[10];
+            SectionsTaught = new string[10];
         }
         
-        public Staff MiniStaff { get; set; }
-        public string SubjectName { get; set; }
-        public string[] ClassesTaught { get; set; }
+        //public Staff MiniStaff { get; set; }
+        //public string SubjectName { get; set; }
+        public string[] SectionsTaught { get; set; }
 
-        /*
-         public string FirstName { get; set; }
-         public string FathersName { get; set; }
-         public string GrandFathersName { get; set; }
-         public string Role { get; set; }
-         public int? Age { get; set; }
-         public DateTime? DateOfBirth { get; set; }
-         public string Gender { get; set; }
-         public string Email { get; set; }
-         public string Phone { get; set; }
-         */
-        /*
-         public string SubjectName { get; set; }
-         public short Grade { get; set; }
-         public string Section { get; set; }
-         public string Homeroom { get; set; }
-         public ArrayList SectionsTaught { get; set; }
-        */
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+        [DisplayName("Father's Name")]
+        public string FatherName { get; set; }
+        [DisplayName("Grandfather's Name")]
+        public string GrandFatherName { get; set; }
+        [DisplayName("Staff Type")]
+        public string Role { get; set; }
+        [DisplayName("Date of Birth")]
+        public DateTime? DateOfBirth { get; set; }
+        [DisplayName("Gender")]
+        public string Gender { get; set; }
+        [DisplayName("Email")]
+        public string Email { get; set; }
+        [DisplayName("Phone Number 32152")]
+        public string Phone { get; set; }
+        [DisplayName("Subject")]
+        public string SubjectName { get; set; }
+        [DisplayName("Grade")]
+        public short Grade { get; set; }
+        [DisplayName("Homeroom")]
+        public string Section { get; set; }
+        //public string Homeroom { get { return Grade + Section; } }
+
+        /*public Staff PassToStaff(FormModel model)
+        {
+            Staff MiniStaff = new Staff();
+            return MiniStaff;
+        }     */   
 
     }
 }
