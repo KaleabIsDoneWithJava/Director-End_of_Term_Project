@@ -99,7 +99,7 @@ namespace Director.Controllers
         {
             //need to access class, subject, and the class tables
             Staff staff = model.MiniStaff;
-            staff.Subjects = createSubjectWithSubjectName(model);
+            staff.Subjects.Add(createSubjectWithSubjectName(model));
             staff.ClassStaffs = ArrayToICollection(model);
             
 
