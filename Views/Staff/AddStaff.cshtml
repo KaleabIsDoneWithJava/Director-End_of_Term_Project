@@ -9,7 +9,7 @@
 <div class="main-panel-div2">
     <b class="add-staff-b">ViewBag.Title</b>
     
-    <form class="form-add-staff" method="post">
+    <form class="form-add-staff" method="post" asp-controller="Staff" asp-action="AddStaff">
         <!--the form starts here-->
         <div class="add-staff-main-panel">
             <div class="dashboard-div2">
@@ -206,7 +206,7 @@
             </div>
         </div>
         <div class="buttons-add-clear">
-            <button class="button-add-staff-member2" autofocus>
+            <button class="button-add-staff-member2" autofocus type="submit">
                 <b class="button-label2">Add</b>
             </button><button class="button-remove-staff-member">
                 <b class="button-label3">Clear</b>
@@ -350,7 +350,7 @@
             <b class="button-label4">Cancel</b>
         </button>
         <!--</div>-->
-        <button class="button-add-staff-member3" id="buttonAddStaffMember1">
+        <button class="button-add-staff-member3" id="buttonAddStaffMember1" asp-action="MyStaff" asp-controller="Staff">
             <b class="button-label4">Done</b>
         </button>
     </div>
