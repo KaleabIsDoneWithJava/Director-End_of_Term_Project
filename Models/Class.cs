@@ -13,6 +13,15 @@ namespace Director.Models
             Students = new HashSet<Student>();
         }
 
+        public Class(short grade, string section)
+        {
+            Grade = grade;
+            Section = section;
+            
+            Assessments = new HashSet<Assessment>();
+            Students = new HashSet<Student>();
+        }
+
         public int Id { get; set; }
         public short Grade { get; set; }
         public string Section { get; set; }

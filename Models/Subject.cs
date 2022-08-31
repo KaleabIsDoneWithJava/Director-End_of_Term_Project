@@ -12,6 +12,12 @@ namespace Director.Models
         {
             Assessments = new HashSet<Assessment>();
         }
+        public Subject(string SubjectName)
+        {
+            this.SubjectName = SubjectName;
+            Assessments = new HashSet<Assessment>();
+
+        }
 
         public int Id { get; set; }
         public string SubjectName { get; set; }

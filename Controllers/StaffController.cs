@@ -17,7 +17,8 @@ namespace Director.Controllers
         private readonly IAppointmentService _appointmentService;
         private readonly INotificationService _notificationService;
         private readonly ISubjectService _subjectService;
-        private readonly SMSContext _context;
+        private readonly IClassService _classService;
+        //private readonly SMSContext _context;
 
 
 
@@ -28,12 +29,13 @@ namespace Director.Controllers
         }
         */
 
-        public StaffController(IStaffService ss, IAppointmentService ass, INotificationService ns, ISubjectService sss)
+        public StaffController(IStaffService ss, IAppointmentService ass, INotificationService ns, ISubjectService sss, IClassService cs)
         {
             _staffService = ss;
             _appointmentService = ass;
             _notificationService = ns;
             _subjectService = sss;
+            _classService = cs;
         }
 
         //Appointments, Notifications, & Staff lists are on the My Staff page
@@ -52,7 +54,6 @@ namespace Director.Controllers
             return View(myStaff);
 
         }
-
       
 
         //Returns the subject name for a specific teacher or staff(they don't have one so it returns "-")
@@ -94,13 +95,12 @@ namespace Director.Controllers
         }
         */
         [HttpGet]
-        public async Task<ActionResult> AddStaffAsync(Staff staff)
+        public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
             //need to access class, subject, and the class tables
-            dynamic addStaff = new ExpandoObject();
-            addStaff.FirstName= "";
-            addStaff.FathersName = "";
-            
+            Staff staff = model.MiniStaff;
+            staff.Subjects = createSubjectWithSubjectName(model);
+            staff.ClassStaffs = ArrayToICollection(model);
             
 
 
@@ -109,12 +109,33 @@ namespace Director.Controllers
                 return View();
             }
             await _staffService.AddAsync(staff);
+            //await _subjectService.AddAsync(staff);
+            //await _classService.AddAsync(classesTaught);
+
             return View(RedirectToAction(nameof(AddStaffAsync)));
 
                 
                 //RedirectToAction(nameof(IndexAsync))
 
         }
+        public ICollection<Class> ArrayToICollection(FormModel model)
+        {
+            ICollection<Class> classStaffs = null;
+            foreach(var section in model.ClassesTaught)
+            {
+                if (section == null) { continue; }
+                classStaffs.Add(new Class(model.MiniStaff.ClassHomeroom.Grade, section));
+                
+            }
+            return classStaffs;
+        }
+
+        public Subject createSubjectWithSubjectName(FormModel model)
+        {
+            Subject subjectTaught = new Subject(model.SubjectName);
+            return subjectTaught;
+        }
+
 
         // GET: StaffController/Details/5
         public ActionResult Details(int id)
