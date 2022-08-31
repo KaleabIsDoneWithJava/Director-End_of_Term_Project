@@ -217,7 +217,8 @@
         <div class="buttons-add-clear">
             <button class="button-add-staff-member2" autofocus type="submit">
                 <b class="button-label2">Add</b>
-            </button><button class="button-remove-staff-member">
+            </button>
+            <button class="button-remove-staff-member" type="reset">
                 <b class="button-label3">Clear</b>
             </button>
         </div>
@@ -372,39 +373,3 @@
     </div>
 </div>
 
-<script>
-    //To enable the input fields that correspond only to the teacher when the staff type is teacher on the
-    //AddStaff page. Also, to disable those fields when staff type is office staff.
-    function toggleInput() {
-        if ($('#staff-type-dropdown').val() == "Teacher") {
-
-            $('#dropdown-default-basic4').prop('disabled', false);
-            $('#dropdown-default-basic3').prop('disabled', false);
-            $('#dropdown-default-basic5').prop('disabled', false);
-
-            $('#checkbox-selected').prop('disabled', false);
-            $('#checkbox-selected2').prop('disabled', false);
-            $('#checkbox-selected3').prop('disabled', false);
-            $('#checkbox-selected4').prop('disabled', false);
-            $('#checkbox-selected5').prop('disabled', false);
-            $('#checkbox-selected6').prop('disabled', false);
-
-
-
-        } else {
-            $('#dropdown-default-basic4').prop('disabled', true);
-            $('#dropdown-default-basic3').prop('disabled', true);
-            $('#dropdown-default-basic5').prop('disabled', true);
-
-            $('#checkbox-selected').prop('disabled', true);
-            $('#checkbox-selected2').prop('disabled', true);
-            $('#checkbox-selected3').prop('disabled', true);
-            $('#checkbox-selected4').prop('disabled', true);
-            $('#checkbox-selected5').prop('disabled', true);
-            $('#checkbox-selected6').prop('disabled', true);
-
-
-
-        }
-
-</script>
