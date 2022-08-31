@@ -38,7 +38,7 @@ namespace Director.Controllers
 
         //Appointments, Notifications, & Staff lists are on the My Staff page
 
-        
+
         public async Task<ActionResult> IndexAsync(int staffId)
         {
             //ViewBag.Title = "My Staff";
@@ -93,15 +93,25 @@ namespace Director.Controllers
             return View(data);
         }
         */
-
+        [HttpGet]
         public async Task<ActionResult> AddStaffAsync(Staff staff)
         {
+            //need to access class, subject, and the class tables
+            dynamic addStaff = new ExpandoObject();
+            addStaff.FirstName= "";
+            addStaff.FathersName = "";
+            
+            
+
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
             await _staffService.AddAsync(staff);
             return View(RedirectToAction(nameof(AddStaffAsync)));
+
+                
                 //RedirectToAction(nameof(IndexAsync))
 
         }
