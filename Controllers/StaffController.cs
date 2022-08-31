@@ -98,7 +98,10 @@ namespace Director.Controllers
         {
             //need to access class, subject, and the class tables
             Staff staff = new();
-            if (staff != null) { staff= PassToStaff(model); }          
+            if (model != null) { 
+                staff= PassToStaff(model);
+                await _staffService.AddAsync(staff);
+            }
 
             if (!ModelState.IsValid)
             {
@@ -106,7 +109,6 @@ namespace Director.Controllers
             }
             //await _subjectService.AddAsync(staff);
             //await _classService.AddAsync(classesTaught);
-            await _staffService.AddAsync(staff);
 
             return View();               
                 //RedirectToAction(nameof(IndexAsync))
