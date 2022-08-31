@@ -87,7 +87,7 @@
                         autofocus
                         id="buttonAddStaffMember">
                     <b class="button-label">
-                        <a asp-controller="Staff" asp-action="AddStaff">
+                        <a asp-action="AddStaff" asp-controller="Staff" >
                             Add Staff
                         </a>
                     </b>
@@ -108,26 +108,31 @@
                     <th>Actions</th>
 
                 </tr>
-                                
+
                 @foreach (var staff in Model.Staffs)
                 {
+                    found = false;
+
             <tr>
                 <td class="displayName">@staff.FirstName @staff.FatherName</td>
                 <td class="displayStaffType">@staff.Role</td>
                 <td class="displayEmail">@staff.Email</td>
                 <td class="displayPhone">@staff.Phone</td>
+
                 @foreach (var subject in Model.Subjects)
-                 {
+                {
+
                     if (staff.Id == subject.StaffId)
                     {
-                        <td class="displaySubject">@subject.SubjectName</td>
-                        found = true;
-                    }
-                 }
-                @if (!found)
-                 {
-                    <td class="displaySubject">-</td>
-                 }
+            <td class="displaySubject">
+                @subject.SubjectName
+            </td>
+found = true;
+        }
+    }
+                @if (found == false)
+                {
+            <td class="displaySubject">-</td>                }
 
 
 
@@ -143,8 +148,7 @@
                         <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
                     </button>
                 </td>
-            </tr>
-                }
+            </tr>}
             </table>
         </div>
 

@@ -26,9 +26,9 @@ namespace Director.Controllers
         public StaffController(IStaffService service)
         {
             _staffService = service;
-        }
-        */
-
+        }*/
+        
+        
         public StaffController(IStaffService ss, IAppointmentService ass, INotificationService ns, ISubjectService sss, IClassService cs)
         {
             _staffService = ss;
@@ -37,9 +37,8 @@ namespace Director.Controllers
             _subjectService = sss;
             _classService = cs;
         }
-
+        
         //Appointments, Notifications, & Staff lists are on the My Staff page
-
 
         public async Task<ActionResult> IndexAsync(int staffId)
         {
@@ -94,25 +93,35 @@ namespace Director.Controllers
             return View(data);
         }
         */
-        [HttpGet]
         public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
             //need to access class, subject, and the class tables
-            Staff staff = model.MiniStaff;
-            staff.Subjects.Add(createSubjectWithSubjectName(model));
-            staff.ClassStaffs = ArrayToICollection(model);
-            
+            Staff staff;
+            staff= model.MiniStaff;
+
+            if (staff != null)
+            {
+                staff.Subjects.Add(createSubjectWithSubjectName(model));
+                staff.ClassStaffs = ArrayToICollection(model);
+                await _staffService.AddAsync(staff);
+
+            }
+            else
+            {
+                return View(RedirectToAction(nameof(AddStaffAsync)));
+
+            }
+
 
 
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(RedirectToAction(nameof(AddStaffAsync)));
             }
-            await _staffService.AddAsync(staff);
             //await _subjectService.AddAsync(staff);
             //await _classService.AddAsync(classesTaught);
 
-            return View(RedirectToAction(nameof(AddStaffAsync)));
+            return View(model);
 
                 
                 //RedirectToAction(nameof(IndexAsync))
