@@ -108,7 +108,7 @@ namespace Director.Controllers
             {
                 if (!model.IsEmpty())
                 {
-                    await _staffService.AddAsync(PassToStaff(model));
+                    await _staffService.AddAsync(addOfficeStaff(model));
 
                 }
 
@@ -116,21 +116,29 @@ namespace Director.Controllers
             //await _subjectService.AddAsync(staff);
             //await _classService.AddAsync(classesTaught);
 
-            return View();               
+            return View(model);               
                 //RedirectToAction(nameof(IndexAsync))
         }
 
-        public Staff PassToStaff(FormModel model)
+        public Staff addOfficeStaff(FormModel model)
         {
             Staff staff = new ();
                         
             if (model.Role == "Teacher")
             {
 
-                staff.ClassHomeroom.Grade = model.Grade;
-                staff.ClassHomeroom.Section = model.Section;
+               // staff.ClassHomeroom.Grade = model.;
+               // staff.ClassHomeroom.Section = model.Section;
                 staff.Subjects.Add(createSubjectWithSubjectName(model));
                 staff.ClassStaffs = ArrayToICollection(model);
+                staff.FirstName = model.FirstName;
+                staff.FatherName = model.FatherName;
+                staff.GrandFatherName = model.Role;
+                staff.Role = model.Role;
+                staff.DateOfBirth = model.DateOfBirth;
+                staff.Gender = model.Gender;
+                staff.Email = model.Email;
+                staff.Phone = model.Phone;
 
             }
             else//model.Role == "Office Staff"

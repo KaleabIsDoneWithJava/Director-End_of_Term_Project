@@ -31,7 +31,7 @@ namespace Director.Models.Forms
         public string Gender { get; set; }
         [DisplayName("Email")]
         public string Email { get; set; }
-        [DisplayName("Phone Number 32152")]
+        [DisplayName("Phone Number")]
         public string Phone { get; set; }
         [DisplayName("Subject")]
         //Exclusively Teacher's fields

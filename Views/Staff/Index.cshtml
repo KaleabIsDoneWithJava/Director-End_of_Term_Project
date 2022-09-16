@@ -16,6 +16,12 @@
         
     }
 
+    .displayTableBody {
+        height: 220px;
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+
     th, td {
         display: flex;
         text-align: left;
@@ -94,7 +100,7 @@
                 </button>
 
         </div>
-        <div style="overflow-x: auto; overflow-y: auto; width: -moz-available;">
+        <div style="width: -moz-available;">
             <table>
 
                 <tr>
@@ -108,75 +114,76 @@
                     <th>Actions</th>
 
                 </tr>
+                <tbody class="displayTableBody">
+                    @foreach (var staff in Model.Staffs)
+                     {
+                        found = false;
 
-                @foreach (var staff in Model.Staffs)
-                {
-                    found = false;
+                         <tr>
+                            <td class="displayName">@staff.FirstName @staff.FatherName</td>
+                            <td class="displayStaffType">@staff.Role</td>
+                            <td class="displayEmail">@staff.Email</td>
+                            <td class="displayPhone">@staff.Phone</td>
 
-            <tr>
-                <td class="displayName">@staff.FirstName @staff.FatherName</td>
-                <td class="displayStaffType">@staff.Role</td>
-                <td class="displayEmail">@staff.Email</td>
-                <td class="displayPhone">@staff.Phone</td>
+                            @foreach (var subject in Model.Subjects)
+                            {
 
-                @foreach (var subject in Model.Subjects)
-                {
+                                if (staff.Id == subject.StaffId)
+                                {
+                                    <td class="displaySubject">
+                                        @subject.SubjectName
+                                    </td>found = true;
+                                }
+                            }
+                            @if (found == false)
+                            {
+                                <td class="displaySubject">-</td>
+                            }
 
-                    if (staff.Id == subject.StaffId)
-                    {
-                        <td class="displaySubject">
-                            @subject.SubjectName
-                        </td>
-                       found = true;
-                    }
-                }
-                @if (found == false)
-                {
-                    <td class="displaySubject">-</td>                
-                    }
+                            @foreach (var c in Model.Classes)
+                            {
 
-                @foreach (var c in Model.Classes)
-                {
+                                if (staff.Id == c.HomeroomId)
+                                {
+                                    <td class="displayHomeroom">
+                                        @c.Grade@c.Section
+                                    </td>                        
+                                    found = true;
+                                }
+                            }
+                            @if (found == false)
+                            {
+                                <td class="displayHomeroom">-</td>
+                            }
 
-                    if (staff.Id == c.HomeroomId)
-                    {
-                        <td class="displayHomeroom">
-                            @c.Grade@c.Section
-                        </td>
-                        found = true;
-                    }
-                }
-                @if (found == false)
-                {
-                    <td class="displayHomeroom">-</td>                
-                }
+                            @foreach (var classesTaught in Model.Classes)
+                            {
 
-                @foreach (var classesTaught in Model.Classes)
-                {
+                                if (staff.Id == classesTaught.StaffId)
+                                {
+                                    <td class="displayClasses">
+                                        @classesTaught.Grade@classesTaught.Section
+                                    </td>
+                                    found = true;
+                                }
+                            }
+                            @if (found == false)
+                            {
+                                <td class="displayClasses">-</td>
+                            }
 
-                    if (staff.Id == classesTaught.StaffId)
-                    {
-                        <td class="displayClasses">
-                            @classesTaught.Grade@classesTaught.Section </td>
-                       found = true;
-                    }
-                }
-                @if (found == false)
-                {
-                    <td class="displayClasses">-</td>                
-                }
-
-
-                <td>
-                    <button class="pencil-alt-button">
-                        <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
-                    </button>
-                    <div class="classes-div">|</div>
-                    <button class="pencil-alt-button">
-                        <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
-                    </button>
-                </td>
-            </tr>}
+                            <td>
+                                <button class="pencil-alt-button">
+                                    <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                                </button>
+                                <div class="classes-div">|</div>
+                                <button class="pencil-alt-button">
+                                    <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                                </button>
+                            </td>
+                        </tr>
+                     }
+                </tbody>
             </table>
         </div>
 
