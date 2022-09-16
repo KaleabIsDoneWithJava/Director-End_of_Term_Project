@@ -1,27 +1,28 @@
-﻿using System;
+﻿using Director.Models.Base;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class Class
+    public partial class Class:IEntityBase
     {
         public Class()
         {
+            Assessments = new HashSet<Assessment>();
             Students = new HashSet<Student>();
         }
 
         public int Id { get; set; }
-        public int SectionId { get; set; }
-        public int GradeId { get; set; }
+        public short Grade { get; set; }
+        public string Section { get; set; }
+        public int StaffId { get; set; }
         public int HomeroomId { get; set; }
-        public int TeacherId { get; set; }
 
-        public virtual Grade Grade { get; set; }
-        public virtual Teacher Homeroom { get; set; }
-        public virtual Section Section { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        //public virtual staff Homeroom { get; set; }
+        //public virtual staff Staff { get; set; }
+        public virtual ICollection<Assessment> Assessments { get; set; }
         public virtual ICollection<Student> Students { get; set; }
     }
 }

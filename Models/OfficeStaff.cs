@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Director.Models.Base;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class OfficeStaff
+    public partial class OfficeStaff:IEntityBase
     {
         public OfficeStaff()
         {
