@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -20,14 +20,18 @@ namespace Director.Models
         public virtual DbSet<Announcement> Announcements { get; set; }
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Assessment> Assessments { get; set; }
+        public virtual DbSet<AttendanceMissed> AttendanceMisseds { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
-        public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
+        public virtual DbSet<OfficeStaff> OfficeStaffs { get; set; }
         public virtual DbSet<Parent> Parents { get; set; }
+        public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<Staff> Staffs { get; set; }
-/*
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public virtual DbSet<SubjectForGrade> SubjectForGrades { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
+
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -35,7 +39,7 @@ namespace Director.Models
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;");
             }
         }
-*/
+       */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -44,187 +48,225 @@ namespace Director.Models
             {
                 entity.ToTable("Announcement");
 
-                entity.Property(e => e.AnnouncementDate).HasColumnType("date");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Detail).HasColumnType("text");
+                entity.Property(e => e.Detail)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Title).HasColumnType("text");
-
-                entity.HasOne(d => d.Staff)
+                entity.HasOne(d => d.OfficeStaff)
                     .WithMany(p => p.Announcements)
-                    .HasForeignKey(d => d.StaffId)
+                    .HasForeignKey(d => d.OfficeStaffId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Announcem__Staff__36B12243");
+                    .HasConstraintName("FK__Announcem__Offic__30F848ED");
             });
 
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.ToTable("Appointment");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AppointmentDate).HasColumnType("date");
 
-                entity.Property(e => e.ParentId).HasColumnName("ParentID");
+                entity.Property(e => e.Detail)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
-
-                entity.Property(e => e.Title).HasColumnType("text");
-
-                entity.HasOne(d => d.Parent)
+                entity.HasOne(d => d.OfficeStaff)
                     .WithMany(p => p.Appointments)
-                    .HasForeignKey(d => d.ParentId)
+                    .HasForeignKey(d => d.OfficeStaffId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Appointme__Paren__3F466844");
+                    .HasConstraintName("FK__Appointme__Offic__412EB0B6");
 
-                entity.HasOne(d => d.Staff)
+                entity.HasOne(d => d.Student)
                     .WithMany(p => p.Appointments)
-                    .HasForeignKey(d => d.StaffId)
+                    .HasForeignKey(d => d.StudentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Appointme__Staff__403A8C7D");
+                    .HasConstraintName("FK__Appointme__Stude__4222D4EF");
             });
 
             modelBuilder.Entity<Assessment>(entity =>
             {
                 entity.ToTable("Assessment");
 
-                entity.Property(e => e.AssessmentType)
-                    .HasMaxLength(20)
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
-
-                entity.Property(e => e.AssessmentWeight)
-                    .HasMaxLength(4)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Score)
-                    .HasMaxLength(4)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
-
-                entity.Property(e => e.StudentId).HasColumnName("StudentID");
-
-                entity.Property(e => e.SubjectId).HasColumnName("SubjectID");
-
-                entity.HasOne(d => d.Class)
-                    .WithMany(p => p.Assessments)
-                    .HasForeignKey(d => d.ClassId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Assessmen__Class__3B75D760");
-
-                entity.HasOne(d => d.Staff)
-                    .WithMany(p => p.Assessments)
-                    .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Assessmen__Staff__3C69FB99");
 
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Assessments)
                     .HasForeignKey(d => d.StudentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Assessmen__Stude__3A81B327");
+                    .HasConstraintName("FK__Assessmen__Stude__44FF419A");
 
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.Assessments)
                     .HasForeignKey(d => d.SubjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Assessmen__Subje__398D8EEE");
+                    .HasConstraintName("FK__Assessmen__Subje__45F365D3");
+            });
+
+            modelBuilder.Entity<AttendanceMissed>(entity =>
+            {
+                entity.ToTable("AttendanceMissed");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.Period)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SubjectName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Student)
+                    .WithMany(p => p.AttendanceMisseds)
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Attendanc__Stude__48CFD27E");
             });
 
             modelBuilder.Entity<Class>(entity =>
             {
                 entity.ToTable("Class");
 
-                entity.HasIndex(e => e.HomeroomId, "UQ__Class__5D3FDC8D08BB3D82")
-                    .IsUnique();
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.HomeroomId).HasColumnName("HomeroomID");
-
-                entity.Property(e => e.Section)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
+                entity.HasOne(d => d.Grade)
+                    .WithMany(p => p.Classes)
+                    .HasForeignKey(d => d.GradeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Class__GradeId__38996AB5");
 
                 entity.HasOne(d => d.Homeroom)
-                    .WithOne(p => p.ClassHomeroom)
-                    .HasForeignKey<Class>(d => d.HomeroomId)
+                    .WithMany(p => p.ClassHomerooms)
+                    .HasForeignKey(d => d.HomeroomId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Class__HomeroomI__29572725");
+                    .HasConstraintName("FK__Class__HomeroomI__398D8EEE");
 
-                entity.HasOne(d => d.Staff)
-                    .WithMany(p => p.ClassStaffs)
-                    .HasForeignKey(d => d.StaffId)
+                entity.HasOne(d => d.Section)
+                    .WithMany(p => p.Classes)
+                    .HasForeignKey(d => d.SectionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Class__StaffID__286302EC");
+                    .HasConstraintName("FK__Class__SectionId__37A5467C");
+
+                entity.HasOne(d => d.Teacher)
+                    .WithMany(p => p.ClassTeachers)
+                    .HasForeignKey(d => d.TeacherId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Class__TeacherId__3A81B327");
             });
 
-            modelBuilder.Entity<Notification>(entity =>
+            modelBuilder.Entity<Grade>(entity =>
             {
-                entity.ToTable("Notification");
+                entity.ToTable("Grade");
 
-                entity.Property(e => e.Details).HasColumnType("text");
+                entity.Property(e => e.Id).ValueGeneratedNever();
+            });
 
-                entity.Property(e => e.NotificationDate).HasColumnType("date");
+            modelBuilder.Entity<OfficeStaff>(entity =>
+            {
+                entity.ToTable("OfficeStaff");
 
-                entity.Property(e => e.ParentId).HasColumnName("ParentID");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
+                entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
-                entity.Property(e => e.StudentId).HasColumnName("StudentID");
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Title).HasColumnType("text");
+                entity.Property(e => e.FathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.Parent)
-                    .WithMany(p => p.Notifications)
-                    .HasForeignKey(d => d.ParentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Notificat__Paren__440B1D61");
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.Staff)
-                    .WithMany(p => p.Notifications)
-                    .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Notificat__Staff__4316F928");
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.Student)
-                    .WithMany(p => p.Notifications)
-                    .HasForeignKey(d => d.StudentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Notificat__Stude__44FF419A");
+                entity.Property(e => e.GrandFathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Phone)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Parent>(entity =>
             {
                 entity.ToTable("Parent");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
                 entity.Property(e => e.Email)
+                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FatherName)
-                    .HasMaxLength(50)
+                entity.Property(e => e.FathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
-                    .HasMaxLength(50)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gender)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.GrandFatherName)
-                    .HasMaxLength(50)
+                entity.Property(e => e.GrandFathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Phone)
+                    .IsRequired()
                     .HasMaxLength(20)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Section>(entity =>
+            {
+                entity.ToTable("Section");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Value)
+                    .IsRequired()
+                    .HasMaxLength(6)
                     .IsUnicode(false);
             });
 
@@ -232,32 +274,37 @@ namespace Director.Models
             {
                 entity.ToTable("Student");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
                 entity.Property(e => e.Email)
+                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FatherName)
-                    .HasMaxLength(50)
+                entity.Property(e => e.FathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
-                    .HasMaxLength(50)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gender)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.GrandFatherName)
-                    .HasMaxLength(50)
+                    .IsRequired()
+                    .HasMaxLength(6)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ParentId).HasColumnName("ParentID");
+                entity.Property(e => e.GrandFathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Phone)
+                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -265,67 +312,89 @@ namespace Director.Models
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => d.ClassId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Student__ClassId__33D4B598");
+                    .HasConstraintName("FK__Student__ClassId__3E52440B");
 
                 entity.HasOne(d => d.Parent)
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => d.ParentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Student__ParentI__32E0915F");
+                    .HasConstraintName("FK__Student__ParentI__3D5E1FD2");
             });
 
             modelBuilder.Entity<Subject>(entity =>
             {
                 entity.ToTable("Subject");
 
-                entity.Property(e => e.StaffId).HasColumnName("StaffID");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.SubjectName)
-                    .HasMaxLength(50)
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.Staff)
-                    .WithMany(p => p.Subjects)
-                    .HasForeignKey(d => d.StaffId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Subject__StaffID__2C3393D0");
             });
 
-            modelBuilder.Entity<Staff>(entity =>
+            modelBuilder.Entity<SubjectForGrade>(entity =>
             {
-                entity.ToTable("Staff");
+                entity.ToTable("SubjectForGrade");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Grade)
+                    .WithMany(p => p.SubjectForGrades)
+                    .HasForeignKey(d => d.GradeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__SubjectFo__Grade__34C8D9D1");
+
+                entity.HasOne(d => d.Subject)
+                    .WithMany(p => p.SubjectForGrades)
+                    .HasForeignKey(d => d.SubjectId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__SubjectFo__Subje__33D4B598");
+            });
+
+            modelBuilder.Entity<Teacher>(entity =>
+            {
+                entity.ToTable("Teacher");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
                 entity.Property(e => e.Email)
+                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FatherName)
-                    .HasMaxLength(30)
+                entity.Property(e => e.FathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
-                    .HasMaxLength(30)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gender)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.GrandFatherName)
-                    .HasMaxLength(30)
+                entity.Property(e => e.GrandFathersName)
+                    .IsRequired()
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Phone)
+                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Role)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-                
+                entity.HasOne(d => d.Subject)
+                    .WithMany(p => p.Teachers)
+                    .HasForeignKey(d => d.SubjectId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Teacher__Subject__2C3393D0");
             });
 
             OnModelCreatingPartial(modelBuilder);

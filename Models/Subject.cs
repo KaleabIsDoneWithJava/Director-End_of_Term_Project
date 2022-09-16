@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using Director.Models.Base;
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class Subject : IEntityBase
+    public partial class Subject
     {
         public Subject()
         {
             Assessments = new HashSet<Assessment>();
-        }
-        public Subject(string SubjectName)
-        {
-            this.SubjectName = SubjectName;
-            Assessments = new HashSet<Assessment>();
-
+            SubjectForGrades = new HashSet<SubjectForGrade>();
+            Teachers = new HashSet<Teacher>();
         }
 
         public int Id { get; set; }
-        public string SubjectName { get; set; }
-        public int StaffId { get; set; }
+        public string Name { get; set; }
 
-        public virtual Staff Staff { get; set; }
         public virtual ICollection<Assessment> Assessments { get; set; }
+        public virtual ICollection<SubjectForGrade> SubjectForGrades { get; set; }
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

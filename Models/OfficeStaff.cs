@@ -5,11 +5,12 @@ using System.Collections.Generic;
 
 namespace Director.Models
 {
-    public partial class Parent
+    public partial class OfficeStaff
     {
-        public Parent()
+        public OfficeStaff()
         {
-            Students = new HashSet<Student>();
+            Announcements = new HashSet<Announcement>();
+            Appointments = new HashSet<Appointment>();
         }
 
         public int Id { get; set; }
@@ -21,6 +22,7 @@ namespace Director.Models
         public string Phone { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Announcement> Announcements { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
     }
 }
