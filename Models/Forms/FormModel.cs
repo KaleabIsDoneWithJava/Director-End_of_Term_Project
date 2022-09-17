@@ -7,19 +7,24 @@ using System.Threading.Tasks;
 
 namespace Director.Models.Forms
 {
-    public class StudentFormModel
+    public class FormModel
     {
-        public StudentFormModel()
+        public FormModel()
         {
-            //SectionsTaught = new string[10];
+            SectionsTaught = new string[10];
         }
-        //Student's info 
+        
+        //public Staff MiniStaff { get; set; }
+        //public string SubjectName { get; set; }
+
         [DisplayName("First Name")]
         public string FirstName { get; set; }
         [DisplayName("Father's Name")]
         public string FatherName { get; set; }
         [DisplayName("Grandfather's Name")]
         public string GrandFatherName { get; set; }
+        [DisplayName("Staff Type")]
+        public string Role { get; set; }
         [DisplayName("Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
         [DisplayName("Gender")]
@@ -27,40 +32,23 @@ namespace Director.Models.Forms
         [DisplayName("Email")]
         public string Email { get; set; }
         [DisplayName("Phone Number")]
-        public string Phone { get; set; }        
+        public string Phone { get; set; }
+        [DisplayName("Subject")]
+        //Exclusively Teacher's fields
+        public string SubjectName { get; set; }
         [DisplayName("Grade")]
         public short Grade { get; set; }
-        [DisplayName("Section")]
+        [DisplayName("Homeroom")]
         public string Section { get; set; }
-
-        //Parent's info
-
-        [DisplayName("First Name")]
-        public string PfirstName { get; set; }
-        [DisplayName("Father's Name")]
-        public string PfatherName { get; set; }
-        [DisplayName("Grandfather's Name")]
-        public string PgrandFatherName { get; set; }
-        [DisplayName("Date of Birth")]
-        public DateTime? PdateOfBirth { get; set; }
-        [DisplayName("Gender")]
-        public string Pgender { get; set; }
-        [DisplayName("Email")]
-        public string Pemail { get; set; }
-        [DisplayName("Phone Number")]
-        public string Pphone { get; set; }
-
-
+        //public string Homeroom { get { return Grade + Section; } }
+        public string[] SectionsTaught { get; set; }
 
         public bool IsEmpty()
         {
             if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FatherName) || String.IsNullOrEmpty(GrandFatherName)
-                || !DateOfBirth.HasValue || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(Email) 
-                || String.IsNullOrEmpty(Phone) || String.IsNullOrEmpty(PfirstName) || String.IsNullOrEmpty(PfatherName) 
-                || String.IsNullOrEmpty(PgrandFatherName) || !PdateOfBirth.HasValue || String.IsNullOrEmpty(Pgender) 
-                || String.IsNullOrEmpty(Pemail)|| String.IsNullOrEmpty(Pphone)) 
+                || String.IsNullOrEmpty(Role) || !DateOfBirth.HasValue || String.IsNullOrEmpty(Gender)
+                || String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Phone)) 
             { return true; }
-            
             return false;
         }        
 

@@ -15,8 +15,11 @@ namespace Director.Models.Functions
             Subject subjectTaught = new Subject(model.SubjectName);
             return subjectTaught;
         }*/
+        
+        
         public ICollection<Class> ArrayToICollection(FormModel model)
         {
+            
             ICollection<Class> classStaffs = null;
             foreach (var section in model.SectionsTaught)
             {
