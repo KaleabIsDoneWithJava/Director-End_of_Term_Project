@@ -29,7 +29,7 @@ namespace Director.Models.Functions
             }
             return classStaffs;
         }
-        public dynamic TeacherOrOfficeStaff (FormModel model)
+        public dynamic PassToTeacherOrOfficeStaff (FormModel model)
         {
             dynamic staff = new ExpandoObject();
 

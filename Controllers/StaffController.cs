@@ -99,9 +99,6 @@ namespace Director.Controllers
         */
         public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
-            //need to access class, subject, and the class tables
-           
-
             if (!ModelState.IsValid)
             {
                 return View();
@@ -110,26 +107,25 @@ namespace Director.Controllers
             {
                 if (!model.IsEmpty())
                 {
-                    AddStaff staff = new ();
-                    if(model.Role == "Teacher") { }
-                    else { }
-                   await _officestaffService.AddAsync(staff.TeacherOrOfficeStaff(model));
+                    AddStaff addstaff = new ();
+
+                    if(model.Role == "Teacher") 
+                    {
+                        await _teacherService.AddAsync(addstaff.PassToTeacherOrOfficeStaff(model));
+
+                    }
+                    else //model.Role == "OfficeStaff"
+                    {
+                        await _officestaffService.AddAsync(addstaff.PassToTeacherOrOfficeStaff(model));
+                    }
 
                 }
 
             }
-            //await _subjectService.AddAsync(staff);
-            //await _classService.AddAsync(classesTaught);
-
-            return View(model);               
-                //RedirectToAction(nameof(IndexAsync))
+            //return(model)
+            return View(RedirectToAction(nameof(AddStaffAsync)));               
         }
-
-        
-        
-
-       
-
+              
         // GET: StaffController/Details/5
         public ActionResult Details(int id)
         {
