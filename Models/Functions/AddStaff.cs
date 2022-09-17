@@ -33,7 +33,7 @@ namespace Director.Models.Functions
             if (model.Role == "Teacher")
             {
                 Subject sub = new();
-                sub.SubjectName = model.SubjectName;
+                sub.Name = model.SubjectName;
 
                 staff.ClassHomeroom.Grade = model.Grade;
                 staff.ClassHomeroom.Section = model.Section;

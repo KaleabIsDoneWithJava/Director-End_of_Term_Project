@@ -1,6 +1,6 @@
-﻿using Director.Models.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Director.Models.Base;
 
 #nullable disable
 
@@ -10,8 +10,7 @@ namespace Director.Models
     {
         public Teacher()
         {
-            ClassHomerooms = new HashSet<Class>();
-            ClassTeachers = new HashSet<Class>();
+            Classes = new HashSet<Class>();
         }
 
         public int Id { get; set; }
@@ -25,7 +24,6 @@ namespace Director.Models
         public int SubjectId { get; set; }
 
         public virtual Subject Subject { get; set; }
-        public virtual ICollection<Class> ClassHomerooms { get; set; }
-        public virtual ICollection<Class> ClassTeachers { get; set; }
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Director.Controllers
         private readonly ITeacherService _teacherService;
 
         private readonly IAppointmentService _appointmentService;
-        private readonly INotificationService _notificationService;
+        //private readonly INotificationService _notificationService;
         private readonly ISubjectService _subjectService;
         private readonly IClassService _classService;
         //private readonly SMSContext _context;
@@ -33,11 +33,10 @@ namespace Director.Controllers
         }*/
         
         
-        public StaffController(IOfficeStaffService ss, IAppointmentService ass, INotificationService ns, ISubjectService sss, IClassService cs)
+        public StaffController(IOfficeStaffService ss, IAppointmentService ass, ISubjectService sss, IClassService cs)
         {
             _officestaffService = ss;
             _appointmentService = ass;
-            _notificationService = ns;
             _subjectService = sss;
             _classService = cs;
         }

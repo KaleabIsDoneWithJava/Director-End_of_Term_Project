@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Director.Models.Base;
+
 
 #nullable disable
 
 namespace Director.Models
 {
-    public partial class AttendanceMissed
+    public partial class AttendanceMissed:IEntityBase 
     {
         public int Id { get; set; }
         public string Period { get; set; }

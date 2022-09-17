@@ -34,7 +34,7 @@ namespace Director
             services.AddScoped<IAssessmentService, AssessmentService>();
             services.AddScoped<IClassService, ClassService>();
 
-            services.AddScoped<INotificationService, NotificationService>();
+            //services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<IParentService, ParentService>();
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ISubjectService, SubjectService>();
