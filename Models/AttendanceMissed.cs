@@ -7,7 +7,7 @@ using Director.Models.Base;
 
 namespace Director.Models
 {
-    public partial class AttendanceMissed:IEntityBase 
+    public partial class AttendanceMissed:IEntityBase
     {
         public int Id { get; set; }
         public string Period { get; set; }

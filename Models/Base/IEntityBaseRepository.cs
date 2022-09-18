@@ -13,5 +13,7 @@ namespace Director.Models.Base
         Task AddAsync(T entity);
         Task UpdateAsync(int id, T entity);
         Task DeleteAsync(int id);
+        List<Teacher> AddSubjectTaught(List<Teacher> teachers);
+
     }
 }

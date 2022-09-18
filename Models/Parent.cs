@@ -7,7 +7,7 @@ using Director.Models.Base;
 
 namespace Director.Models
 {
-    public partial class Parent:IEntityBase 
+    public partial class Parent:IEntityBase
     {
         public Parent()
         {

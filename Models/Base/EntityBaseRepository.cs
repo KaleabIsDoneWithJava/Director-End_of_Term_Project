@@ -31,6 +31,7 @@ namespace Director.Models.Base
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             var result = await _context.Set<T>().ToListAsync();
+
             return result;
         }
 
@@ -56,7 +57,47 @@ namespace Director.Models.Base
 
         }
 
-        
+        //Returns the subject that the teacher teaches
+        public List<Teacher> AddSubjectTaught(List<Teacher> teachers)
+        {
+            var ts = new List<Teacher>();
+            /*using (_context)
+            {
+                ts = (from t in _context.Teachers 
+                      join sg in _context.SubjectForGrades
+                      on t.SubjectId equals sg.Id
+                      join s in _context.Subjects
+                      on sg.SubjectId equals s.Id
+                      select t).ToList(); 
+            }*/
+
+            
+            
+                ts = _context.Teachers.Join(_context.Subjects,
+                    t => t.SubjectId,
+                    s => s.Id,
+                    (t, s) => t).ToList();
+            
+
+
+            /*var subjectForGrades;
+            var result ;
+
+            foreach (var teacher in teachers)
+            {
+                 subjectForGrades = await _context.SubjectForGrades.Where(c => c.Id == teacher.SubjectId).FirstOrDefaultAsync();
+                 result = await _context.Subjects.Where(s => s.Id == subjectForGrades.Id).FirstOrDefaultAsync();
+                
+
+            }*/
+
+
+
+            return ts;
+        }
+
+
+
 
 
     }

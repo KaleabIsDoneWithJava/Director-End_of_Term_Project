@@ -5,16 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Director.Models;
 using Director.Models.Forms;
+using Director.Models.Services;
+
 
 namespace Director.Models.Functions
 {
     public class AddStaff
     {
-        /*public Subject createSubjectWithSubjectName(FormModel model)
-        {
-            Subject subjectTaught = new Subject(model.SubjectName);
-            return subjectTaught;
-        }*/
+        private readonly ITeacherService _teacherService;
         
         
         public ICollection<Class> ArrayToICollection(FormModel model)
@@ -68,7 +66,8 @@ namespace Director.Models.Functions
 
             return staff;
         }
-
+       
+       
         
 
 

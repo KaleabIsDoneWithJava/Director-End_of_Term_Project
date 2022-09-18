@@ -33,12 +33,13 @@ namespace Director.Controllers
         }*/
         
         
-        public StaffController(IOfficeStaffService ss, IAppointmentService ass, ISubjectService sss, IClassService cs)
+        public StaffController(IOfficeStaffService ss, IAppointmentService ass, ISubjectService sss, IClassService cs, ITeacherService ts)
         {
             _officestaffService = ss;
             _appointmentService = ass;
             _subjectService = sss;
             _classService = cs;
+            _teacherService = ts;
         }
         
         //Appointments, Notifications, & Staff lists are on the My Staff page
@@ -52,8 +53,11 @@ namespace Director.Controllers
 
             myStaff.OfficeStaff = await _officestaffService.GetAllAsync();
             myStaff.Teacher = await _teacherService.GetAllAsync();
-            myStaff.Classes = await _classService.GetAllAsync();
+            myStaff.Teacher = _teacherService.AddSubjectTaught(myStaff.Teacher);
 
+            myStaff.Classes = await _classService.GetAllAsync();
+            
+                
             return View(myStaff);
 
         }
