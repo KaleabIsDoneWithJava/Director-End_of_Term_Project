@@ -69,21 +69,7 @@ namespace Director.Models.Base
                       on sg.SubjectId equals s.Id
                       join g in _context.Grades
                       on sg.GradeId equals g.Id
-                      select t).ToList();           
-
-
-            /*var subjectForGrades;
-            var result ;
-
-            foreach (var teacher in teachers)
-            {
-                 subjectForGrades = await _context.SubjectForGrades.Where(c => c.Id == teacher.SubjectId).FirstOrDefaultAsync();
-                 result = await _context.Subjects.Where(s => s.Id == subjectForGrades.Id).FirstOrDefaultAsync();
-                
-
-            }*/
-
-
+                      select t).ToList();   
 
             return ts;
         }
