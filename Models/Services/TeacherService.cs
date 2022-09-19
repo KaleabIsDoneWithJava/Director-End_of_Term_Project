@@ -30,7 +30,6 @@ namespace Director.Models.Services
         //Returns the subject that the teacher teaches
         public IEnumerable GetAllTeacherDetail()
         {
-            //dynamic result = new ExpandoObject();
 
 
             var result = (from t in _context.Teachers
