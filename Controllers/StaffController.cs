@@ -127,8 +127,7 @@ namespace Director.Controllers
                 }
 
             }
-            //return(model)
-            return View(RedirectToAction(nameof(AddStaffAsync)));               
+            return View(model);               
         }
               
         // GET: StaffController/Details/5

@@ -45,25 +45,25 @@
         width:230px;
     }
     .displayName{
-        width:130px;
+        width:160px;
     }
     .displayPhone{
         width:135px;
     }
     .displayStaffType{
-        width:70px;
+        width:140px;
     }
     .displaySubject {
         width:90px;
     }
-    
-    .displayHomeroom{
-        width:90px;
+
+    .displayGrade {
+        width: 90px;
+        display: flex;
+        justify-content: center;
     }
-    .displayClasses {
-        width:100px
-    
     }
+    
 </style>
 
 <div class="main-panel-div1">
@@ -109,8 +109,7 @@
                     <th class="displayEmail">Email</th>
                     <th class="displayPhone">Phone</th>
                     <th class=" displaySubject">Subject</th>
-                    <th class="displayHomeroom">Homeroom</th>
-                    <th class="displayClasses">Classes</th>
+                    <th class="displayGrade">Grade</th>
                     <th>Actions</th>
 
                 </tr>
@@ -124,8 +123,7 @@
                         <td class="displayEmail">@staff.Email</td>
                         <td class="displayPhone">@staff.Phone</td>
                         <td class="displaySubject">-</td>
-                        <td class="displayHomeroom">-</td>
-                        <td class="displayClasses">-</td>
+                        <td class="displayGrade">-</td>
                         <td>
                             <button class="pencil-alt-button">
                                 <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
@@ -146,8 +144,7 @@
                             <td class="displayEmail">@teacher.Email</td>
                             <td class="displayPhone">@teacher.Phone</td>
                             <td class="displaySubject">@teacher.Subject</td>                                                                
-                            <td class="displayHomeroom">@teacher.Grade</td>
-                            <td class="displayClasses">-</td>
+                            <td class="displayGrade">@teacher.Grade</td>
 
                             <td>
                                 <button class="pencil-alt-button">
