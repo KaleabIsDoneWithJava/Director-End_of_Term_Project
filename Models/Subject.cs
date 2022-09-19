@@ -13,7 +13,6 @@ namespace Director.Models
         {
             Assessments = new HashSet<Assessment>();
             SubjectForGrades = new HashSet<SubjectForGrade>();
-            Teachers = new HashSet<Teacher>();
         }
 
         public int Id { get; set; }
@@ -21,6 +20,5 @@ namespace Director.Models
 
         public virtual ICollection<Assessment> Assessments { get; set; }
         public virtual ICollection<SubjectForGrade> SubjectForGrades { get; set; }
-        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

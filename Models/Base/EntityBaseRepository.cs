@@ -61,23 +61,20 @@ namespace Director.Models.Base
         public List<Teacher> AddSubjectTaught(List<Teacher> teachers)
         {
             var ts = new List<Teacher>();
-            /*using (_context)
-            {
+            
                 ts = (from t in _context.Teachers 
                       join sg in _context.SubjectForGrades
-                      on t.SubjectId equals sg.Id
+                      on t.SubjectForGradeId equals sg.Id
                       join s in _context.Subjects
                       on sg.SubjectId equals s.Id
+                      join g in _context.Grades
+                      on sg.GradeId equals g.Id
                       select t).ToList(); 
-            }*/
+            
 
             
             
-                ts = _context.Teachers.Join(_context.Subjects,
-                    t => t.SubjectId,
-                    s => s.Id,
-                    (t, s) => t).ToList();
-            
+                    
 
 
             /*var subjectForGrades;

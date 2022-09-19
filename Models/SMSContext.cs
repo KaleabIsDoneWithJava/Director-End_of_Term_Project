@@ -31,7 +31,7 @@ namespace Director.Models
         public virtual DbSet<SubjectForGrade> SubjectForGrades { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
 
-      /*  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -48,8 +48,6 @@ namespace Director.Models
             {
                 entity.ToTable("Announcement");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Detail)
                     .IsRequired()
                     .HasMaxLength(250)
@@ -64,14 +62,12 @@ namespace Director.Models
                     .WithMany(p => p.Announcements)
                     .HasForeignKey(d => d.OfficeStaffId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Announcem__Offic__30F848ED");
+                    .HasConstraintName("FK__Announcem__Offic__34C8D9D1");
             });
 
             modelBuilder.Entity<Appointment>(entity =>
             {
                 entity.ToTable("Appointment");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.AppointmentDate).HasColumnType("date");
 
@@ -97,8 +93,6 @@ namespace Director.Models
             {
                 entity.ToTable("Assessment");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(100)
@@ -120,8 +114,6 @@ namespace Director.Models
             modelBuilder.Entity<AttendanceMissed>(entity =>
             {
                 entity.ToTable("AttendanceMissed");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Date).HasColumnType("date");
 
@@ -146,8 +138,6 @@ namespace Director.Models
             {
                 entity.ToTable("Class");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Grade)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.GradeId)
@@ -170,15 +160,11 @@ namespace Director.Models
             modelBuilder.Entity<Grade>(entity =>
             {
                 entity.ToTable("Grade");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<OfficeStaff>(entity =>
             {
                 entity.ToTable("OfficeStaff");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
@@ -217,8 +203,6 @@ namespace Director.Models
             {
                 entity.ToTable("Parent");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
                 entity.Property(e => e.Email)
@@ -256,8 +240,6 @@ namespace Director.Models
             {
                 entity.ToTable("Section");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Value)
                     .IsRequired()
                     .HasMaxLength(6)
@@ -267,8 +249,6 @@ namespace Director.Models
             modelBuilder.Entity<Student>(entity =>
             {
                 entity.ToTable("Student");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
@@ -319,8 +299,6 @@ namespace Director.Models
             {
                 entity.ToTable("Subject");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(100)
@@ -331,26 +309,22 @@ namespace Director.Models
             {
                 entity.ToTable("SubjectForGrade");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Grade)
                     .WithMany(p => p.SubjectForGrades)
                     .HasForeignKey(d => d.GradeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__SubjectFo__Grade__34C8D9D1");
+                    .HasConstraintName("FK__SubjectFo__Grade__2D27B809");
 
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.SubjectForGrades)
                     .HasForeignKey(d => d.SubjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__SubjectFo__Subje__33D4B598");
+                    .HasConstraintName("FK__SubjectFo__Subje__2C3393D0");
             });
 
             modelBuilder.Entity<Teacher>(entity =>
             {
                 entity.ToTable("Teacher");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
@@ -384,11 +358,11 @@ namespace Director.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Subject)
+                entity.HasOne(d => d.SubjectForGrade)
                     .WithMany(p => p.Teachers)
-                    .HasForeignKey(d => d.SubjectId)
+                    .HasForeignKey(d => d.SubjectForGradeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Teacher__Subject__2C3393D0");
+                    .HasConstraintName("FK__Teacher__Subject__300424B4");
             });
 
             OnModelCreatingPartial(modelBuilder);
