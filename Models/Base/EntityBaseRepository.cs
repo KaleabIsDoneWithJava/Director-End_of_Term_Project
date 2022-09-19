@@ -69,12 +69,7 @@ namespace Director.Models.Base
                       on sg.SubjectId equals s.Id
                       join g in _context.Grades
                       on sg.GradeId equals g.Id
-                      select t).ToList(); 
-            
-
-            
-            
-                    
+                      select t).ToList();           
 
 
             /*var subjectForGrades;
