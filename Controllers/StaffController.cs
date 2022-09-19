@@ -52,8 +52,9 @@ namespace Director.Controllers
             // myStaff.Notifications = await _notificationService.GetListByIdAsync(staffId);
 
             myStaff.OfficeStaff = await _officestaffService.GetAllAsync();
-            myStaff.Teacher = await _teacherService.GetAllAsync();
-            myStaff.Teacher = _teacherService.AddSubjectTaught(myStaff.Teacher);
+
+            //myStaff.Teacher = await _teacherService.GetAllAsync();
+            myStaff.Teacher =  _teacherService.GetAllTeacherDetail();
 
             myStaff.Classes = await _classService.GetAllAsync();
             

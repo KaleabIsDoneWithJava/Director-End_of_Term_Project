@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 namespace Director.Models.Base
 {
     public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class, IEntityBase, new()
@@ -57,22 +56,6 @@ namespace Director.Models.Base
 
         }
 
-        //Returns the subject that the teacher teaches
-        public List<Teacher> AddSubjectTaught(List<Teacher> teachers)
-        {
-            var ts = new List<Teacher>();
-            
-                ts = (from t in _context.Teachers 
-                      join sg in _context.SubjectForGrades
-                      on t.SubjectForGradeId equals sg.Id
-                      join s in _context.Subjects
-                      on sg.SubjectId equals s.Id
-                      join g in _context.Grades
-                      on sg.GradeId equals g.Id
-                      select t).ToList();   
-
-            return ts;
-        }
 
 
 

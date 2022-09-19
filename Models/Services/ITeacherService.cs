@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace Director.Models.Services
 {
     public interface ITeacherService : IEntityBaseRepository<Teacher>
     {
+        IEnumerable GetAllTeacherDetail()
+;
 
     }
 }

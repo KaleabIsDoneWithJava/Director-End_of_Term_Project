@@ -117,7 +117,6 @@
                 <tbody class="displayTableBody">
                     @foreach (var staff in Model.OfficeStaff)
                     {
-                        found = false;
 
                     <tr>
                         <td class="displayName">@staff.FirstName @staff.FathersName</td>
@@ -140,15 +139,14 @@
                     }
                     @foreach (var teacher in Model.Teacher)
                     {
-                        found = false;
-
+                        
                         <tr>
                             <td class="displayName">@teacher.FirstName @teacher.FathersName</td>
                             <td class="displayStaffType">Teacher</td>
                             <td class="displayEmail">@teacher.Email</td>
                             <td class="displayPhone">@teacher.Phone</td>
-                            <td class="displaySubject">-</td>                                                                
-                            <td class="displayHomeroom">-</td>
+                            <td class="displaySubject">@teacher.Subject</td>                                                                
+                            <td class="displayHomeroom">@teacher.Grade</td>
                             <td class="displayClasses">-</td>
 
                             <td>
