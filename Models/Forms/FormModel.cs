@@ -26,7 +26,7 @@ namespace Director.Models.Forms
         [DisplayName("Staff Type")]
         public string Role { get; set; }
         [DisplayName("Date of Birth")]
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         [DisplayName("Gender")]
         public string Gender { get; set; }
         [DisplayName("Email")]
@@ -46,7 +46,7 @@ namespace Director.Models.Forms
         public bool IsEmpty()
         {
             if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FatherName) || String.IsNullOrEmpty(GrandFatherName)
-                || String.IsNullOrEmpty(Role) || !DateOfBirth.HasValue || String.IsNullOrEmpty(Gender)
+                || String.IsNullOrEmpty(Role) || String.IsNullOrEmpty(Gender)
                 || String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Phone)) 
             { return true; }
             return false;

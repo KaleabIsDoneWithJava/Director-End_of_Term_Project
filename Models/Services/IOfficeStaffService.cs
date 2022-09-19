@@ -6,7 +6,7 @@ using Director.Models.Base;
 
 namespace Director.Models.Services
 {
-    public interface IStaffService : IEntityBaseRepository<Staff>
+    public interface IOfficeStaffService : IEntityBaseRepository<OfficeStaff>
     {
 
     }

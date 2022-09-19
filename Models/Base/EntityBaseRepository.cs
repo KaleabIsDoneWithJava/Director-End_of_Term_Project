@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 namespace Director.Models.Base
 {
     public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class, IEntityBase, new()
@@ -31,6 +30,7 @@ namespace Director.Models.Base
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             var result = await _context.Set<T>().ToListAsync();
+
             return result;
         }
 
@@ -56,7 +56,9 @@ namespace Director.Models.Base
 
         }
 
-        
+
+
+
 
 
     }

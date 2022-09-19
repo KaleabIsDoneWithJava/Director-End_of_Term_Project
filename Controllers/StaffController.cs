@@ -9,14 +9,17 @@ using System.Collections;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Director.Models.Forms;
+using Director.Models.Functions;
 
 namespace Director.Controllers
 {
     public class StaffController : Controller
     {
-        private readonly IStaffService _staffService;
+        private readonly IOfficeStaffService _officestaffService;
+        private readonly ITeacherService _teacherService;
+
         private readonly IAppointmentService _appointmentService;
-        private readonly INotificationService _notificationService;
+        //private readonly INotificationService _notificationService;
         private readonly ISubjectService _subjectService;
         private readonly IClassService _classService;
         //private readonly SMSContext _context;
@@ -30,13 +33,13 @@ namespace Director.Controllers
         }*/
         
         
-        public StaffController(IStaffService ss, IAppointmentService ass, INotificationService ns, ISubjectService sss, IClassService cs)
+        public StaffController(IOfficeStaffService ss, IAppointmentService ass, ISubjectService sss, IClassService cs, ITeacherService ts)
         {
-            _staffService = ss;
+            _officestaffService = ss;
             _appointmentService = ass;
-            _notificationService = ns;
             _subjectService = sss;
             _classService = cs;
+            _teacherService = ts;
         }
         
         //Appointments, Notifications, & Staff lists are on the My Staff page
@@ -48,10 +51,14 @@ namespace Director.Controllers
             //myStaff.Appointments = await _appointmentService.GetListByIdAsync(staffId);
             // myStaff.Notifications = await _notificationService.GetListByIdAsync(staffId);
 
-            myStaff.Staffs = await _staffService.GetAllAsync();
-            myStaff.Subjects = await _subjectService.GetAllAsync();
-            myStaff.Classes = await _classService.GetAllAsync();
+            myStaff.OfficeStaff = await _officestaffService.GetAllAsync();
 
+            //myStaff.Teacher = await _teacherService.GetAllAsync();
+            myStaff.Teacher =  _teacherService.GetAllTeacherDetail();
+
+            myStaff.Classes = await _classService.GetAllAsync();
+            
+                
             return View(myStaff);
 
         }
@@ -87,9 +94,9 @@ namespace Director.Controllers
 
 
 
-        /*
+        
         // GET: StaffController
-        public async Task<ActionResult> IndexAsync() //the details page
+       /* public async Task<ActionResult> IndexAsync() //the details page
         {
             var data = await _staffService.GetAllAsync();
             return View(data);
@@ -97,9 +104,6 @@ namespace Director.Controllers
         */
         public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
-            //need to access class, subject, and the class tables
-           
-
             if (!ModelState.IsValid)
             {
                 return View();
@@ -108,73 +112,24 @@ namespace Director.Controllers
             {
                 if (!model.IsEmpty())
                 {
-                    await _staffService.AddAsync(addOfficeStaff(model));
+                    AddStaff addstaff = new ();
+
+                    if(model.Role == "Teacher") 
+                    {
+                        await _teacherService.AddAsync(addstaff.PassToTeacherOrOfficeStaff(model));
+
+                    }
+                    else //model.Role == "OfficeStaff"
+                    {
+                        await _officestaffService.AddAsync(addstaff.PassToTeacherOrOfficeStaff(model));
+                    }
 
                 }
 
             }
-            //await _subjectService.AddAsync(staff);
-            //await _classService.AddAsync(classesTaught);
-
             return View(model);               
-                //RedirectToAction(nameof(IndexAsync))
         }
-
-        public Staff addOfficeStaff(FormModel model)
-        {
-            Staff staff = new ();
-                        
-            if (model.Role == "Teacher")
-            {
-
-               // staff.ClassHomeroom.Grade = model.;
-               // staff.ClassHomeroom.Section = model.Section;
-                staff.Subjects.Add(createSubjectWithSubjectName(model));
-                staff.ClassStaffs = ArrayToICollection(model);
-                staff.FirstName = model.FirstName;
-                staff.FatherName = model.FatherName;
-                staff.GrandFatherName = model.Role;
-                staff.Role = model.Role;
-                staff.DateOfBirth = model.DateOfBirth;
-                staff.Gender = model.Gender;
-                staff.Email = model.Email;
-                staff.Phone = model.Phone;
-
-            }
-            else//model.Role == "Office Staff"
-            {
-                staff.FirstName = model.FirstName;
-                staff.FatherName = model.FatherName;
-                staff.GrandFatherName = model.Role;
-                staff.Role = model.Role;
-                staff.DateOfBirth = model.DateOfBirth;
-                staff.Gender = model.Gender;
-                staff.Email = model.Email;
-                staff.Phone = model.Phone;
-            }
-
-            return staff;
-        }
-
-        public ICollection<Class> ArrayToICollection(FormModel model)
-        {
-            ICollection<Class> classStaffs = null;
-            foreach(var section in model.SectionsTaught)
-            {
-                if (section == null) { continue; }
-                classStaffs.Add(new Class(model.Grade, section));
-                
-            }
-            return classStaffs;
-        }
-
-        public Subject createSubjectWithSubjectName(FormModel model)
-        {
-            Subject subjectTaught = new Subject(model.SubjectName);
-            return subjectTaught;
-        }
-
-
+              
         // GET: StaffController/Details/5
         public ActionResult Details(int id)
         {

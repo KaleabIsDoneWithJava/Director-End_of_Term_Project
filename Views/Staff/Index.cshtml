@@ -45,25 +45,25 @@
         width:230px;
     }
     .displayName{
-        width:130px;
+        width:160px;
     }
     .displayPhone{
         width:135px;
     }
     .displayStaffType{
-        width:70px;
+        width:140px;
     }
     .displaySubject {
         width:90px;
     }
-    
-    .displayHomeroom{
-        width:90px;
+
+    .displayGrade {
+        width: 90px;
+        display: flex;
+        justify-content: center;
     }
-    .displayClasses {
-        width:100px
-    
     }
+    
 </style>
 
 <div class="main-panel-div1">
@@ -109,68 +109,42 @@
                     <th class="displayEmail">Email</th>
                     <th class="displayPhone">Phone</th>
                     <th class=" displaySubject">Subject</th>
-                    <th class="displayHomeroom">Homeroom</th>
-                    <th class="displayClasses">Classes</th>
+                    <th class="displayGrade">Grade</th>
                     <th>Actions</th>
 
                 </tr>
                 <tbody class="displayTableBody">
-                    @foreach (var staff in Model.Staffs)
-                     {
-                        found = false;
+                    @foreach (var staff in Model.OfficeStaff)
+                    {
 
-                         <tr>
-                            <td class="displayName">@staff.FirstName @staff.FatherName</td>
-                            <td class="displayStaffType">@staff.Role</td>
-                            <td class="displayEmail">@staff.Email</td>
-                            <td class="displayPhone">@staff.Phone</td>
-
-                            @foreach (var subject in Model.Subjects)
-                            {
-
-                                if (staff.Id == subject.StaffId)
-                                {
-                                    <td class="displaySubject">
-                                        @subject.SubjectName
-                                    </td>found = true;
-                                }
-                            }
-                            @if (found == false)
-                            {
-                                <td class="displaySubject">-</td>
-                            }
-
-                            @foreach (var c in Model.Classes)
-                            {
-
-                                if (staff.Id == c.HomeroomId)
-                                {
-                                    <td class="displayHomeroom">
-                                        @c.Grade@c.Section
-                                    </td>                        
-                                    found = true;
-                                }
-                            }
-                            @if (found == false)
-                            {
-                                <td class="displayHomeroom">-</td>
-                            }
-
-                            @foreach (var classesTaught in Model.Classes)
-                            {
-
-                                if (staff.Id == classesTaught.StaffId)
-                                {
-                                    <td class="displayClasses">
-                                        @classesTaught.Grade@classesTaught.Section
-                                    </td>
-                                    found = true;
-                                }
-                            }
-                            @if (found == false)
-                            {
-                                <td class="displayClasses">-</td>
-                            }
+                    <tr>
+                        <td class="displayName">@staff.FirstName @staff.FathersName</td>
+                        <td class="displayStaffType">Office Staff</td>
+                        <td class="displayEmail">@staff.Email</td>
+                        <td class="displayPhone">@staff.Phone</td>
+                        <td class="displaySubject">-</td>
+                        <td class="displayGrade">-</td>
+                        <td>
+                            <button class="pencil-alt-button">
+                                <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                            </button>
+                            <div class="classes-div">|</div>
+                            <button class="pencil-alt-button">
+                                <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                    @foreach (var teacher in Model.Teacher)
+                    {
+                        
+                        <tr>
+                            <td class="displayName">@teacher.FirstName @teacher.FathersName</td>
+                            <td class="displayStaffType">Teacher</td>
+                            <td class="displayEmail">@teacher.Email</td>
+                            <td class="displayPhone">@teacher.Phone</td>
+                            <td class="displaySubject">@teacher.Subject</td>                                                                
+                            <td class="displayGrade">@teacher.Grade</td>
 
                             <td>
                                 <button class="pencil-alt-button">
@@ -182,7 +156,7 @@
                                 </button>
                             </td>
                         </tr>
-                     }
+                    }
                 </tbody>
             </table>
         </div>

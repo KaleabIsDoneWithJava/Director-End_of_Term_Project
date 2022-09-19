@@ -7,18 +7,18 @@ using Director.Models.Base;
 
 namespace Director.Models
 {
-    public partial class Subject:IEntityBase
+    public partial class Grade:IEntityBase
     {
-        public Subject()
+        public Grade()
         {
-            Assessments = new HashSet<Assessment>();
+            Classes = new HashSet<Class>();
             SubjectForGrades = new HashSet<SubjectForGrade>();
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int Value { get; set; }
 
-        public virtual ICollection<Assessment> Assessments { get; set; }
+        public virtual ICollection<Class> Classes { get; set; }
         public virtual ICollection<SubjectForGrade> SubjectForGrades { get; set; }
     }
 }

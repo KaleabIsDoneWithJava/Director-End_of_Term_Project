@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Director.Models.Services
 {
-    public class StaffService : EntityBaseRepository<Staff>, IStaffService
+    public class OfficeStaffService : EntityBaseRepository<OfficeStaff>, IOfficeStaffService
     {
         private readonly SMSContext _context;
-        public StaffService(SMSContext context) : base(context)
+        public OfficeStaffService(SMSContext context) : base(context)
         {
             _context = context;
 
