@@ -1,4 +1,5 @@
 ﻿using Director.Models.Base;
+using Director.Models.Forms;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
@@ -33,8 +34,6 @@ namespace Director.Models.Services
         //Returns the joined data from the db as a temp object
         public IEnumerable GetAllTeacherDetail()
         {
-
-
             var result = (from t in _context.Teachers
                           join sg in _context.SubjectForGrades
                           on t.SubjectForGradeId equals sg.Id
@@ -56,6 +55,8 @@ namespace Director.Models.Services
                           }).ToList();          
             return result;
         }
+
+        
 
 
 

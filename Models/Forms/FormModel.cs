@@ -35,7 +35,7 @@ namespace Director.Models.Forms
         public string Phone { get; set; }
         [DisplayName("Subject")]
         //Exclusively Teacher's fields
-        public string SubjectName { get; set; }
+        public int Subject { get; set; }
         [DisplayName("Grade")]
         public short Grade { get; set; }
         [DisplayName("Homeroom")]
