@@ -52,13 +52,14 @@ namespace Director.Controllers
             // myStaff.Notifications = await _notificationService.GetListByIdAsync(staffId);
 
             myStaff.OfficeStaff = await _officestaffService.GetAllAsync();
+            myStaff.Teacher = _teacherService.GetAllTeacherDetail();
+
 
             //myStaff.Teacher = await _teacherService.GetAllAsync();
-            myStaff.Teacher =  _teacherService.GetAllTeacherDetail();
 
-            myStaff.Classes = await _classService.GetAllAsync();
-            
-                
+            //myStaff.Classes = await _classService.GetAllAsync();
+
+
             return View(myStaff);
 
         }
@@ -112,16 +113,19 @@ namespace Director.Controllers
             {
                 if (!model.IsEmpty())
                 {
-                    AddStaff addstaff = new ();
 
-                    if(model.Role == "Teacher") 
+                    if(model.Role == "Teacher")
                     {
-                        await _teacherService.AddAsync(addstaff.PassToTeacherOrOfficeStaff(model));
+                        AddStaff addTeacher = new();
+
+                        await _teacherService.AddAsync(addTeacher.PassTeacher(model));
 
                     }
                     else //model.Role == "OfficeStaff"
                     {
-                        await _officestaffService.AddAsync(addstaff.PassToTeacherOrOfficeStaff(model));
+                        AddStaff addOfficeStaff = new();
+
+                        await _officestaffService.AddAsync(addOfficeStaff.PassOfficeStaff(model));
                     }
 
                 }

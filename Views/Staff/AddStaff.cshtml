@@ -110,13 +110,23 @@
                         </div>
                     </div>
                     <div class="name-label-input">
-                        <div class="subject-div"><label asp-for="SubjectName"></label></div>
+                        <div class="subject-div"><label asp-for="Subject"></label></div>
                         <select id="dropdown-default-basic5" class="dropdown-default-basic5" disabled
-                                asp-for="SubjectName">
+                                asp-for="Subject">
 
-                            <option value="English">English</option>
-                            <option value="Mathematics">Mathematics</option>
-                            <option value="Civics">Civics</option>
+                            <option value="1">English</option>
+                            <option value="2">Mathematics</option>
+                            <option value="3">Biology</option>
+                            <option value="4">Physics</option>
+                            <option value="5">Chemistry</option>
+                            <option value="6">Amharic</option>
+                            <option value="7">History</option>
+                            <option value="8">Geography</option>
+                            <option value="11">Economics</option>
+                            <option value="12">Business</option>
+                            <option value="13">IT</option>
+                            <option value="14">HPE</option>
+                            <option value="15">Civics</option>
 
                         </select>
                     </div>
@@ -128,17 +138,16 @@
                                type="text"
                                defaultvalue="Name"
                                placeholder="Enter Grandfather's Name Here..."
-                               asp-for="GrandFatherName"
-                               />
+                               asp-for="GrandFatherName" />
                     </div>
                     <div class="name-label-input">
                         <div class="date-of-birth"><label asp-for="Phone"></label></div>
                         <input class="input-field-default-withou1"
                                type="tel"
                                placeholder="Enter Phone Number Here..."
-                               asp-for="Phone"
-                               />
+                               asp-for="Phone" />
                     </div>
+                    <!-- // Needed when more than one teacher is teacher a single subject in a grade
                     <div class="grade-section-label-inpu">
                         <div class="sections-label-checkbox-gr">
                             <div class="sections-div">Sections</div>
@@ -151,8 +160,7 @@
                                                defaultchecked="{false}"
                                                disabled
                                                value="A"
-                                               asp-for="SectionsTaught[0]"
-                                               />
+                                               asp-for="SectionsTaught[0]" />
                                         <label class="a-label">A</label>
                                     </div>
                                     <div class="checkbox-section-a">
@@ -162,8 +170,7 @@
                                                defaultchecked="{false}"
                                                disabled
                                                value="B"
-                                               asp-for="SectionsTaught[1]"
-                                               /><label class="a-label">B</label>
+                                               asp-for="SectionsTaught[1]" /><label class="a-label">B</label>
                                     </div>
                                     <div class="checkbox-section-a">
                                         <input id="checkbox-selected3"
@@ -172,8 +179,7 @@
                                                defaultchecked="{false}"
                                                disabled
                                                value="C"
-                                               asp-for="SectionsTaught[2]"
-                                               /><label class="a-label">C</label>
+                                               asp-for="SectionsTaught[2]" /><label class="a-label">C</label>
                                     </div>
                                 </div>
                                 <div class="email-label-input1">
@@ -184,8 +190,7 @@
                                                defaultchecked="{false}"
                                                disabled
                                                value="D"
-                                               asp-for="SectionsTaught[3]"
-                                               /><label class="d-label">D</label>
+                                               asp-for="SectionsTaught[3]" /><label class="d-label">D</label>
                                     </div>
                                     <div class="checkbox-section-a">
                                         <input id="checkbox-selected5"
@@ -195,7 +200,7 @@
                                                disabled
                                                value="E"
                                                asp-for="SectionsTaught[4]"
-                                               name="ClassesTaught[4]"/><label class="a-label">E</label>
+                                               name="ClassesTaught[4]" /><label class="a-label">E</label>
                                     </div>
                                     <div class="checkbox-section-a">
                                         <input id="checkbox-selected6"
@@ -205,13 +210,14 @@
                                                disabled
                                                value="F"
                                                asp-for="SectionsTaught[5]"
-                                               name="ClassesTaught[5]"
-                                               /><label class="a-label">F</label>
+                                               name="ClassesTaught[5]" /><label class="a-label">F</label>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>

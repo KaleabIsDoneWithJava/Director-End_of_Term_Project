@@ -12,7 +12,7 @@ namespace Director.Models.Functions
 {
     public class AddStaff
     {
-        private readonly ITeacherService _teacherService;
+        //private readonly ITeacherService _teacherService;
         
         
         public ICollection<Class> ArrayToICollection(FormModel model)
@@ -27,48 +27,50 @@ namespace Director.Models.Functions
             }
             return classStaffs;
         }
-        public dynamic PassToTeacherOrOfficeStaff (FormModel model)
+
+        public Teacher PassTeacher(FormModel model)
         {
-            dynamic staff = new ExpandoObject();
-
-            if (model.Role == "Teacher")
+            Teacher staff = new Teacher
             {
-                Subject sub = new();
-                sub.Name = model.SubjectName;
+                //object members must be initialized like this, otherwise they're will throw a null instance exception
+                SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject }
+            };
 
-                staff.ClassHomeroom.Grade = model.Grade;
-                staff.ClassHomeroom.Section = model.Section;
+            staff.FirstName = model.FirstName;
+            staff.FathersName = model.FatherName;
+            staff.GrandFathersName = model.GrandFatherName;
+            staff.DateOfBirth = model.DateOfBirth;
+            staff.Gender = model.Gender;
+            staff.Email = model.Email;
+            staff.Phone = model.Phone;
 
-                staff.Subject = sub;
-                
-                staff.ClassStaffs = ArrayToICollection(model);
-                staff.FirstName = model.FirstName;
-                staff.FatherName = model.FatherName;
-                staff.GrandFatherName = model.GrandFatherName;
-                staff.Role = model.Role;
-                staff.DateOfBirth = model.DateOfBirth;
-                staff.Gender = model.Gender;
-                staff.Email = model.Email;
-                staff.Phone = model.Phone;
 
-            }
-            else//model.Role == "Office Staff"
-            {
-                staff.FirstName = model.FirstName;
-                staff.FatherName = model.FatherName;
-                staff.GrandFatherName = model.Role;
-                staff.Role = model.Role;
-                staff.DateOfBirth = model.DateOfBirth;
-                staff.Gender = model.Gender;
-                staff.Email = model.Email;
-                staff.Phone = model.Phone;
-            }
+            //staff.SubjectForGrade.GradeId = model.Grade;
+            //staff.SubjectForGrade.Subject.Id = model.Subject;
+
+            //staff.ClassStaffs = ArrayToICollection(model);
 
             return staff;
         }
-       
-       
-        
+
+
+    public OfficeStaff PassOfficeStaff(FormModel model) 
+        {
+            OfficeStaff staff = new();
+
+            staff.FirstName = model.FirstName;
+            staff.FathersName = model.FatherName;
+            staff.GrandFathersName = model.Role;
+            staff.DateOfBirth = model.DateOfBirth;
+            staff.Gender = model.Gender;
+            staff.Email = model.Email;
+            staff.Phone = model.Phone;
+            
+        return staff;          
+        }
+
+
+
 
 
     }

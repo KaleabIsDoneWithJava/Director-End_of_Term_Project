@@ -7,6 +7,7 @@ namespace Director.Models.Base
 {
    public interface IEntityBaseRepository<T> where T:class, IEntityBase, new()
     {
+        //Implements functions in EntityBaseRepository
         //Task<IEnumerable<T>> GetListByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
