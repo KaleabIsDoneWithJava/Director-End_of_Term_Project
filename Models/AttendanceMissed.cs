@@ -7,15 +7,14 @@ using Director.Models.Base;
 
 namespace Director.Models
 {
-    public partial class Appointment:IEntityBase
+    public partial class AttendanceMissed:IEntityBase
     {
         public int Id { get; set; }
-        public DateTime AppointmentDate { get; set; }
-        public string Detail { get; set; }
-        public int OfficeStaffId { get; set; }
+        public string Period { get; set; }
+        public string SubjectName { get; set; }
+        public DateTime Date { get; set; }
         public int StudentId { get; set; }
 
-        public virtual OfficeStaff OfficeStaff { get; set; }
         public virtual Student Student { get; set; }
     }
 }

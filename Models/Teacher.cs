@@ -7,11 +7,11 @@ using Director.Models.Base;
 
 namespace Director.Models
 {
-    public partial class Parent:IEntityBase
+    public partial class Teacher:IEntityBase
     {
-        public Parent()
+        public Teacher()
         {
-            Students = new HashSet<Student>();
+            Classes = new HashSet<Class>();
         }
 
         public int Id { get; set; }
@@ -22,7 +22,9 @@ namespace Director.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public int SubjectForGradeId { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual SubjectForGrade SubjectForGrade { get; set; }
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }

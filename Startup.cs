@@ -28,13 +28,13 @@ namespace Director
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IStaffService, StaffService>();
+            services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IOfficeStaffService, OfficeStaffService>();
+
             services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddScoped<IAnnouncementService, AnnouncementService>();
             services.AddScoped<IAssessmentService, AssessmentService>();
             services.AddScoped<IClassService, ClassService>();
-
-            services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<IParentService, ParentService>();
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ISubjectService, SubjectService>();

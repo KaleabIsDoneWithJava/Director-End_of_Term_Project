@@ -4,14 +4,16 @@ using Director.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Director.Migrations
 {
     [DbContext(typeof(SMSContext))]
-    partial class SMSContextModelSnapshot : ModelSnapshot
+    [Migration("20220916124211_removed the staff table again")]
+    partial class removedthestafftableagain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
