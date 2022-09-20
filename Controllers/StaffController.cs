@@ -19,10 +19,8 @@ namespace Director.Controllers
         private readonly ITeacherService _teacherService;
 
         private readonly IAppointmentService _appointmentService;
-        //private readonly INotificationService _notificationService;
         private readonly ISubjectService _subjectService;
         private readonly IClassService _classService;
-        //private readonly SMSContext _context;
 
 
 
@@ -119,12 +117,8 @@ namespace Director.Controllers
                         AddStaff addTeacher = new();
 
                         await _teacherService.AddAsync(addTeacher.PassTeacher(model));
-            //await _subjectService.AddAsync(staff);
-            //await _classService.AddAsync(classesTaught);
-            //await _subjectService.AddAsync(staff);
-            //await _classService.AddAsync(classesTaught);
-            //await _subjectService.AddAsync(staff);
-            //await _classService.AddAsync(classesTaught);
+                        //await _subjectService.AddAsync(staff);
+                        //await _classService.AddAsync(classesTaught);
 
                     }
                     else //model.Role == "OfficeStaff"
