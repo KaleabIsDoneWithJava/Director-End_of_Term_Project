@@ -12,9 +12,9 @@ namespace Director.Models.Functions
 {
     public class AddStaff
     {
-        //private readonly ITeacherService _teacherService;
         
-        
+        //Might use if there is more than one teacher teaching a single subject in a single grade,
+        //otherwise there is no need. Plus I'm pretty sure that it isn't correct.
         public ICollection<Class> ArrayToICollection(FormModel model)
         {
             
@@ -22,17 +22,17 @@ namespace Director.Models.Functions
             foreach (var section in model.SectionsTaught)
             {
                 if (section == null) { continue; }
-                // classStaffs.Add(new Class(model.Grade, section));
 
             }
             return classStaffs;
         }
 
+        //passing the teacher detail from the form model class to the teacher model class/entity
         public Teacher PassTeacher(FormModel model)
         {
             Teacher staff = new Teacher
             {
-                //object members must be initialized like this, otherwise they're will throw a null instance exception
+                //object members must be initialized like this, otherwise they're will throw a null instance exception.
                 SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject }
             };
 
@@ -44,17 +44,11 @@ namespace Director.Models.Functions
             staff.Email = model.Email;
             staff.Phone = model.Phone;
 
-
-            //staff.SubjectForGrade.GradeId = model.Grade;
-            //staff.SubjectForGrade.Subject.Id = model.Subject;
-
-            //staff.ClassStaffs = ArrayToICollection(model);
-
             return staff;
         }
 
-
-    public OfficeStaff PassOfficeStaff(FormModel model) 
+        //passing the office staff detail from the form model class to the OfficeStaff model class/entity.
+        public OfficeStaff PassOfficeStaff(FormModel model) 
         {
             OfficeStaff staff = new();
 

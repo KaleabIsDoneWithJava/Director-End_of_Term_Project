@@ -8,7 +8,7 @@ namespace Director.Models.Functions
 {
     public class AddStudent
     {
-        public dynamic Student(StudentFormModel model)
+        public Student Student(StudentFormModel model)
         {
             Student student = new();
             
