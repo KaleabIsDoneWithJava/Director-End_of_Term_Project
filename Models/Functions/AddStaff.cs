@@ -30,23 +30,45 @@ namespace Director.Models.Functions
         //passing the teacher detail from the form model class to the teacher model class/entity
         public Teacher PassTeacher(FormModel model)
         {
-            Teacher staff = new Teacher
+            //If there Homeroom class isn't set
+            if (model.Section != 0) 
             {
-                //object members must be initialized like this, otherwise they're will throw a null instance exception.
-                SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject },
-                Classes = new List<Class> { new Class { GradeId = model.Grade, SectionId = model.Section } }
+                Teacher staff = new Teacher
+                {
+                    //object members must be initialized like this, otherwise they're will throw a null instance exception.
+                    SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject }
+                };
 
-            };
-
-            staff.FirstName = model.FirstName;
-            staff.FathersName = model.FatherName;
-            staff.GrandFathersName = model.GrandFatherName;
-            staff.DateOfBirth = model.DateOfBirth;
-            staff.Gender = model.Gender;
-            staff.Email = model.Email;
-            staff.Phone = model.Phone;
-
+                staff.FirstName = model.FirstName;
+                staff.FathersName = model.FatherName;
+                staff.GrandFathersName = model.GrandFatherName;
+                staff.DateOfBirth = model.DateOfBirth;
+                staff.Gender = model.Gender;
+                staff.Email = model.Email;
+                staff.Phone = model.Phone;
             return staff;
+            }
+            else
+            {
+                Teacher staff = new Teacher
+                {
+                    //object members must be initialized like this, otherwise they're will throw a null instance exception.
+                    Classes = new List<Class> { new Class { GradeId = model.Grade, SectionId = model.Section } },
+                    SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject }
+                };
+
+                staff.FirstName = model.FirstName;
+                staff.FathersName = model.FatherName;
+                staff.GrandFathersName = model.GrandFatherName;
+                staff.DateOfBirth = model.DateOfBirth;
+                staff.Gender = model.Gender;
+                staff.Email = model.Email;
+                staff.Phone = model.Phone;
+                return staff;
+            }
+
+
+
         }
 
         //passing the office staff detail from the form model class to the OfficeStaff model class/entity.
