@@ -33,7 +33,8 @@ namespace Director.Models.Functions
             Teacher staff = new Teacher
             {
                 //object members must be initialized like this, otherwise they're will throw a null instance exception.
-                SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject }
+                SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject },
+                Classes = new List<Class> { new Class { GradeId = model.Grade, SectionId = model.Section} }
             };
 
             staff.FirstName = model.FirstName;

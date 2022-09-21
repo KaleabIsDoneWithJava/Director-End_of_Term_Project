@@ -40,7 +40,7 @@ namespace Director.Models.Forms
         [DisplayName("Grade")]
         public short Grade { get; set; }
         [DisplayName("Homeroom")]
-        public string Section { get; set; }
+        public int Section { get; set; }
         
         //public string Homeroom { get { return Grade + Section; } }
         //public string[] SectionsTaught { get; set; }
