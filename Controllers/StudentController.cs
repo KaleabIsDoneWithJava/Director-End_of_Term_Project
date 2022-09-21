@@ -22,7 +22,7 @@ namespace Director.Controllers
         }
 
         // GET: StudentController/Create
-        public ActionResult Create()
+        public ActionResult AddStudent()
         {
             return View();
         }

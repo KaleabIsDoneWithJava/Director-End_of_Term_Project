@@ -1,7 +1,176 @@
 ﻿
 @{
     ViewData["Title"] = "AddStudent";
+    ViewBag.Title = "Add Student";
 }
 
-<h1>AddStudent</h1>
+<div class="main-panel-div5">
+    <b class="add-student-b">ViewBag.Title</b>
+
+    <form class="form-add-student" method="post">
+        <div class="student-details-div">
+            <div class="label-student-details">
+                <b class="student-details-b">Student Details</b>
+            </div>
+            <div class="dashboard-div5">
+                <div class="column-1-add-staff2">
+                    <div class="name-label-input2">
+                        <div class="name-div2">Name</div>
+                        <input class="input-field-default-withou6"
+                               type="text"
+                               defaultvalue="Name"
+                               placeholder="Enter Name Here..." />
+                    </div>
+                    <div class="name-label-input2">
+                        <div class="name-div2">Date of Birth</div>
+                        <input class="input-field-default-withou7"
+                               type="text"
+                               placeholder="DD/MM/YYYY" />
+                    </div>
+                    <div class="gender-staff-type2">
+                        <div class="gender-label-dropdown2">
+                            <div class="staff-type-label-dropdown4">
+                                <div class="gender-div2">Gender</div>
+                                <select class="dropdown-default-basic5" required>
+                                    <option value="Female">F</option>
+                                    <option value="Male">M</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-1-add-staff2">
+                    <div class="name-label-input2">
+                        <div class="name-div2">Father’s Name</div>
+                        <input class="input-field-default-withou6"
+                               type="text"
+                               defaultvalue="Enter Father's Name Here..."
+                               placeholder="Enter Fathers Name" />
+                    </div>
+                    <div class="name-label-input2">
+                        <div class="name-div2">Email</div>
+                        <input class="input-field-default-withou7"
+                               type="email"
+                               defaultvalue="Email"
+                               placeholder="Enter Email Here..." />
+                    </div>
+                    <div class="grade-homeroom-label-dro1">
+                        <div class="staff-type-label-dropdown5">
+                            <div class="section-div">Grade</div>
+                            <select class="dropdown-default-basic6" disabled>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="staff-type-label-dropdown5">
+                            <div class="section-div">Section</div>
+                            <select class="dropdown-default-basic6" disabled>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-3-add-staff1">
+                    <div class="name-label-input2">
+                        <div class="name-div2">Grandfather’s Name</div>
+                        <input class="input-field-default-withou6"
+                               type="text"
+                               defaultvalue="Name"
+                               placeholder="Enter Grandfather's Name Here..." />
+                    </div>
+                    <div class="name-label-input2">
+                        <div class="name-div2">Phone Number</div>
+                        <input class="input-field-default-withou7"
+                               type="tel"
+                               placeholder="Enter Phone Number Here..." />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parent-details-div">
+            <div class="parent-details-div1">
+                <b class="student-details-b">Parent Details</b>
+            </div>
+            <div class="dashboard-div6">
+                <div class="column-1-add-staff2">
+                    <div class="name-label-input2">
+                        <div class="name-div2">Name</div>
+                        <input class="input-field-default-withou6"
+                               type="text"
+                               defaultvalue="Name"
+                               placeholder="Enter Name Here..." />
+                    </div>
+                    <div class="name-label-input2">
+                        <div class="name-div2">Date of Birth</div>
+                        <input class="input-field-default-withou7" type="text" />
+                    </div>
+                    <div class="gender-staff-type2">
+                        <div class="gender-label-dropdown2">
+                            <div class="staff-type-label-dropdown4">
+                                <div class="gender-div2">Gender</div>
+                                <select class="dropdown-default-basic5" required>
+                                    <option value="Female">F</option>
+                                    <option value="Male">M</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-1-add-staff2">
+                    <div class="name-label-input2">
+                        <div class="name-div2">Father’s Name</div>
+                        <input class="input-field-default-withou6"
+                               type="text"
+                               defaultvalue="Enter Father's Name Here..." />
+                    </div>
+                    <div class="name-label-input2">
+                        <div class="name-div2">Email</div>
+                        <input class="input-field-default-withou7"
+                               type="email"
+                               defaultvalue="Email"
+                               placeholder="Enter Email Here..." />
+                    </div>
+                </div>
+                <div class="column-3-add-staff1">
+                    <div class="name-label-input2"
+                         id="Container - GrandfathersName">
+                        <div class="name-div2">Grandfather’s Name</div>
+                        <input class="input-field-default-withou6"
+                               type="text"
+                               defaultvalue="Name"
+                               placeholder="Enter Grandfather's Name Here..." />
+                    </div>
+                    <div class="name-label-input2">
+                        <div class="name-div2">Phone Number</div>
+                        <input class="input-field-default-withou7"
+                               type="tel"
+                               placeholder="Enter Phone Number Here..." />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="buttons-add-clear1">
+        <button class="button-clear">
+            <b class="button-label3">Clear</b>
+        </button><button class="button-done2" autofocus>
+            <b class="button-label4">Done</b>
+        </button>
+    </div>
+</div>
 

@@ -46,6 +46,7 @@ namespace Director.Models.Functions
                 staff.Gender = model.Gender;
                 staff.Email = model.Email;
                 staff.Phone = model.Phone;
+
             return staff;
             }
             else
@@ -64,7 +65,8 @@ namespace Director.Models.Functions
                 staff.Gender = model.Gender;
                 staff.Email = model.Email;
                 staff.Phone = model.Phone;
-                return staff;
+
+            return staff;
             }
 
 
