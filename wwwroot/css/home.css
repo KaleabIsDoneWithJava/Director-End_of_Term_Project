@@ -38,6 +38,68 @@ svg {
     font-family: serif;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: -moz-available;
+    border: 1px solid #ddd;
+}
+
+.displayTableBody {
+    height: 220px;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+th, td {
+    display: flex;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*For the table on Staff/index & AddStaff*/
+tr {
+    display: flex;
+}
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+.displayEmail {
+    width: 230px;
+}
+
+.displayName {
+    width: 160px;
+}
+
+.displayPhone {
+    width: 135px;
+}
+
+.displayStaffType {
+    width: 140px;
+}
+
+.displaySubject {
+    width: 90px;
+}
+
+.displayGrade {
+    width: 90px;
+    display: flex;
+    justify-content: center;
+}
+/*For the table on Staff/index & AddStaff*/
+
+
+    
+
+
 /*To be used along with the custom TagHelper*/
 /*
 section:active {
