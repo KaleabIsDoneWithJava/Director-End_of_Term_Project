@@ -166,13 +166,15 @@ body {
   text-align: left;
 }
 .label-student-details {
-  width: 1186px;
-  display: flex;
-  flex-direction: row;
-  padding: 0 20px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  justify-content: flex-start;
+    width: -moz-available; /*For Mozilla based browsers*/
+    width: -webkit-fill-available; /*For Webkit based browesers*/
+    width: -fill-available;
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 .name-div2 {
   align-self: stretch;
@@ -204,7 +206,7 @@ body {
 .name-label-input2 {
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  //gap: 5px;
 }
 .input-field-default-withou7 {
   border: 1px solid #000;
@@ -268,7 +270,7 @@ body {
   align-self: stretch;
   padding: 10px;
   justify-content: flex-start;
-  gap: 5px;
+  //gap: 5px;
 }
 .dropdown-default-basic6 {
   border-radius: 8px;
@@ -305,27 +307,31 @@ body {
   box-sizing: border-box;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  //gap: 10px;
 }
 .column-3-add-staff1 {
   flex: 1;
   flex-direction: column;
   padding: 10px 10px 0;
   align-items: flex-start;
-  gap: 5px;
+  //gap: 5px;
 }
 .dashboard-div5 {
-  border-radius: 20px;
-  background-color: #fbfbfb;
-  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
-  border: 1px solid #000;
-  box-sizing: border-box;
-  position: relative;
-  width: 1186px;
-  height: 251.5px;
-  flex-shrink: 0;
-  flex-direction: row;
-  padding: 10px;
+    border-radius: 20px;
+    background-color: #fbfbfb;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: relative;
+    width: -moz-available; /*For Mozilla based browsers*/
+    width: -webkit-fill-available; /*For Webkit based browsers*/
+    width: -fill-available;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: -fill-available;
+    flex-shrink: 0;
+    flex-direction: row;
+    padding: 10px;
 }
 .dashboard-div5,
 .dashboard-div6,
@@ -336,9 +342,12 @@ body {
   justify-content: flex-start;
 }
 .student-details-div {
-  flex: 1;
-  flex-direction: column;
-  gap: 10px;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    width: -moz-available; /*For Mozilla based browsers*/
+    width: -webkit-fill-available,; /*For Webkit based browsers*/
+    width: -fill-available;
 }
 .dashboard-div6,
 .parent-details-div1 {
@@ -348,18 +357,22 @@ body {
   box-sizing: border-box;
 }
 .dashboard-div6 {
-  border-radius: 20px;
-  background-color: #fbfbfb;
-  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
-  border: 1px solid #000;
-  position: relative;
-  height: 241.5px;
-  flex-shrink: 0;
-  padding: 10px;
+    border-radius: 20px;
+    background-color: #fbfbfb;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000;
+    position: relative;
+    //height: 241.5px;
+    flex-shrink: 0;
+    padding: 10px;
+    height: -moz-available; /*For Mozilla based browsers*/
+    height: -webkit-fill-available; /*For Webkit based browsers*/
+    height: fill-available;
 }
 .parent-details-div {
-  padding: 5px 0;
+  //padding: 5px 0;
   box-sizing: border-box;
+  
 }
 .form-add-student,
 .parent-details-div {
@@ -369,7 +382,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 15px;
 }
 .button-label3 {
   position: relative;
@@ -446,14 +459,16 @@ body {
   color: #232325;
 }
 .add-student-div {
-  position: relative;
-  background-color: #fff;
-  width: 100%;
-  height: 768px;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  font-size: 14px;
-  color: #2e65f3;
-  font-family: Inter;
+    position: relative;
+    background-color: #fff;
+    width: -moz-available; /*For Mozilla based browsers*/
+    width: -webkit-fill-available; /*For Webkit based browsers*/
+    width: -fill-available;
+    height: 100vh;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    color: #2e65f3;
+    font-family: Inter;
 }
