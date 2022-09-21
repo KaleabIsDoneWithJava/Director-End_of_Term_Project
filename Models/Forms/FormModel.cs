@@ -11,7 +11,7 @@ namespace Director.Models.Forms
     {
         public FormModel()
         {
-            SectionsTaught = new string[10];
+            //SectionsTaught = new string[10];
         }
         
         //public Staff MiniStaff { get; set; }
@@ -34,14 +34,16 @@ namespace Director.Models.Forms
         [DisplayName("Phone Number")]
         public string Phone { get; set; }
         [DisplayName("Subject")]
+
         //Exclusively Teacher's fields
         public int Subject { get; set; }
         [DisplayName("Grade")]
         public short Grade { get; set; }
         [DisplayName("Homeroom")]
         public string Section { get; set; }
+        
         //public string Homeroom { get { return Grade + Section; } }
-        public string[] SectionsTaught { get; set; }
+        //public string[] SectionsTaught { get; set; }
 
         public bool IsEmpty()
         {

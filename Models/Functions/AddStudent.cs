@@ -8,11 +8,12 @@ namespace Director.Models.Functions
 {
     public class AddStudent
     {
+        //passing the Student detail from the form model class to the Student model class/entity
         public Student Student(StudentFormModel model)
         {
             Student student = new();
+
             
-            // Student's detail
             student.FirstName = model.FirstName;
             student.FathersName = model.FatherName;
             student.GrandFathersName = model.GrandFatherName;
