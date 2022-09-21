@@ -8,7 +8,62 @@
 }
 
 <style>
-   /*Css for the table was moved to home.css*/
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: -moz-available;
+        border: 1px solid #ddd;
+
+    }
+
+    .displayTableBody {
+        height: 220px;
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+
+    th, td {
+        display: flex;
+        text-align: left;
+        padding-left:15px;
+        padding-right: 15px;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    tr {
+        display: flex;
+
+
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+
+    }
+    .displayEmail{
+
+        width:230px;
+    }
+    .displayName{
+        width:160px;
+    }
+    .displayPhone{
+        width:135px;
+    }
+    .displayStaffType{
+        width:140px;
+    }
+    .displaySubject {
+        width:90px;
+    }
+
+    .displayGrade {
+        width: 90px;
+        display: flex;
+        justify-content: center;
+    }
+
 </style>
 
 <div class="main-panel-div1">
@@ -23,26 +78,26 @@
                 <div class="helper-button-icon">
                     <div class="helper-button-label">Subject...</div>
                     <!--
-                <img class="chevron-down-icon"
-                        alt=""
-                        src="public/chevrondown.svg" />
-                -->
+                    <img class="chevron-down-icon"
+                            alt=""
+                            src="public/chevrondown.svg" />
+                    -->
                 </div>
             </div>
         </div>
         <div class="buttons-add-remove-staff">
             <b class="teachers-b">Staff</b>
 
-                <button class="button-add-staff-member"
-                        onclick=""
-                        autofocus
-                        id="buttonAddStaffMember">
-                    <b class="button-label">
-                        <a asp-action="AddStaff" asp-controller="Staff" >
-                            Add Staff
-                        </a>
-                    </b>
-                </button>
+            <button class="button-add-staff-member"
+                    onclick=""
+                    autofocus
+                    id="buttonAddStaffMember">
+                <b class="button-label">
+                    <a asp-action="AddStaff" asp-controller="Staff">
+                        Add Staff
+                    </a>
+                </b>
+            </button>
 
         </div>
         <div style="width: -moz-available;">
@@ -62,33 +117,33 @@
                     @foreach (var staff in Model.OfficeStaff)
                     {
 
-                    <tr>
-                        <td class="displayName">@staff.FirstName @staff.FathersName</td>
-                        <td class="displayStaffType">Office Staff</td>
-                        <td class="displayEmail">@staff.Email</td>
-                        <td class="displayPhone">@staff.Phone</td>
-                        <td class="displaySubject">-</td>
-                        <td class="displayGrade">-</td>
-                        <td>
-                            <button class="pencil-alt-button">
-                                <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
-                            </button>
-                            <div class="classes-div">|</div>
-                            <button class="pencil-alt-button">
-                                <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
-                            </button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="displayName">@staff.FirstName @staff.FathersName</td>
+                            <td class="displayStaffType">Office Staff</td>
+                            <td class="displayEmail">@staff.Email</td>
+                            <td class="displayPhone">@staff.Phone</td>
+                            <td class="displaySubject">-</td>
+                            <td class="displayGrade">-</td>
+                            <td>
+                                <button class="pencil-alt-button">
+                                    <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                                </button>
+                                <div class="classes-div">|</div>
+                                <button class="pencil-alt-button">
+                                    <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                                </button>
+                            </td>
+                        </tr>
                     }
                     @foreach (var teacher in Model.Teacher)
                     {
-                        
+
                         <tr>
                             <td class="displayName">@teacher.FirstName @teacher.FathersName</td>
                             <td class="displayStaffType">Teacher</td>
                             <td class="displayEmail">@teacher.Email</td>
                             <td class="displayPhone">@teacher.Phone</td>
-                            <td class="displaySubject">@teacher.Subject</td>                                                                
+                            <td class="displaySubject">@teacher.Subject</td>
                             <td class="displayGrade">@teacher.Grade</td>
 
                             <td>
@@ -107,137 +162,137 @@
         </div>
 
         <!--
-    <div class="view-staff" id="Table - Added Staff Queue">
-        <div class="column-name">
-            <div class="header-div8"><div class="classes-div">Name</div></div>
-            <div class="content-div8">
-                <div class="text-group-basic15">
-                    <b class="levi-ackemann-b">Levi Ackemann</b>
-                    <div class="div4">11023</div>
+        <div class="view-staff" id="Table - Added Staff Queue">
+            <div class="column-name">
+                <div class="header-div8"><div class="classes-div">Name</div></div>
+                <div class="content-div8">
+                    <div class="text-group-basic15">
+                        <b class="levi-ackemann-b">Levi Ackemann</b>
+                        <div class="div4">11023</div>
+                    </div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div8">
+                    <div class="text-group-basic15">
+                        <b class="levi-ackemann-b">Annie Leonheart</b>
+                        <div class="div4">123301</div>
+                    </div>
                 </div>
             </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
+            <div class="column-staff-type">
+                <div class="header-div9">
+                    <div class="classes-div">Type</div>
+                </div>
+                <div class="content-div10">
+                    <div class="office-staff-div">Office Staff</div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div10">
+                    <div class="office-staff-div">Teacher</div>
+                </div>
             </div>
-            <div class="content-div8">
-                <div class="text-group-basic15">
-                    <b class="levi-ackemann-b">Annie Leonheart</b>
-                    <div class="div4">123301</div>
+            <div class="column-name">
+                <div class="header-div9"><div class="classes-div">Email</div></div>
+                <div class="content-div12">
+                    <div class="ltlevieldiamailcom-div">lt.levi@Eldiamail.com</div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div12">
+                    <div class="ltlevieldiamailcom-div">
+                        annieleonheart@Marleymail.com
+                    </div>
+                </div>
+            </div>
+            <div class="column-staff-type">
+                <div class="header-div9">
+                    <div class="classes-div">Phone</div>
+                </div>
+                <div class="content-div14">
+                    <div class="office-staff-div">0912131415</div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div14">
+                    <div class="office-staff-div">0953436373</div>
+                </div>
+            </div>
+            <div class="column-staff-type">
+                <div class="header-div9">
+                    <div class="classes-div">Subject</div>
+                </div>
+                <div class="content-div16">
+                    <div class="office-staff-div">-</div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div14">
+                    <div class="office-staff-div">English</div>
+                </div>
+            </div>
+            <div class="column-homeroom">
+                <div class="header-div9">
+                    <div class="classes-div">Homeroom</div>
+                </div>
+                <div class="content-div16">
+                    <div class="office-staff-div">-</div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div16">
+                    <div class="office-staff-div">9A</div>
+                </div>
+            </div>
+            <div class="column-classes2">
+                <div class="header-div9">
+                    <div class="classes-div">Classes</div>
+                </div>
+                <div class="content-div16">
+                    <div class="office-staff-div">-</div>
+                </div>
+                <div class="divider-solid23">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div21">
+                    <div class="office-staff-div">9 - A, B, C, D</div>
+                </div>
+            </div>
+            <div class="column-edit-delete-from-qu">
+                <div class="header-div15">
+                    <div class="classes-div">Actions</div>
+                </div>
+                <div class="content-div22">
+                    <button class="pencil-alt-button">
+                        <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                    </button>
+                    <div class="classes-div">|</div>
+                    <button class="pencil-alt-button">
+                        <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                    </button>
+                </div>
+                <div class="divider-solid30">
+                    <div class="baseline-div23"></div>
+                </div>
+                <div class="content-div23">
+                    <button class="pencil-alt-button">
+                        <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                    </button>
+                    <div class="classes-div">|</div>
+                    <button class="pencil-alt-button">
+                        <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="column-staff-type">
-            <div class="header-div9">
-                <div class="classes-div">Type</div>
-            </div>
-            <div class="content-div10">
-                <div class="office-staff-div">Office Staff</div>
-            </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div10">
-                <div class="office-staff-div">Teacher</div>
-            </div>
-        </div>
-        <div class="column-name">
-            <div class="header-div9"><div class="classes-div">Email</div></div>
-            <div class="content-div12">
-                <div class="ltlevieldiamailcom-div">lt.levi@Eldiamail.com</div>
-            </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div12">
-                <div class="ltlevieldiamailcom-div">
-                    annieleonheart@Marleymail.com
-                </div>
-            </div>
-        </div>
-        <div class="column-staff-type">
-            <div class="header-div9">
-                <div class="classes-div">Phone</div>
-            </div>
-            <div class="content-div14">
-                <div class="office-staff-div">0912131415</div>
-            </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div14">
-                <div class="office-staff-div">0953436373</div>
-            </div>
-        </div>
-        <div class="column-staff-type">
-            <div class="header-div9">
-                <div class="classes-div">Subject</div>
-            </div>
-            <div class="content-div16">
-                <div class="office-staff-div">-</div>
-            </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div14">
-                <div class="office-staff-div">English</div>
-            </div>
-        </div>
-        <div class="column-homeroom">
-            <div class="header-div9">
-                <div class="classes-div">Homeroom</div>
-            </div>
-            <div class="content-div16">
-                <div class="office-staff-div">-</div>
-            </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div16">
-                <div class="office-staff-div">9A</div>
-            </div>
-        </div>
-        <div class="column-classes2">
-            <div class="header-div9">
-                <div class="classes-div">Classes</div>
-            </div>
-            <div class="content-div16">
-                <div class="office-staff-div">-</div>
-            </div>
-            <div class="divider-solid23">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div21">
-                <div class="office-staff-div">9 - A, B, C, D</div>
-            </div>
-        </div>
-        <div class="column-edit-delete-from-qu">
-            <div class="header-div15">
-                <div class="classes-div">Actions</div>
-            </div>
-            <div class="content-div22">
-                <button class="pencil-alt-button">
-                    <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
-                </button>
-                <div class="classes-div">|</div>
-                <button class="pencil-alt-button">
-                    <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
-                </button>
-            </div>
-            <div class="divider-solid30">
-                <div class="baseline-div23"></div>
-            </div>
-            <div class="content-div23">
-                <button class="pencil-alt-button">
-                    <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
-                </button>
-                <div class="classes-div">|</div>
-                <button class="pencil-alt-button">
-                    <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
-                </button>
-            </div>
-        </div>
-    </div>
-        -->
+            -->
     </div>
     <div class="buttons-add-remove-staff">
         <b class="teachers-b">Teachers</b>
@@ -348,4 +403,3 @@
         <div class="divider-solid17"><div class="baseline-div17"></div> </div>
     </div>
 </div>
- 
