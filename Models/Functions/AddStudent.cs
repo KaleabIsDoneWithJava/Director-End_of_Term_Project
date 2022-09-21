@@ -9,11 +9,25 @@ namespace Director.Models.Functions
     public class AddStudent
     {
         //passing the Student detail from the form model class to the Student model class/entity
-        public Student Student(StudentFormModel model)
+        public Student PassStudent(StudentFormModel model)
         {
-            Student student = new();
-
-            
+            Student student = new Student
+            {
+                //object members must be initialized like this, otherwise they're will throw a null instance exception.
+                Class = new Class { GradeId = model.Grade, SectionId = model.Section },
+                Parent = new Parent 
+                {
+                    FirstName = model.PfirstName,
+                    FathersName = model.PfatherName,
+                    GrandFathersName = model.PgrandFatherName,
+                    DateOfBirth = model.PdateOfBirth,
+                    Email = model.Pemail,
+                    Phone = model.Pphone,
+                    Gender = model.Pgender
+                }
+            };
+        
+            //Student Detail
             student.FirstName = model.FirstName;
             student.FathersName = model.FatherName;
             student.GrandFathersName = model.GrandFatherName;
@@ -21,41 +35,6 @@ namespace Director.Models.Functions
             student.Email = model.Email;
             student.Phone = model.Phone;
             student.Gender = model.Gender;
-
-            student.Class.GradeId = model.Grade;
-            student.Class.Section.Value = model.Section;
-            
-            // Parent's detail
-            student.Parent.FirstName = model.PfirstName;
-            student.Parent.FathersName = model.PfatherName;
-            student.Parent.GrandFathersName = model.PgrandFatherName;
-            student.Parent.DateOfBirth = model.PdateOfBirth;
-            student.Parent.Email = model.Pemail;
-            student.Parent.Phone = model.Pphone;
-            student.Parent.Gender = model.Pgender;
-
-
-            /*switch (model.Section)
-            {
-                case A:
-                    student.Class.SectionId = 1;
-                    student.Class.Section = ;
-                    break;
-                case B:
-                    break;
-                case C:
-                    break;
-                case D:
-                    break;
-                case E:
-                    break;
-                case F:
-                    break;
-
-               default: 
-                    break;
-            }
-            */
 
             return student;
         }

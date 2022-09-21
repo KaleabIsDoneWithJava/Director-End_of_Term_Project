@@ -17,7 +17,7 @@ namespace Director.Models.Forms
         //Student's info fields are inherited from FormModel       
         //Overwrote the section in form model to change the display name from Homeroom to Section.
         [DisplayName("Section")]
-        public string Section { get; set; }
+        public int Section { get; set; }
         
         //Parent's info
         [DisplayName("First Name")]

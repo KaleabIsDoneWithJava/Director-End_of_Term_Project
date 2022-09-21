@@ -15,7 +15,7 @@ namespace Director.Models.Functions
         
         //Might use if there is more than one teacher teaching a single subject in a single grade,
         //otherwise there is no need. Plus I'm pretty sure that it isn't correct.
-        public ICollection<Class> ArrayToICollection(FormModel model)
+       /* public ICollection<Class> ArrayToICollection(FormModel model)
         {
             
             ICollection<Class> classStaffs = null;
@@ -25,7 +25,7 @@ namespace Director.Models.Functions
 
             }
             return classStaffs;
-        }
+        }*/
 
         //passing the teacher detail from the form model class to the teacher model class/entity
         public Teacher PassTeacher(FormModel model)
