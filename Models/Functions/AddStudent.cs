@@ -13,7 +13,7 @@ namespace Director.Models.Functions
         //passing the Student detail from the form model class to the Student model class/entity
         public Student PassStudentAsync(StudentFormModel model)
         {
-            IEnumerable<Class> allClasses;
+            //IEnumerable<Class> allClasses;
             //all the classes from the database
             //allClasses = await _classService.GetAllAsync();
 
@@ -41,15 +41,10 @@ namespace Director.Models.Functions
             student.Email = model.Email;
             student.Phone = model.Phone;
             student.Gender = model.Gender;
-            //
-           /* foreach (var singleClass in allClasses)
-            {
-                if (singleClass.GradeId == model.Grade && singleClass.SectionId == model.Section)
-                {
-                    //incomplete
-                }
-            }*/
-
+            
+            //Passing GradeId and SectionId to get the ClassId
+            student.ClassId = _classService.GetClassId(model.Grade, model.Section);
+           
             return student;
         }
 

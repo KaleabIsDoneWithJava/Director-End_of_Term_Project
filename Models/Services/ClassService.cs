@@ -15,7 +15,7 @@ namespace Director.Models.Services
         }
         
         //returns the classId from the db given the gradeId and SectionId from the model class
-        public int GetClassGradeSection(int GradeId, int SectionId)
+        public int GetClassId(int GradeId, int SectionId)
         {
             var result =  (from c in _context.Classes
                                 where c.GradeId == GradeId 

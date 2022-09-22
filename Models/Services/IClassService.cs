@@ -10,7 +10,7 @@ namespace Director.Models.Services
     {
         //Functions that are implemented in ClassService
 
-        public int GetClassGradeSection(int GradeId, int SectionId);
+        int GetClassId(int GradeId, int SectionId);
 
 
     }
