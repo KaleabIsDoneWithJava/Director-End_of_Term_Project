@@ -1,4 +1,5 @@
 ﻿using Director.Models.Forms;
+using Director.Models.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,18 @@ namespace Director.Models.Functions
 {
     public class AddStudent
     {
+        private readonly IClassService _classService;
         //passing the Student detail from the form model class to the Student model class/entity
-        public Student PassStudent(StudentFormModel model)
+        public Student PassStudentAsync(StudentFormModel model)
         {
+            IEnumerable<Class> allClasses;
+            //all the classes from the database
+            //allClasses = await _classService.GetAllAsync();
+
             Student student = new Student
             {
                 //object members must be initialized like this, otherwise they're will throw a null instance exception.
-                Class = new Class { GradeId = model.Grade, SectionId = model.Section, },
+                //Class = new Class { GradeId = model.Grade, SectionId = model.Section, },
                 Parent = new Parent 
                 {
                     FirstName = model.PfirstName,
@@ -26,7 +32,7 @@ namespace Director.Models.Functions
                     Gender = model.Pgender
                 }
             };
-        
+            
             //Student Detail
             student.FirstName = model.FirstName;
             student.FathersName = model.FathersName;
@@ -35,8 +41,18 @@ namespace Director.Models.Functions
             student.Email = model.Email;
             student.Phone = model.Phone;
             student.Gender = model.Gender;
+            //
+           /* foreach (var singleClass in allClasses)
+            {
+                if (singleClass.GradeId == model.Grade && singleClass.SectionId == model.Section)
+                {
+                    //incomplete
+                }
+            }*/
 
             return student;
         }
+
+        
     }
 }
