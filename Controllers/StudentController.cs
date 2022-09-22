@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Director.Models.Forms;
+using Director.Models.Functions;
+using Director.Models.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +12,18 @@ namespace Director.Controllers
 {
     public class StudentController : Controller
     {
+        // Delclaring the student service to have access to the dbContext class and any other special classes
+        // that are involved in the student class interacting with the database.
+        private readonly IStudentService _studentService;
+        private readonly IClassService _classService;
+
+        public StudentController(IStudentService studentService, IClassService classService)
+        {
+            // the service is instantiated in the controller's constructor
+            _studentService = studentService;
+            _classService = classService;
+        }
+
         // GET: StudentController
         public ActionResult Index()
         {
@@ -21,10 +36,23 @@ namespace Director.Controllers
             return View();
         }
 
-        // GET: StudentController/Create
-        public ActionResult Create()
+        // GET: StudentController/AddStudent
+        public async Task<ActionResult> AddStudentAsync(StudentFormModel model)
         {
-            return View();
+            //Can't use the builtin method ModelState. IsValid because the Role property that 
+            //StudentFormModel has inherited isn't going to be needed.
+
+            if (!model.IsEmpty())
+            {
+                    AddStudent addStudent = new(_classService);
+                    await _studentService.AddAsync(addStudent.PassStudentAsync(model));                   
+            }
+            else 
+            {
+                return View();
+            }
+           
+        return View(model);
         }
 
         // POST: StudentController/Create

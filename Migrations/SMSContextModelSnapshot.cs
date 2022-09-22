@@ -15,6 +15,7 @@ namespace Director.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -26,21 +27,26 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("AnnouncementDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Detail")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(250)");
 
-                    b.Property<int>("StaffId")
+                    b.Property<int>("OfficeStaffId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Announcements");
+                    b.HasIndex("OfficeStaffId");
+
+                    b.ToTable("Announcement");
                 });
 
             modelBuilder.Entity("Director.Models.Appointment", b =>
@@ -50,26 +56,28 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("AppointmentDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("AppointmentDate")
+                        .HasColumnType("date");
 
-                    b.Property<TimeSpan?>("AppointmentTime")
-                        .HasColumnType("time");
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(250)");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int>("OfficeStaffId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StaffId")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentId");
+                    b.HasIndex("OfficeStaffId");
 
-                    b.ToTable("Appointments");
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Appointment");
                 });
 
             modelBuilder.Entity("Director.Models.Assessment", b =>
@@ -79,20 +87,17 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AssessmentType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
-                    b.Property<string>("AssessmentWeight")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ClassId")
+                    b.Property<int>("OutOf")
                         .HasColumnType("int");
 
-                    b.Property<string>("Score")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StaffId")
-                        .HasColumnType("int");
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
@@ -102,13 +107,11 @@ namespace Director.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClassId");
-
                     b.HasIndex("StudentId");
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("Assessments");
+                    b.ToTable("Assessment");
                 });
 
             modelBuilder.Entity("Director.Models.AttendanceMissed", b =>
@@ -119,22 +122,28 @@ namespace Director.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("Period")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.Property<string>("SubjectName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("AttendanceMisseds");
+                    b.ToTable("AttendanceMissed");
                 });
 
             modelBuilder.Entity("Director.Models.Class", b =>
@@ -144,55 +153,90 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<short>("Grade")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("HomeroomId")
+                    b.Property<int>("GradeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Section")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("HomeroomId")
+                        .HasColumnType("int");
 
-                    b.Property<int>("StaffId")
+                    b.Property<int>("SectionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Classes");
+                    b.HasIndex("GradeId");
+
+                    b.HasIndex("HomeroomId");
+
+                    b.HasIndex("SectionId");
+
+                    b.ToTable("Class");
                 });
 
-            modelBuilder.Entity("Director.Models.Notification", b =>
+            modelBuilder.Entity("Director.Models.Grade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("NotificationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ParentId")
+                    b.Property<int>("Value")
                         .HasColumnType("int");
-
-                    b.Property<int>("StaffId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentId");
+                    b.ToTable("Grade");
+                });
 
-                    b.HasIndex("StudentId");
+            modelBuilder.Entity("Director.Models.OfficeStaff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.ToTable("Notifications");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("FathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(6)");
+
+                    b.Property<string>("GrandFathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OfficeStaff");
                 });
 
             modelBuilder.Entity("Director.Models.Parent", b =>
@@ -202,33 +246,66 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
-                    b.Property<string>("FatherName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(6)");
 
-                    b.Property<string>("GrandFatherName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("GrandFathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Parents");
+                    b.ToTable("Parent");
+                });
+
+            modelBuilder.Entity("Director.Models.Section", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Section");
                 });
 
             modelBuilder.Entity("Director.Models.Student", b =>
@@ -238,35 +315,50 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Age")
-                        .HasColumnType("int");
-
                     b.Property<int>("ClassId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
-                    b.Property<string>("FatherName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(6)");
 
-                    b.Property<string>("GrandFatherName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("GrandFathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("ParentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("Id");
 
@@ -274,7 +366,7 @@ namespace Director.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("Director.Models.Subject", b =>
@@ -284,49 +376,138 @@ namespace Director.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("StaffId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SubjectName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subjects");
+                    b.ToTable("Subject");
+                });
+
+            modelBuilder.Entity("Director.Models.SubjectForGrade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GradeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GradeId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("SubjectForGrade");
+                });
+
+            modelBuilder.Entity("Director.Models.Teacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("FathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(6)");
+
+                    b.Property<string>("GrandFathersName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<int>("SubjectForGradeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubjectForGradeId");
+
+                    b.ToTable("Teacher");
+                });
+
+            modelBuilder.Entity("Director.Models.Announcement", b =>
+                {
+                    b.HasOne("Director.Models.OfficeStaff", "OfficeStaff")
+                        .WithMany("Announcements")
+                        .HasForeignKey("OfficeStaffId")
+                        .HasConstraintName("FK__Announcem__Offic__34C8D9D1")
+                        .IsRequired();
+
+                    b.Navigation("OfficeStaff");
                 });
 
             modelBuilder.Entity("Director.Models.Appointment", b =>
                 {
-                    b.HasOne("Director.Models.Parent", "Parent")
+                    b.HasOne("Director.Models.OfficeStaff", "OfficeStaff")
                         .WithMany("Appointments")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("OfficeStaffId")
+                        .HasConstraintName("FK__Appointme__Offic__403A8C7D")
                         .IsRequired();
 
-                    b.Navigation("Parent");
+                    b.HasOne("Director.Models.Student", "Student")
+                        .WithMany("Appointments")
+                        .HasForeignKey("StudentId")
+                        .HasConstraintName("FK__Appointme__Stude__412EB0B6")
+                        .IsRequired();
+
+                    b.Navigation("OfficeStaff");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("Director.Models.Assessment", b =>
                 {
-                    b.HasOne("Director.Models.Class", "Class")
-                        .WithMany("Assessments")
-                        .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Director.Models.Student", "Student")
                         .WithMany("Assessments")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK__Assessmen__Stude__440B1D61")
                         .IsRequired();
 
                     b.HasOne("Director.Models.Subject", "Subject")
                         .WithMany("Assessments")
                         .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK__Assessmen__Subje__44FF419A")
                         .IsRequired();
-
-                    b.Navigation("Class");
 
                     b.Navigation("Student");
 
@@ -338,29 +519,36 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.Student", "Student")
                         .WithMany("AttendanceMisseds")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK__Attendanc__Stude__47DBAE45")
                         .IsRequired();
 
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("Director.Models.Notification", b =>
+            modelBuilder.Entity("Director.Models.Class", b =>
                 {
-                    b.HasOne("Director.Models.Parent", "Parent")
-                        .WithMany("Notifications")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Director.Models.Grade", "Grade")
+                        .WithMany("Classes")
+                        .HasForeignKey("GradeId")
+                        .HasConstraintName("FK__Class__GradeId__38996AB5")
                         .IsRequired();
 
-                    b.HasOne("Director.Models.Student", "Student")
-                        .WithMany("Notifications")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Director.Models.Teacher", "Homeroom")
+                        .WithMany("Classes")
+                        .HasForeignKey("HomeroomId")
+                        .HasConstraintName("FK__Class__HomeroomI__398D8EEE");
+
+                    b.HasOne("Director.Models.Section", "Section")
+                        .WithMany("Classes")
+                        .HasForeignKey("SectionId")
+                        .HasConstraintName("FK__Class__SectionId__37A5467C")
                         .IsRequired();
 
-                    b.Navigation("Parent");
+                    b.Navigation("Grade");
 
-                    b.Navigation("Student");
+                    b.Navigation("Homeroom");
+
+                    b.Navigation("Section");
                 });
 
             modelBuilder.Entity("Director.Models.Student", b =>
@@ -368,13 +556,13 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.Class", "Class")
                         .WithMany("Students")
                         .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK__Student__ClassId__3D5E1FD2")
                         .IsRequired();
 
                     b.HasOne("Director.Models.Parent", "Parent")
                         .WithMany("Students")
                         .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK__Student__ParentI__3C69FB99")
                         .IsRequired();
 
                     b.Navigation("Class");
@@ -382,34 +570,89 @@ namespace Director.Migrations
                     b.Navigation("Parent");
                 });
 
+            modelBuilder.Entity("Director.Models.SubjectForGrade", b =>
+                {
+                    b.HasOne("Director.Models.Grade", "Grade")
+                        .WithMany("SubjectForGrades")
+                        .HasForeignKey("GradeId")
+                        .HasConstraintName("FK__SubjectFo__Grade__2D27B809")
+                        .IsRequired();
+
+                    b.HasOne("Director.Models.Subject", "Subject")
+                        .WithMany("SubjectForGrades")
+                        .HasForeignKey("SubjectId")
+                        .HasConstraintName("FK__SubjectFo__Subje__2C3393D0")
+                        .IsRequired();
+
+                    b.Navigation("Grade");
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("Director.Models.Teacher", b =>
+                {
+                    b.HasOne("Director.Models.SubjectForGrade", "SubjectForGrade")
+                        .WithMany("Teachers")
+                        .HasForeignKey("SubjectForGradeId")
+                        .HasConstraintName("FK__Teacher__Subject__300424B4")
+                        .IsRequired();
+
+                    b.Navigation("SubjectForGrade");
+                });
+
             modelBuilder.Entity("Director.Models.Class", b =>
                 {
-                    b.Navigation("Assessments");
-
                     b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("Director.Models.Grade", b =>
+                {
+                    b.Navigation("Classes");
+
+                    b.Navigation("SubjectForGrades");
+                });
+
+            modelBuilder.Entity("Director.Models.OfficeStaff", b =>
+                {
+                    b.Navigation("Announcements");
+
+                    b.Navigation("Appointments");
                 });
 
             modelBuilder.Entity("Director.Models.Parent", b =>
                 {
-                    b.Navigation("Appointments");
-
-                    b.Navigation("Notifications");
-
                     b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("Director.Models.Section", b =>
+                {
+                    b.Navigation("Classes");
                 });
 
             modelBuilder.Entity("Director.Models.Student", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Assessments");
 
                     b.Navigation("AttendanceMisseds");
-
-                    b.Navigation("Notifications");
                 });
 
             modelBuilder.Entity("Director.Models.Subject", b =>
                 {
                     b.Navigation("Assessments");
+
+                    b.Navigation("SubjectForGrades");
+                });
+
+            modelBuilder.Entity("Director.Models.SubjectForGrade", b =>
+                {
+                    b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("Director.Models.Teacher", b =>
+                {
+                    b.Navigation("Classes");
                 });
 #pragma warning restore 612, 618
         }

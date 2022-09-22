@@ -23,9 +23,9 @@ namespace Director.Models.Forms
         [DisplayName("First Name")]
         public string PfirstName { get; set; }
         [DisplayName("Father's Name")]
-        public string PfatherName { get; set; }
+        public string PfathersName { get; set; }
         [DisplayName("Grandfather's Name")]
-        public string PgrandFatherName { get; set; }
+        public string PgrandFathersName { get; set; }
         [DisplayName("Date of Birth")]
         public DateTime PdateOfBirth { get; set; }
         [DisplayName("Gender")]
@@ -39,9 +39,9 @@ namespace Director.Models.Forms
         public bool IsEmpty()
         {
             // Student email and phone number aren't required fields
-            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FatherName) || String.IsNullOrEmpty(GrandFatherName)
-                || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(PfirstName) || String.IsNullOrEmpty(PfatherName) 
-                || String.IsNullOrEmpty(PgrandFatherName) || String.IsNullOrEmpty(Pgender) || String.IsNullOrEmpty(Pemail)
+            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FathersName) || String.IsNullOrEmpty(GrandFathersName)
+                || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(PfirstName) || String.IsNullOrEmpty(PfathersName) 
+                || String.IsNullOrEmpty(PgrandFathersName) || String.IsNullOrEmpty(Pgender) || String.IsNullOrEmpty(Pemail)
                 || String.IsNullOrEmpty(Pphone)) 
             { return true; }
             

@@ -40,12 +40,13 @@ namespace Director.Models.Functions
                 };
 
                 staff.FirstName = model.FirstName;
-                staff.FathersName = model.FatherName;
-                staff.GrandFathersName = model.GrandFatherName;
+                staff.FathersName = model.FathersName;
+                staff.GrandFathersName = model.GrandFathersName;
                 staff.DateOfBirth = model.DateOfBirth;
                 staff.Gender = model.Gender;
                 staff.Email = model.Email;
                 staff.Phone = model.Phone;
+
             return staff;
             }
             else
@@ -58,13 +59,14 @@ namespace Director.Models.Functions
                 };
 
                 staff.FirstName = model.FirstName;
-                staff.FathersName = model.FatherName;
-                staff.GrandFathersName = model.GrandFatherName;
+                staff.FathersName = model.FathersName;
+                staff.GrandFathersName = model.GrandFathersName;
                 staff.DateOfBirth = model.DateOfBirth;
                 staff.Gender = model.Gender;
                 staff.Email = model.Email;
                 staff.Phone = model.Phone;
-                return staff;
+
+            return staff;
             }
 
 
@@ -77,7 +79,7 @@ namespace Director.Models.Functions
             OfficeStaff staff = new();
 
             staff.FirstName = model.FirstName;
-            staff.FathersName = model.FatherName;
+            staff.FathersName = model.FathersName;
             staff.GrandFathersName = model.Role;
             staff.DateOfBirth = model.DateOfBirth;
             staff.Gender = model.Gender;

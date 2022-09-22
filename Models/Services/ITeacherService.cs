@@ -11,6 +11,8 @@ namespace Director.Models.Services
     {
         //Functions that are implemented in TeacherService
         IEnumerable GetAllTeacherDetail()
+        //Task<IEnumerable> GetAllTeacherDetail()
+
 ;
 
     }

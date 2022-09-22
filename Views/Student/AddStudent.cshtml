@@ -1,7 +1,200 @@
 ﻿
+@model Director.Models.Forms.StudentFormModel;
+
+
 @{
     ViewData["Title"] = "AddStudent";
+    ViewBag.Title = "Add Student";
 }
 
-<h1>AddStudent</h1>
+<div class="add-student-div">
 
+    <div class="main-panel-div5">
+        <b class="add-student-b">@ViewBag.Title</b>
+
+        <form class="form-add-student" asp-action="AddStudent" asp-controller="Student">
+            <div class="student-details-div">
+                <div class="label-student-details">
+                    <b class="student-details-b">Student Details</b>
+                </div>
+                <div class="dashboard-div5">
+                    <div class="column-1-add-staff2">
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="FirstName"></label></div>
+                            <input class="input-field-default-withou6"
+                                   type="text"
+                                   asp-for="FirstName"
+                                   placeholder="Enter First Name Here..." />
+                        </div>
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="DateOfBirth"></label></div>
+                            <input class="input-field-default-withou7"
+                                   type="date"
+                                   asp-for="DateOfBirth"
+                                   placeholder="DD/MM/YYYY" />
+                        </div>
+                        <div class="gender-staff-type2">
+                            <div class="gender-label-dropdown2">
+                                <div class="staff-type-label-dropdown4">
+                                    <div class="gender-div2"><label asp-for="Gender"></label></div>
+                                    <select class="dropdown-default-basic5" 
+                                            required
+                                            asp-for="Gender">
+
+                                        <option value="F">F</option>
+                                        <option value="M">M</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-1-add-staff2">
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="FathersName"></label></div>
+                            <input class="input-field-default-withou6"
+                                   type="text"
+                                   asp-for="FathersName"
+                                   placeholder="Enter Father's Name Here..." />
+                        </div>
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="Email"></label></div>
+                            <input class="input-field-default-withou7"
+                                   type="email"
+                                   asp-for="Email"
+                                   placeholder="Enter Email Here..." />
+                        </div>
+                        <div class="grade-homeroom-label-dro1">
+                            <div class="staff-type-label-dropdown5">
+                                <div class="section-div"><label asp-for="Grade"></label></div>
+                                <select class="dropdown-default-basic6" 
+                                        asp-for="Grade">
+
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="staff-type-label-dropdown5">
+                                <div class="section-div"><label asp-for="Section"></label></div>
+                                <select class="dropdown-default-basic6"
+                                        asp-for="Section">                                        
+
+                                    <option value="1">A</option>
+                                    <option value="2">B</option>
+                                    <option value="3">C</option>
+                                    <option value="4">D</option>
+                                    <option value="5">E</option>
+                                    <option value="6">F</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-3-add-staff1">
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="GrandFathersName"></label></div>
+                            <input class="input-field-default-withou6"
+                                   type="text"
+                                   asp-for="GrandFathersName"
+                                   placeholder="Enter Grandfather's Name Here..." />
+                        </div>
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="Phone"></label></div>
+                            <input class="input-field-default-withou7"
+                                   type="tel"
+                                   asp-for="Phone"
+                                   placeholder="Enter Phone Number Here..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent-details-div">
+                <div class="parent-details-div1">
+                    <b class="student-details-b">Parent Details</b>
+                </div>
+                <div class="dashboard-div6">
+                    <div class="column-1-add-staff2">
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="PfirstName"></label></div>
+                            <input class="input-field-default-withou6"
+                                   type="text"
+                                   asp-for="PfirstName"
+                                   placeholder="Enter Name Here..." />
+                        </div>
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="PdateOfBirth"></label></div>
+                            <input class="input-field-default-withou7"
+                                   type="date"
+                                   asp-for="PdateOfBirth"
+                                   placeholder="DD/MM/YYYY" />
+                        </div>
+                        <div class="gender-staff-type2">
+                            <div class="gender-label-dropdown2">
+                                <div class="staff-type-label-dropdown4">
+                                    <div class="gender-div2"><label asp-for="Pgender"></label></div>
+                                    <select class="dropdown-default-basic5" 
+                                            asp-for="Pgender"
+                                            required>
+
+                                        <option value="F">F</option>
+                                        <option value="M">M</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-1-add-staff2">
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="PfathersName"></label></div>
+                            <input class="input-field-default-withou6"
+                                   type="text"
+                                   asp-for="PfathersName"
+                                   placeholder="Enter Father's Name Here..." />
+                        </div>
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="Pemail"></label></div>
+                            <input class="input-field-default-withou7"
+                                   type="email"
+                                   asp-for="Pemail"
+                                   placeholder="Enter Email Here..." />
+                        </div>
+                    </div>
+                    <div class="column-3-add-staff1">
+                        <div class="name-label-input2"
+                             id="Container - GrandfathersName">
+                            <div class="name-div2"><label asp-for="PgrandFathersName"></label></div>
+                            <input class="input-field-default-withou6"
+                                   type="text"
+                                   asp-for="PgrandFathersName"
+                                   placeholder="Enter Grandfather's Name Here..." />
+                        </div>
+                        <div class="name-label-input2">
+                            <div class="name-div2"><label asp-for="Pphone"> </label></div>
+                            <input class="input-field-default-withou7"
+                                   type="tel"
+                                   asp-for="Pphone"
+                                   placeholder="Enter Phone Number Here..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-add-clear1">
+                <button class="button-clear" type="reset">
+                    <b class="button-label3">Clear</b>
+                </button>
+                <button class="button-done2" autofocus type="submit">
+                    <b class="button-label4">Done</b>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>

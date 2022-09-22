@@ -15,6 +15,9 @@ namespace Director.Controllers
 {
     public class StaffController : Controller
     {
+        // Delclaring the services to have access to the dbContext class and any other special classes
+        // that are involved in their respective entity classes interacting with the database.
+
         private readonly IOfficeStaffService _officestaffService;
         private readonly ITeacherService _teacherService;
 
@@ -33,6 +36,8 @@ namespace Director.Controllers
         
         public StaffController(IOfficeStaffService ss, IAppointmentService ass, ISubjectService sss, IClassService cs, ITeacherService ts)
         {
+            // the services are instantiated in the controller's constructor
+
             _officestaffService = ss;
             _appointmentService = ass;
             _subjectService = sss;

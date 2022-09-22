@@ -17,7 +17,7 @@ namespace Director.Models
         public int Id { get; set; }
         public int SectionId { get; set; }
         public int GradeId { get; set; }
-        public int HomeroomId { get; set; }
+        public int? HomeroomId { get; set; }
 
         public virtual Grade Grade { get; set; }
         public virtual Teacher Homeroom { get; set; }
