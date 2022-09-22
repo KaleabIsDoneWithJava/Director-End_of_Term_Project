@@ -14,7 +14,7 @@ namespace Director.Models.Functions
             Student student = new Student
             {
                 //object members must be initialized like this, otherwise they're will throw a null instance exception.
-                Class = new Class { GradeId = model.Grade, SectionId = model.Section },
+                Class = new Class { GradeId = model.Grade, SectionId = model.Section, },
                 Parent = new Parent 
                 {
                     FirstName = model.PfirstName,

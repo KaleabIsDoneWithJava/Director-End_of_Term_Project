@@ -37,20 +37,21 @@ namespace Director.Controllers
         // GET: StudentController/AddStudent
         public async Task<ActionResult> AddStudentAsync(StudentFormModel model)
         {
-            if (!ModelState.IsValid)
+            //Can't use the builtin method ModelState. IsValid because the Role property that 
+            //StudentFormModel has inherited isn't going to be needed.
+
+            if (!model.IsEmpty())
+            {
+                    AddStudent addStudent = new();
+
+                    await _studentService.AddAsync(addStudent.PassStudent(model));                    
+            }
+            else 
             {
                 return View();
             }
-            else
-            {
-                if (!model.IsEmpty())
-                {
-                        AddStudent addStudent = new();
-
-                        await _studentService.AddAsync(addStudent.PassStudent(model));                    
-                }
-            }
-        return View();
+           
+        return View(model);
         }
 
         // POST: StudentController/Create

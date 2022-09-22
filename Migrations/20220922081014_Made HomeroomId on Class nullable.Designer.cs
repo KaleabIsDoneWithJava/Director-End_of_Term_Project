@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Director.Migrations
 {
     [DbContext(typeof(SMSContext))]
-    [Migration("20220916110045_Corrected the Class table")]
-    partial class CorrectedtheClasstable
+    [Migration("20220922081014_Made HomeroomId on Class nullable")]
+    partial class MadeHomeroomIdonClassnullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,25 +22,12 @@ namespace Director.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ClassTeacher", b =>
-                {
-                    b.Property<int>("ClassTeachersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeachersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClassTeachersId", "TeachersId");
-
-                    b.HasIndex("TeachersId");
-
-                    b.ToTable("ClassTeacher");
-                });
-
             modelBuilder.Entity("Director.Models.Announcement", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Detail")
                         .IsRequired()
@@ -67,7 +54,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Appointment", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("date");
@@ -96,7 +85,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Assessment", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -128,7 +119,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.AttendanceMissed", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("date");
@@ -158,18 +151,17 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Class", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("GradeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HomeroomId")
+                    b.Property<int?>("HomeroomId")
                         .HasColumnType("int");
 
                     b.Property<int>("SectionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -186,7 +178,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Grade", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Value")
                         .HasColumnType("int");
@@ -199,7 +193,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.OfficeStaff", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("date");
@@ -248,7 +244,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Parent", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("date");
@@ -297,7 +295,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Section", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Value")
                         .IsRequired()
@@ -313,7 +313,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Student", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ClassId")
                         .HasColumnType("int");
@@ -372,7 +374,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Subject", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -388,7 +392,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.SubjectForGrade", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("GradeId")
                         .HasColumnType("int");
@@ -408,7 +414,9 @@ namespace Director.Migrations
             modelBuilder.Entity("Director.Models.Teacher", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("date");
@@ -449,29 +457,14 @@ namespace Director.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<int>("SubjectId")
+                    b.Property<int>("SubjectForGradeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SubjectId");
+                    b.HasIndex("SubjectForGradeId");
 
                     b.ToTable("Teacher");
-                });
-
-            modelBuilder.Entity("ClassTeacher", b =>
-                {
-                    b.HasOne("Director.Models.Class", null)
-                        .WithMany()
-                        .HasForeignKey("ClassTeachersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Director.Models.Teacher", null)
-                        .WithMany()
-                        .HasForeignKey("TeachersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Director.Models.Announcement", b =>
@@ -479,7 +472,7 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.OfficeStaff", "OfficeStaff")
                         .WithMany("Announcements")
                         .HasForeignKey("OfficeStaffId")
-                        .HasConstraintName("FK__Announcem__Offic__30F848ED")
+                        .HasConstraintName("FK__Announcem__Offic__34C8D9D1")
                         .IsRequired();
 
                     b.Navigation("OfficeStaff");
@@ -490,13 +483,13 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.OfficeStaff", "OfficeStaff")
                         .WithMany("Appointments")
                         .HasForeignKey("OfficeStaffId")
-                        .HasConstraintName("FK__Appointme__Offic__412EB0B6")
+                        .HasConstraintName("FK__Appointme__Offic__403A8C7D")
                         .IsRequired();
 
                     b.HasOne("Director.Models.Student", "Student")
                         .WithMany("Appointments")
                         .HasForeignKey("StudentId")
-                        .HasConstraintName("FK__Appointme__Stude__4222D4EF")
+                        .HasConstraintName("FK__Appointme__Stude__412EB0B6")
                         .IsRequired();
 
                     b.Navigation("OfficeStaff");
@@ -509,13 +502,13 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.Student", "Student")
                         .WithMany("Assessments")
                         .HasForeignKey("StudentId")
-                        .HasConstraintName("FK__Assessmen__Stude__44FF419A")
+                        .HasConstraintName("FK__Assessmen__Stude__440B1D61")
                         .IsRequired();
 
                     b.HasOne("Director.Models.Subject", "Subject")
                         .WithMany("Assessments")
                         .HasForeignKey("SubjectId")
-                        .HasConstraintName("FK__Assessmen__Subje__45F365D3")
+                        .HasConstraintName("FK__Assessmen__Subje__44FF419A")
                         .IsRequired();
 
                     b.Navigation("Student");
@@ -528,7 +521,7 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.Student", "Student")
                         .WithMany("AttendanceMisseds")
                         .HasForeignKey("StudentId")
-                        .HasConstraintName("FK__Attendanc__Stude__48CFD27E")
+                        .HasConstraintName("FK__Attendanc__Stude__47DBAE45")
                         .IsRequired();
 
                     b.Navigation("Student");
@@ -543,10 +536,9 @@ namespace Director.Migrations
                         .IsRequired();
 
                     b.HasOne("Director.Models.Teacher", "Homeroom")
-                        .WithMany("ClassHomerooms")
+                        .WithMany("Classes")
                         .HasForeignKey("HomeroomId")
-                        .HasConstraintName("FK__Class__HomeroomI__398D8EEE")
-                        .IsRequired();
+                        .HasConstraintName("FK__Class__HomeroomI__398D8EEE");
 
                     b.HasOne("Director.Models.Section", "Section")
                         .WithMany("Classes")
@@ -566,13 +558,13 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.Class", "Class")
                         .WithMany("Students")
                         .HasForeignKey("ClassId")
-                        .HasConstraintName("FK__Student__ClassId__3E52440B")
+                        .HasConstraintName("FK__Student__ClassId__3D5E1FD2")
                         .IsRequired();
 
                     b.HasOne("Director.Models.Parent", "Parent")
                         .WithMany("Students")
                         .HasForeignKey("ParentId")
-                        .HasConstraintName("FK__Student__ParentI__3D5E1FD2")
+                        .HasConstraintName("FK__Student__ParentI__3C69FB99")
                         .IsRequired();
 
                     b.Navigation("Class");
@@ -585,13 +577,13 @@ namespace Director.Migrations
                     b.HasOne("Director.Models.Grade", "Grade")
                         .WithMany("SubjectForGrades")
                         .HasForeignKey("GradeId")
-                        .HasConstraintName("FK__SubjectFo__Grade__34C8D9D1")
+                        .HasConstraintName("FK__SubjectFo__Grade__2D27B809")
                         .IsRequired();
 
                     b.HasOne("Director.Models.Subject", "Subject")
                         .WithMany("SubjectForGrades")
                         .HasForeignKey("SubjectId")
-                        .HasConstraintName("FK__SubjectFo__Subje__33D4B598")
+                        .HasConstraintName("FK__SubjectFo__Subje__2C3393D0")
                         .IsRequired();
 
                     b.Navigation("Grade");
@@ -601,13 +593,13 @@ namespace Director.Migrations
 
             modelBuilder.Entity("Director.Models.Teacher", b =>
                 {
-                    b.HasOne("Director.Models.Subject", "Subject")
+                    b.HasOne("Director.Models.SubjectForGrade", "SubjectForGrade")
                         .WithMany("Teachers")
-                        .HasForeignKey("SubjectId")
-                        .HasConstraintName("FK__Teacher__Subject__2C3393D0")
+                        .HasForeignKey("SubjectForGradeId")
+                        .HasConstraintName("FK__Teacher__Subject__300424B4")
                         .IsRequired();
 
-                    b.Navigation("Subject");
+                    b.Navigation("SubjectForGrade");
                 });
 
             modelBuilder.Entity("Director.Models.Class", b =>
@@ -653,13 +645,16 @@ namespace Director.Migrations
                     b.Navigation("Assessments");
 
                     b.Navigation("SubjectForGrades");
+                });
 
+            modelBuilder.Entity("Director.Models.SubjectForGrade", b =>
+                {
                     b.Navigation("Teachers");
                 });
 
             modelBuilder.Entity("Director.Models.Teacher", b =>
                 {
-                    b.Navigation("ClassHomerooms");
+                    b.Navigation("Classes");
                 });
 #pragma warning restore 612, 618
         }
