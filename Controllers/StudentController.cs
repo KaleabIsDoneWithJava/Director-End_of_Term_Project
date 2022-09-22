@@ -43,8 +43,7 @@ namespace Director.Controllers
             if (!model.IsEmpty())
             {
                     AddStudent addStudent = new();
-
-                    await _studentService.AddAsync(addStudent.PassStudent(model));                    
+                    await _studentService.AddAsync(addStudent.PassStudentAsync(model));                    
             }
             else 
             {

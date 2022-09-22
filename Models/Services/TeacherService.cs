@@ -34,7 +34,7 @@ namespace Director.Models.Services
         //Returns the joined data from the db as a temp object
         public IEnumerable GetAllTeacherDetail()
         {
-            var result = (from t in _context.Teachers
+            var result =  (from t in _context.Teachers
                           join sg in _context.SubjectForGrades
                           on t.SubjectForGradeId equals sg.Id
                           join s in _context.Subjects
@@ -52,7 +52,7 @@ namespace Director.Models.Services
                               Subject = s.Name,
                               Grade = g.Value
                               //Homeroom = c.Grade.Value
-                          }).ToList();          
+                          });          
             return result;
         }
 

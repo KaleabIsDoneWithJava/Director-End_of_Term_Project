@@ -13,5 +13,17 @@ namespace Director.Models.Services
         {
             _context = context;
         }
+        
+        //returns the classId from the db given the gradeId and SectionId from the model class
+        public int GetClassGradeSection(int GradeId, int SectionId)
+        {
+            var result =  (from c in _context.Classes
+                                where c.GradeId == GradeId 
+                                where c.SectionId == SectionId
+                                select c.Id).First();
+            
+            return result;
+        }
+
     }
 }

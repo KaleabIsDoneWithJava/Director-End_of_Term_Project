@@ -8,6 +8,10 @@ namespace Director.Models.Services
 {
    public interface IClassService : IEntityBaseRepository<Class>
     {
+        //Functions that are implemented in ClassService
+
+        public int GetClassGradeSection(int GradeId, int SectionId)
+
 
     }
 }
