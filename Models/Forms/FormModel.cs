@@ -20,9 +20,9 @@ namespace Director.Models.Forms
         [DisplayName("First Name")]
         public string FirstName { get; set; }
         [DisplayName("Father's Name")]
-        public string FatherName { get; set; }
+        public string FathersName { get; set; }
         [DisplayName("Grandfather's Name")]
-        public string GrandFatherName { get; set; }
+        public string GrandFathersName { get; set; }
         [DisplayName("Staff Type")]
         public string Role { get; set; }
         [DisplayName("Date of Birth")]
@@ -47,7 +47,7 @@ namespace Director.Models.Forms
 
         public bool IsEmpty()
         {
-            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FatherName) || String.IsNullOrEmpty(GrandFatherName)
+            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FathersName) || String.IsNullOrEmpty(GrandFathersName)
                 || String.IsNullOrEmpty(Role) || String.IsNullOrEmpty(Gender)
                 || String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Phone)) 
             { return true; }

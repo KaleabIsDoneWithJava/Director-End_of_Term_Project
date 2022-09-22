@@ -1,4 +1,7 @@
 ﻿
+@model Director.Models.Forms.StudentFormModel;
+
+
 @{
     ViewData["Title"] = "AddStudent";
     ViewBag.Title = "Add Student";
@@ -9,7 +12,7 @@
     <div class="main-panel-div5">
         <b class="add-student-b">@ViewBag.Title</b>
 
-        <form class="form-add-student" method="post">
+        <form class="form-add-student" asp-action="AddStudent" asp-controller="Student">
             <div class="student-details-div">
                 <div class="label-student-details">
                     <b class="student-details-b">Student Details</b>
@@ -17,23 +20,27 @@
                 <div class="dashboard-div5">
                     <div class="column-1-add-staff2">
                         <div class="name-label-input2">
-                            <div class="name-div2">Name</div>
+                            <div class="name-div2"><label asp-for="FirstName"></label></div>
                             <input class="input-field-default-withou6"
                                    type="text"
-                                   defaultvalue="Name"
-                                   placeholder="Enter Name Here..." />
+                                   asp-for="FirstName"
+                                   placeholder="Enter First Name Here..." />
                         </div>
                         <div class="name-label-input2">
-                            <div class="name-div2">Date of Birth</div>
+                            <div class="name-div2"><label asp-for="DateOfBirth"></label></div>
                             <input class="input-field-default-withou7"
                                    type="date"
+                                   asp-for="DateOfBirth"
                                    placeholder="DD/MM/YYYY" />
                         </div>
                         <div class="gender-staff-type2">
                             <div class="gender-label-dropdown2">
                                 <div class="staff-type-label-dropdown4">
-                                    <div class="gender-div2">Gender</div>
-                                    <select class="dropdown-default-basic5" required>
+                                    <div class="gender-div2"><label asp-for="Gender"></label></div>
+                                    <select class="dropdown-default-basic5" 
+                                            required
+                                            asp-for="Gender">
+
                                         <option value="Female">F</option>
                                         <option value="Male">M</option>
                                     </select>
@@ -43,7 +50,7 @@
                     </div>
                     <div class="column-1-add-staff2">
                         <div class="name-label-input2">
-                            <div class="name-div2">Father’s Name</div>
+                            <div class="name-div2"><label asp-for="FathersName"></label></div>
                             <input class="input-field-default-withou6"
                                    type="text"
                                    placeholder="Enter Father's Name Here..." />
@@ -117,9 +124,9 @@
                         </div>
                         <div class="name-label-input2">
                             <div class="name-div2">Date of Birth</div>
-                            <input class="input-field-default-withou7" 
+                            <input class="input-field-default-withou7"
                                    type="date"
-                                   placeholder="DD/MM/YYYY"/>
+                                   placeholder="DD/MM/YYYY" />
                         </div>
                         <div class="gender-staff-type2">
                             <div class="gender-label-dropdown2">
@@ -173,6 +180,6 @@
                 </button>
             </div>
         </form>
-        
+
     </div>
 </div>

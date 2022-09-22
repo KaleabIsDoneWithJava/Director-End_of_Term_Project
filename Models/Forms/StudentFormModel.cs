@@ -39,7 +39,7 @@ namespace Director.Models.Forms
         public bool IsEmpty()
         {
             // Student email and phone number aren't required fields
-            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FatherName) || String.IsNullOrEmpty(GrandFatherName)
+            if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FathersName) || String.IsNullOrEmpty(GrandFathersName)
                 || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(PfirstName) || String.IsNullOrEmpty(PfatherName) 
                 || String.IsNullOrEmpty(PgrandFatherName) || String.IsNullOrEmpty(Pgender) || String.IsNullOrEmpty(Pemail)
                 || String.IsNullOrEmpty(Pphone)) 

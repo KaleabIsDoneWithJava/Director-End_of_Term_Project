@@ -21,7 +21,7 @@ namespace Director.Controllers
             return View();
         }
 
-        // GET: StudentController/Create
+        // GET: StudentController/AddStudent
         public ActionResult AddStudent()
         {
             return View();
