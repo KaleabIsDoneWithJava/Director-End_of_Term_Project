@@ -18,8 +18,8 @@ namespace Director.Models.Functions
                 Parent = new Parent 
                 {
                     FirstName = model.PfirstName,
-                    FathersName = model.PfatherName,
-                    GrandFathersName = model.PgrandFatherName,
+                    FathersName = model.PfathersName,
+                    GrandFathersName = model.PgrandFathersName,
                     DateOfBirth = model.PdateOfBirth,
                     Email = model.Pemail,
                     Phone = model.Pphone,
@@ -29,8 +29,8 @@ namespace Director.Models.Functions
         
             //Student Detail
             student.FirstName = model.FirstName;
-            student.FathersName = model.FatherName;
-            student.GrandFathersName = model.GrandFatherName;
+            student.FathersName = model.FathersName;
+            student.GrandFathersName = model.GrandFathersName;
             student.DateOfBirth = model.DateOfBirth;
             student.Email = model.Email;
             student.Phone = model.Phone;

@@ -40,8 +40,8 @@ namespace Director.Models.Forms
         {
             // Student email and phone number aren't required fields
             if (String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(FathersName) || String.IsNullOrEmpty(GrandFathersName)
-                || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(PfirstName) || String.IsNullOrEmpty(PfatherName) 
-                || String.IsNullOrEmpty(PgrandFatherName) || String.IsNullOrEmpty(Pgender) || String.IsNullOrEmpty(Pemail)
+                || String.IsNullOrEmpty(Gender) || String.IsNullOrEmpty(PfirstName) || String.IsNullOrEmpty(PfathersName) 
+                || String.IsNullOrEmpty(PgrandFathersName) || String.IsNullOrEmpty(Pgender) || String.IsNullOrEmpty(Pemail)
                 || String.IsNullOrEmpty(Pphone)) 
             { return true; }
             
