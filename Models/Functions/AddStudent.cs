@@ -10,6 +10,11 @@ namespace Director.Models.Functions
     public class AddStudent
     {
         private readonly IClassService _classService;
+        public AddStudent(IClassService classService)
+        {
+            _classService = classService;
+        }
+
         //passing the Student detail from the form model class to the Student model class/entity
         public Student PassStudentAsync(StudentFormModel model)
         {
@@ -43,6 +48,7 @@ namespace Director.Models.Functions
             student.Gender = model.Gender;
             
             //Passing GradeId and SectionId to get the ClassId
+            //Plus don't forget to instantiate the service on every model constructor that it is implemented on.
             student.ClassId = _classService.GetClassId(model.Grade, model.Section);
            
             return student;

@@ -15,11 +15,13 @@ namespace Director.Controllers
         // Delclaring the student service to have access to the dbContext class and any other special classes
         // that are involved in the student class interacting with the database.
         private readonly IStudentService _studentService;
+        private readonly IClassService _classService;
 
-        public StudentController(IStudentService studentService)
+        public StudentController(IStudentService studentService, IClassService classService)
         {
             // the service is instantiated in the controller's constructor
             _studentService = studentService;
+            _classService = classService;
         }
 
         // GET: StudentController
@@ -42,8 +44,8 @@ namespace Director.Controllers
 
             if (!model.IsEmpty())
             {
-                    AddStudent addStudent = new();
-                    await _studentService.AddAsync(addStudent.PassStudentAsync(model));                    
+                    AddStudent addStudent = new(_classService);
+                    await _studentService.AddAsync(addStudent.PassStudentAsync(model));                   
             }
             else 
             {

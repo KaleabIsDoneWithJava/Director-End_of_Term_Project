@@ -1,5 +1,9 @@
 --CREATE DATABASE SMS
+--DROP DATABASE SMS
+
 USE SMS
+
+--SELECT * FROM Class
 
 
 CREATE TABLE Parent
@@ -182,7 +186,10 @@ insert into Class values --we only have a section A for all grades
 (1,5,5),
 (1,6,6),
 (1,7,7),
-(1,8,8)
+(1,8,8),
+(1,9, null)
+
+
 
 
 
@@ -193,8 +200,8 @@ CREATE TABLE Student
   FathersName VARCHAR(100) NOT NULL,
   GrandFathersName VARCHAR(100) NOT NULL,
   Gender VARCHAR(6) NOT NULL,
-  Phone VARCHAR(20) NOT NULL,
-  Email VARCHAR(100) NOT NULL,
+  Phone VARCHAR(20) NULL,
+  Email VARCHAR(100) NULL,
   DateOfBirth DATE NOT NULL,
   ParentId INT NOT NULL FOREIGN KEY REFERENCES Parent(Id),
   ClassId INT NOT NULL FOREIGN KEY REFERENCES Class(Id)
