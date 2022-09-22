@@ -23,9 +23,9 @@ namespace Director.Models.Forms
         [DisplayName("First Name")]
         public string PfirstName { get; set; }
         [DisplayName("Father's Name")]
-        public string PfatherName { get; set; }
+        public string PfathersName { get; set; }
         [DisplayName("Grandfather's Name")]
-        public string PgrandFatherName { get; set; }
+        public string PgrandFathersName { get; set; }
         [DisplayName("Date of Birth")]
         public DateTime PdateOfBirth { get; set; }
         [DisplayName("Gender")]
