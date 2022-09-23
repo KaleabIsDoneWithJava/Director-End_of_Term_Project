@@ -1,15 +1,16 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    /*Announcements Index page*/
+    ViewBag.Title = "Announcements";
 }
 
 <div class="main-panel-div3">
     <div class="main-panel-inner">
-        <b class="announcements-b4">Announcements</b>
+        <b class="announcements-b4">@ViewBag.Title</b>
         <div class="search-buttons">
             <input class="search-announcements-input"
                    type="search"
-                   placeholder="Office staff or teachers..."
+                   placeholder="Search Announcements..."
                    autofocus />
             <div class="dropdown-time">
                 <div class="helper-button-icon">
