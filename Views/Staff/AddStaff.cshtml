@@ -102,7 +102,7 @@
                         <div class="date-of-birth"><label asp-for="FirstName"></label></div>
                         <input class="input-field-default-withou"
                                type="text"
-                               defaultvalue="Name"
+                               defaultvalue=""
                                placeholder="Enter Name Here..."
                                asp-for="FirstName"
                                />
@@ -110,7 +110,8 @@
                     </div>
                     <div class="name-label-input">
                         <div class="date-of-birth"><label asp-for="DateOfBirth"></label></div>
-                        <input class="input-field-default-withou1" 
+                        <input class="input-field-default-withou1"
+                               defaultvalue=""                               
                                type="date"
                                asp-for="DateOfBirth"
                                />
@@ -119,7 +120,9 @@
                     <div class="gender-staff-type">
                         <div class="staff-type-label-dropdown">
                             <div class="staff-type-div"><label asp-for="Role"></label></div>
-                            <select id="staff-type-dropdown" class="dropdown-default-basic1" required
+                            <select id="staff-type-dropdown" class="dropdown-default-basic1" 
+                                    required
+                                    defaultvalue=""
                                     asp-for="Role"
                                     onchange="toggleInput()">
 
@@ -131,7 +134,9 @@
                         <div class="gender-label-dropdown">
                             <div class="staff-type-label-dropdown1">
                                 <div class="staff-type-div"><label asp-for="Gender"></label></div>
-                                <select class="dropdown-default-basic1" required
+                                <select class="dropdown-default-basic1" 
+                                        defaultvalue="None"
+                                        required
                                         asp-for="Gender"
                                         >
 
@@ -146,6 +151,7 @@
                     <div class="name-label-input">
                         <div class="date-of-birth"><label asp-for="FathersName"></label></div>
                         <input class="input-field-default-withou"
+                               defaultvalue=""
                                type="text"
                                placeholder="Enter Father's Name Here..."
                                asp-for="FathersName"
@@ -155,7 +161,7 @@
                         <div class="date-of-birth"><label asp-for="Email"></label></div>
                         <input class="input-field-default-withou1"
                                type="email"
-                               defaultvalue="Email"
+                               defaultvalue=""
                                placeholder="Enter Email Here..."
                                asp-for="Email"
                                />
@@ -163,7 +169,9 @@
                     <div class="grade-homeroom-label-dro">
                         <div class="homeroom-label-dropdown">
                             <div class="grade-div"><label asp-for="Grade"></label></div>
-                            <select id="dropdown-default-basic4" class="dropdown-default-basic3" disabled
+                            <select id="dropdown-default-basic4" class="dropdown-default-basic3" 
+                                    defaultvalue=""
+                                    disabled
                                     asp-for="Grade">
                                 
                                 <option value="0">None</option>
@@ -183,7 +191,9 @@
                         </div>
                         <div class="homeroom-label-dropdown">
                             <div class="grade-div"><label asp-for="Section"></label></div>
-                            <select id="dropdown-default-basic3" class="dropdown-default-basic3" disabled
+                            <select id="dropdown-default-basic3" class="dropdown-default-basic3" 
+                                    defaultvalue=""
+                                    disabled
                                     asp-for="Section">
                                     
                                 <option value="0">None</option>
@@ -198,7 +208,9 @@
                     </div>
                     <div class="name-label-input">
                         <div class="subject-div"><label asp-for="Subject"></label></div>
-                        <select id="dropdown-default-basic5" class="dropdown-default-basic5" disabled
+                        <select id="dropdown-default-basic5" class="dropdown-default-basic5" 
+                                defaultvalue=""
+                                disabled
                                 asp-for="Subject">
 
                             <option value="1">English</option>
@@ -223,7 +235,7 @@
                         <div class="date-of-birth"><label asp-for="GrandFathersName"></label></div>
                         <input class="input-field-default-withou"
                                type="text"
-                               defaultvalue="Name"
+                               defaultvalue=""
                                placeholder="Enter Grandfather's Name Here..."
                                asp-for="GrandFathersName" />
                     </div>
@@ -231,6 +243,7 @@
                         <div class="date-of-birth"><label asp-for="Phone"></label></div>
                         <input class="input-field-default-withou1"
                                type="tel"
+                               defaultvalue=""
                                placeholder="Enter Phone Number Here..."
                                asp-for="Phone" />
                     </div>
@@ -312,7 +325,7 @@
             <button class="button-add-staff-member2" autofocus type="submit">
                 <b class="button-label2">Add</b>
             </button>
-            <button class="button-remove-staff-member" type="reset">
+            <button class="button-remove-staff-member" type="reset" value="Reset">
                 <b class="button-label3">Clear</b>
             </button>
         </div>
