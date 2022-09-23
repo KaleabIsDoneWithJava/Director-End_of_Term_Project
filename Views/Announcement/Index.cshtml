@@ -4,7 +4,100 @@
     ViewBag.Title = " My Announcements";
 }
 
+<style>
+    /*For the table on My Announcements*/
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: -fill-available;
+        height: 100%;
+        /*
+        height: -moz-available;
+        height: -webkit-fill-available;
+        height: -fill-available;
+        */
+        font-size: medium;/*16px*/
+        border: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #000;
+        border-radius: 20px;
+    }
+
+    .displayTableBody {
+        height: -moz-available;
+        height: -webkit-fill-available;
+        height: -fill-available;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: -fill-available;
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+
+
+
+    th, td {
+        display: flex;
+        text-align: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content: space-between;
+    }
+
+    tr {
+        display: flex;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: -fill-available;
+        justify-content: space-between;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+
+    .displayEmail {
+        width: 230px;
+    }
+
+    .displayName {
+        width: 160px;
+    }
+
+    .displayPhone {
+        width: 135px;
+    }
+
+    .displayStaffType {
+        width: 140px;
+    }
+
+    .displaySubject {
+        width: 90px;
+    }
+
+    .displayGrade {
+        width: 90px;
+        display: flex;
+        justify-content: center;
+    }
+    /*For the table on My Announcements*/
+</style>
+
+
 <div class="main-panel-div3">
+    
     <div class="main-panel-inner">
         <b class="announcements-b4">@ViewBag.Title</b>
         <div class="search-buttons">
@@ -28,6 +121,7 @@
                 <b class="button-label2">Make Announcement</b>
             </button>
         </div>
+        <!--
         <div class="dashboard-div3" id="Table - View Office Staff">
             <div class="column-div4">
                 <div class="header-div14"><div class="title-div">Title</div></div>
@@ -73,7 +167,51 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
+    
+
+    <div style="width: -moz-available; 
+      width: -webkit-fill-available; 
+      width: -fill-available; 
+      height: -moz-available; 
+      height: -webkit-fill-available; 
+      height: -fill-available; ">
+        <table>
+            <tr style=" background-color: #f2f2f2;">
+                <th class="displayName">Name</th>
+                <th class="displayStaffType">Staff Type</th>
+                <th class="displayEmail">Email</th>
+                <th class="displayPhone">Phone</th>
+                <th class=" displaySubject">Subject</th>
+                <th class="displayGrade">Grade</th>
+                <th>Actions</th>
+
+            </tr>
+            <tbody class="displayTableBody">
+
+
+                <tr>
+                    <td class="displayName"></td>
+                    <td class="displayStaffType">Office Staff</td>
+                    <td class="displayEmail"></td>
+                    <td class="displayPhone"></td>
+                    <td class="displaySubject">-</td>
+                    <td class="displayGrade">-</td>
+                    <td>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                        </button>
+                        <div class="classes-div">|</div>
+                        <button class="pencil-alt-button">
+                            <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 <div class="right-panel-div2">
     <div class="notifications-div1" id="Table - Notifications">
