@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="~/css/home.css" />
     <link rel="stylesheet" href="~/css/my-staff.css" />
     <link rel="stylesheet" href="~/css/AddStudent.css" />
+    <link rel="stylesheet" href="~/css/Announcements.css"/>
 
     <style>
         .active {
@@ -21,6 +22,9 @@
             cursor: pointer;
             color: #2e65f3;
             stroke: #2e65f3;
+        }
+        .RenderedBody{
+            height: 100vh;
         }
     </style>
 
@@ -136,7 +140,7 @@
 
 
     <main class="rendered-body">
-        <main role="main" style="display:flex">
+        <main class ="RenderedBody" role="main" style="display:flex">
             @RenderBody()
         </main>
     </main>

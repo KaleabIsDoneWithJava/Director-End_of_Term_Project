@@ -12,34 +12,54 @@
     table {
         border-collapse: collapse;
         border-spacing: 0;
-        width: -moz-available;
+        width: -moz-available; /*For Mozilla based browsers*/
+        width: -webkit-fill-available; /*For Webkit based browsers*/
+        width: -fill-available;
         border: 1px solid #ddd;
-
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #000;
+        border-radius: 20px;
     }
 
     .displayTableBody {
         height: 220px;
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
         overflow-x: auto;
     }
 
     th, td {
         display: flex;
         text-align: left;
-        padding-left:15px;
+        padding-left: 15px;
         padding-right: 15px;
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     tr {
         display: flex;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: -fill-available;
+        justify-content: space-between;
 
-
+        
     }
 
-    tr:nth-child(even) {
+    tbody>tr:nth-child(even) {
+            background-color: #f2f2f2;
+            border-radius:20px;
+            
+    }
+    tbody{
+        border-radius:inherit;
+    }
+    thead > tr {
         background-color: #f2f2f2;
-
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
     }
     .displayEmail{
 
@@ -100,19 +120,21 @@
             </button>
 
         </div>
-        <div style="width: -moz-available;">
+        <div style="width: -moz-available; width: -webkit-fill-available; width: -fill-available;">
             <table>
+                <thead>
+                    <tr style="">
 
-                <tr>
-                    <th class="displayName">Name</th>
-                    <th class="displayStaffType">Staff Type</th>
-                    <th class="displayEmail">Email</th>
-                    <th class="displayPhone">Phone</th>
-                    <th class=" displaySubject">Subject</th>
-                    <th class="displayGrade">Grade</th>
-                    <th>Actions</th>
+                        <th class="displayName">Name</th>
+                        <th class="displayStaffType">Staff Type</th>
+                        <th class="displayEmail">Email</th>
+                        <th class="displayPhone">Phone</th>
+                        <th class=" displaySubject">Subject</th>
+                        <th class="displayGrade">Grade</th>
+                        <th>Actions</th>
 
-                </tr>
+                    </tr>
+                </thead>
                 <tbody class="displayTableBody">
                     @foreach (var staff in Model.OfficeStaff)
                     {
