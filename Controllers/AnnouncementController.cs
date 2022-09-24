@@ -22,15 +22,19 @@ namespace Director.Controllers
         }
 
         // GET: AnnouncementController/Create
-        public ActionResult Create()
+        // GET: AnnouncementController/MakeAnnouncement
+
+        public ActionResult MakeAnnouncement()
         {
             return View();
         }
 
         // POST: AnnouncementController/Create
+        // POST: AnnouncementController/MakeAnnouncement
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult MakeAnnouncement(IFormCollection collection)
         {
             try
             {
