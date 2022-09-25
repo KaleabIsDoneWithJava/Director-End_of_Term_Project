@@ -7,6 +7,7 @@ namespace Director.Models.Functions
 {
     public class AddAnnouncement
     {
+        //public 
 
     }
 }

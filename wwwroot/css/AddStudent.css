@@ -346,7 +346,7 @@ body {
     flex-direction: column;
     gap: 10px;
     width: -moz-available; /*For Mozilla based browsers*/
-    width: -webkit-fill-available,; /*For Webkit based browsers*/
+    width: -webkit-fill-available; /*For Webkit based browsers*/
     width: -fill-available;
 }
 .dashboard-div6,
