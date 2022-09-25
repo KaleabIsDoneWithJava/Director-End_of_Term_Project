@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Director.Models.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,19 @@ namespace Director.Controllers
 {
     public class AnnouncementController : Controller
     {
-        // GET: AnnouncementController
-        public ActionResult Index()
+        private readonly IAnnouncementService _announcementService;
+
+        public AnnouncementController(IAnnouncementService announcementService)
         {
-            return View();
+            _announcementService = announcementService;
+        }
+
+        // GET: AnnouncementController
+        public async Task<ActionResult> IndexAsync()
+        {
+            var allAnnouncements = await _announcementService.GetAllAsync();
+
+            return View(allAnnouncements);
         }
 
         // GET: AnnouncementController/Details/5
@@ -38,7 +48,7 @@ namespace Director.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -59,7 +69,7 @@ namespace Director.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -80,7 +90,7 @@ namespace Director.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
