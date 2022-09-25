@@ -285,6 +285,9 @@
   gap: 10px;
 }
 .main-panel-div3 {
+  height: -webkit-fill-available;
+  height: -moz-fill-available;
+
   padding: 20px;
   font-size: 48px;
   color: #000;

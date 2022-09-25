@@ -10,23 +10,23 @@
     table {
         border-collapse: collapse;
         border-spacing: 0;
-        width: -moz-available;
-        width: -webkit-fill-available;
+        width: -moz-available;/*For mozilla based browsers*/
+        width: -webkit-fill-available; /*For webkit based browsers*/
         width: -fill-available;
-        height: 100%;
+        height:100%;
         /*
         height: -moz-available;
         height: -webkit-fill-available;
         height: -fill-available;
         */
-        font-size: medium;/*16px*/
+        font-size: medium; /*16px*/
         border: 1px solid #ddd;
         display: flex;
         flex-direction: column;
         border: 1px solid #000;
         border-radius: 20px;
     }
-
+    /*
     .displayTableBody {
         height: -moz-available;
         height: -webkit-fill-available;
@@ -34,9 +34,8 @@
         width: -moz-available;
         width: -webkit-fill-available;
         width: -fill-available;
-        overflow-y: scroll;
-        overflow-x: auto;
-    }
+        
+    }*/
 
 
 
@@ -61,34 +60,33 @@
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 0px;
     }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-
-    .displayEmail {
-        width: 230px;
+    /*tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }*/
+    tbody > tr:nth-child(even) {
+        background-color: #f2f2f2;
+        border-radius: 20px;
     }
 
-    .displayName {
-        width: 160px;
+    tbody {
+        border-radius: inherit;
+        height: inherit;/*inherits from table,  height: 100%*/
+        overflow-y: scroll;
+        overflow-x: auto;
     }
 
-    .displayPhone {
-        width: 135px;
+    thead > tr {
+        background-color: #f2f2f2;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
     }
 
-    .displayStaffType {
-        width: 140px;
-    }
-
-    .displaySubject {
-        width: 90px;
-    }
-
-    .displayGrade {
-        width: 90px;
+    .displayDetails {
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: -fill-available;
         display: flex;
         justify-content: center;
     }
@@ -97,7 +95,7 @@
 
 
 <div class="main-panel-div3">
-    
+
     <div class="main-panel-inner">
         <b class="announcements-b4">@ViewBag.Title</b>
         <div class="search-buttons">
@@ -115,7 +113,7 @@
             </div>
         </div>
         <div class="container-make-announcement">
-            
+
             <button class="button-add-staff-member1"
                     autofocus
                     id="buttonAddStaffMember">
@@ -124,34 +122,31 @@
             </button>
         </div>
     </div>
-
-    <div style="width: -moz-available; 
-      width: -webkit-fill-available; 
-      width: -fill-available; 
-      height: -moz-available; 
-      height: -webkit-fill-available; 
-      height: -fill-available; ">
+    <div style="width: -moz-available;
+                          width: -webkit-fill-available;
+                          width: -fill-available;
+                          height: -moz-available;
+                          height: -webkit-fill-available;
+                          height: -fill-available; ">
         <table>
-            <tr style=" background-color: #f2f2f2;">
-                <th class="displayName">Name</th>
-                <th class="displayStaffType">Staff Type</th>
-                <th class="displayEmail">Email</th>
-                <th class="displayPhone">Phone</th>
-                <th class=" displaySubject">Subject</th>
-                <th class="displayGrade">Grade</th>
-                <th>Actions</th>
+            <thead>
+                <tr style=" background-color: #f2f2f2;">
+                    <th class="displayTitle">Title</th>
+                    <th class="displayDetails">Details</th>
+                    <th>Actions</th>
 
-            </tr>
-            <tbody class="displayTableBody">
+                </tr>
+            </thead>
+            <tbody>
 
 
                 <tr>
-                    <td class="displayName"></td>
+                    <td class="displayTitle"></td>
                     <td class="displayStaffType">Office Staff</td>
                     <td class="displayEmail"></td>
                     <td class="displayPhone"></td>
                     <td class="displaySubject">-</td>
-                    <td class="displayGrade">-</td>
+                    <td class="displayDetails">-</td>
                     <td>
                         <button class="pencil-alt-button">
                             <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
@@ -164,6 +159,7 @@
                 </tr>
             </tbody>
         </table>
+
     </div>
 
 </div>
