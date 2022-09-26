@@ -38,7 +38,7 @@ namespace Director.Models.Functions
                 }
             };
             
-            //Student Detail
+            //Student Details
             student.FirstName = model.FirstName;
             student.FathersName = model.FathersName;
             student.GrandFathersName = model.GrandFathersName;
