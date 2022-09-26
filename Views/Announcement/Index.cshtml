@@ -1,4 +1,6 @@
 ﻿
+@model dynamic;
+
 @{
     /*Announcements Index page*/
     ViewBag.Title = " My Announcements";
@@ -65,8 +67,12 @@
     }*/
     tbody > tr:nth-child(even) {
         background-color: #f2f2f2;
-        border-radius: 20px;
+        border-radius: 0px;
     }
+
+   .displayTitle{
+       width:280px;
+   }
 
     tbody {
         border-radius: inherit;
@@ -92,7 +98,6 @@
     }
     /*For the table on My Announcements*/
 </style>
-
 
 <div class="main-panel-div3">
 
@@ -138,13 +143,10 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var announcement in Model.announcements) { 
                 <tr>
-                    <td class="displayTitle"></td>
-                    <td class="displayStaffType">Office Staff</td>
-                    <td class="displayEmail"></td>
-                    <td class="displayPhone"></td>
-                    <td class="displaySubject">-</td>
-                    <td class="displayDetails">-</td>
+                    <td class="displayTitle"><b>@announcement.Title</b></td>
+                    <td class="displayDetails">@announcement.Detail</td>
                     <td>
                         <button class="pencil-alt-button">
                             <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
@@ -155,6 +157,7 @@
                         </button>
                     </td>
                 </tr>
+                }
             </tbody>
         </table>
 
