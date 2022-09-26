@@ -40,7 +40,7 @@ namespace Director.Controllers
         }
 
         // POST: AnnouncementController/Create
-        // POST: AnnouncementController/MakeAnnouncement
+        // POST: AnnouncementController/MakeAnanouncement
 
         [HttpPost]
         [ValidateAntiForgeryToken]
