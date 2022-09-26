@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,9 +21,11 @@ namespace Director.Controllers
         // GET: AnnouncementController
         public async Task<ActionResult> IndexAsync()
         {
-            var allAnnouncements = await _announcementService.GetAllAsync();
+            //Using dynamic type because the Appointment entity will also be passed on to the index view.
+            dynamic index = new ExpandoObject();
+            index.announcements = await _announcementService.GetAllAsync();
 
-            return View(allAnnouncements);
+            return View(index);
         }
 
         // GET: AnnouncementController/Details/5
@@ -40,7 +43,7 @@ namespace Director.Controllers
         }
 
         // POST: AnnouncementController/Create
-        // POST: AnnouncementController/MakeAnanouncement
+        // POST: AnnouncementController/MakeAnnouncement
 
         [HttpPost]
         [ValidateAntiForgeryToken]
