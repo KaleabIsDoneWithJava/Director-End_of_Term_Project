@@ -1,5 +1,5 @@
 ﻿
-@model dynamic;
+@model Director.Models.Functions.AddAnnouncement.AnnouncementsFormAndData;
 
 @{
     /*Announcements Index page*/
@@ -12,10 +12,10 @@
     table {
         border-collapse: collapse;
         border-spacing: 0;
-        width: -moz-available;/*For mozilla based browsers*/
+        width: -moz-available; /*For mozilla based browsers*/
         width: -webkit-fill-available; /*For webkit based browsers*/
         width: -fill-available;
-        height:100%;
+        height: 100%;
         /*
         height: -moz-available;
         height: -webkit-fill-available;
@@ -36,7 +36,7 @@
         width: -moz-available;
         width: -webkit-fill-available;
         width: -fill-available;
-        
+
     }*/
 
 
@@ -62,21 +62,19 @@
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 0px;
     }
-    /*tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }*/
+   
     tbody > tr:nth-child(even) {
         background-color: #f2f2f2;
         border-radius: 0px;
     }
 
-   .displayTitle{
-       width:280px;
-   }
+    .displayTitle {
+        width: 280px;
+    }
 
     tbody {
         border-radius: inherit;
-        height: inherit;/*inherits from table,  height: 100%*/
+        height: inherit; /*inherits from table,  height: 100%*/
         overflow-y: scroll;
         overflow-x: auto;
     }
@@ -99,6 +97,17 @@
     /*For the table on My Announcements*/
 </style>
 
+<div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: transparent; border: 0px; " >
+            @{
+                Html.RenderPartial("MakeAnnouncement", Model);
+               
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div class="main-panel-div3">
 
     <div class="main-panel-inner">
@@ -119,12 +128,15 @@
         </div>
         <div class="container-make-announcement">
 
-            <button class="button-add-staff-member1"
-                    autofocus
-                    id="buttonAddStaffMember">
-
+            <!--Used bootstrap to display the partial view (Make Announcement)-->
+            <button class="button-add-staff-member1" id='open'
+                    data-toggle="modal" data-target="#showmodal"
+                    autofocus>
                 <b class="button-label2">Make Announcement</b>
             </button>
+
+
+
         </div>
     </div>
     <div style="width: -moz-available;
@@ -143,20 +155,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var announcement in Model.announcements) { 
-                <tr>
-                    <td class="displayTitle"><b>@announcement.Title</b></td>
-                    <td class="displayDetails">@announcement.Detail</td>
-                    <td>
-                        <button class="pencil-alt-button">
-                            <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
-                        </button>
-                        <div class="classes-div">|</div>
-                        <button class="pencil-alt-button">
-                            <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
-                        </button>
-                    </td>
-                </tr>
+                @foreach (var announcement in Model.allAnnouncements)
+                {
+                    <tr>
+                        <td class="displayTitle"><b>@announcement.Title</b></td>
+                        <td class="displayDetails">@announcement.Detail</td>
+                        <td>
+                            <button class="pencil-alt-button">
+                                <img class="vector-icon3" alt="" src="~/Assets/IconEdit.svg" />
+                            </button>
+                            <div class="classes-div">|</div>
+                            <button class="pencil-alt-button">
+                                <img class="vector-icon4" alt="" src="~/Assets/IconTrash.svg" />
+                            </button>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>

@@ -1,4 +1,5 @@
-﻿using Director.Models.Services;
+﻿using Director.Models.Forms;
+using Director.Models.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using Director.Models.Functions;
 
 namespace Director.Controllers
 {
@@ -22,10 +24,15 @@ namespace Director.Controllers
         public async Task<ActionResult> IndexAsync()
         {
             //Using dynamic type because the Appointment entity will also be passed on to the index view.
-            dynamic index = new ExpandoObject();
-            index.announcements = await _announcementService.GetAllAsync();
-
-            return View(index);
+            AddAnnouncement.AnnouncementsFormAndData indexModel = new();
+            
+            //Gets all the announcements in the db asynchronously
+            indexModel.allAnnouncements = await _announcementService.GetAllAsync();
+            
+            //Doing this because the MakeAnnouncement popup is a partial view.
+            indexModel.Form = new AnnouncementFormModel ();
+            
+            return View(indexModel);
         }
 
         // GET: AnnouncementController/Details/5
@@ -36,29 +43,36 @@ namespace Director.Controllers
 
         // GET: AnnouncementController/Create
         // GET: AnnouncementController/MakeAnnouncement
+         public async Task<ActionResult> MakeAnnouncementAsync(AddAnnouncement.AnnouncementsFormAndData indexModel)
+         {
+            AddAnnouncement addAnnouncement = new();
 
-        public ActionResult MakeAnnouncement()
-        {
-            return View();
-        }
+            //Add the new announcement written in the MakeAnnouncement partial view to the db. 
+            await _announcementService.AddAsync(addAnnouncement.PassAnnouncement(indexModel.Form));
+            
+            return RedirectToAction("Index");//Redirects you back the My Announcement page after you add the item into the db
+            
 
-        // POST: AnnouncementController/Create
-        // POST: AnnouncementController/MakeAnnouncement
+         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MakeAnnouncement(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(IndexAsync));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+         // POST: AnnouncementController/Create
+         // POST: AnnouncementController/MakeAnnouncement
 
+        /*
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public ActionResult MakeAnnouncement(IFormCollection collection)
+         {
+             try
+             {
+                 return RedirectToAction(nameof(IndexAsync));
+             }
+             catch
+             {
+                 return View();
+             }
+         }
+ */
         // GET: AnnouncementController/Edit/5
         public ActionResult Edit(int id)
         {

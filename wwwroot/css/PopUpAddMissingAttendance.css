@@ -1,91 +1,92 @@
-
-.make-announcement-b1 {
+body {
+  margin: 0;
+  line-height: normal;
+}
+.add-missing-attendance {
   position: relative;
   line-height: 28px;
   display: inline-block;
 }
-.x-circle-icon {
+.x-circle-icon1 {
   position: relative;
   width: 30px;
   height: 30px;
   flex-shrink: 0;
   overflow: hidden;
 }
-.frame-div9,
-.title-make-announcement {
+.frame-div10 {
   align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.title-make-announcement {
+.studentname-has-missed-the-fo {
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000;
+  display: inline-block;
+}
+.title-add-missing-attendance {
+  align-self: stretch;
   border-radius: 12px 12px 0 0;
   background-color: #fff;
+  display: flex;
   flex-direction: column;
   padding: 24px 40px 0;
   box-sizing: border-box;
   align-items: flex-start;
   justify-content: center;
-  font-size: 20px;
-  color: #232325;
+  gap: 8px;
 }
-.title-div1 {
+.input-label-div {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.date-div,
+.dropdown-subjects {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dropdown-subjects {
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  padding: 12px 16px;
+  justify-content: center;
+  font-size: 16px;
+}
+.date-div {
+  justify-content: flex-start;
+  gap: 8px;
+}
+.the-time-of-day-period {
   position: relative;
   line-height: 24px;
   font-weight: 600;
   display: inline-block;
 }
-.announcement-title-div,
-.input-announcement-title,
-.title-label-and-input {
+.input-missing-attendance-det {
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
-.input-announcement-title {
-  border: 1px solid #000;
-  background-color: #fff;
-  border-radius: 8px;
-  box-sizing: border-box;
-  position: relative;
-  padding: 12px 16px;
-  justify-content: center;
-}
-.announcement-title-div,
-.title-label-and-input {
-  justify-content: flex-start;
-}
-.title-label-and-input {
-  gap: 8px;
-}
-.announcement-title-div {
   padding: 24px 40px;
   box-sizing: border-box;
-}
-.details-div1,
-.text-area-announcement-detai {
-  align-self: stretch;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-.text-area-announcement-detai {
-  border: 1px solid #000;
-  position: relative;
-  border-radius: 8px;
-  height: 160px;
-  flex-shrink: 0;
-}
-.details-div1 {
-  display: flex;
-  flex-direction: column;
-  padding: 8px 40px;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 40px;
+  font-size: 14px;
+  color: #000;
 }
-.button-label5 {
+.button-label7 {
   position: relative;
   font-size: 16px;
   line-height: 24px;
@@ -94,7 +95,7 @@
   color: #000;
   text-align: left;
 }
-.button-cancel1 {
+.button-cancel2 {
   cursor: pointer;
   border: 1px solid #000;
   padding: 12px;
@@ -110,7 +111,7 @@
   align-items: center;
   justify-content: center;
 }
-.button-label6 {
+.button-label8 {
   position: relative;
   font-size: 16px;
   line-height: 24px;
@@ -119,14 +120,14 @@
   color: #fff;
   text-align: left;
 }
-.button-post,
-.buttons-post-and-cancel {
+.button-done3,
+.buttons-done-and-cancel {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   align-items: center;
 }
-.button-post {
+.button-done3 {
   cursor: pointer;
   border: 0;
   padding: 12px;
@@ -137,7 +138,7 @@
   flex-shrink: 0;
   justify-content: center;
 }
-.buttons-post-and-cancel {
+.buttons-done-and-cancel {
   align-self: stretch;
   border-radius: 0 0 12px 12px;
   background-color: #fbfbfb;
@@ -145,7 +146,7 @@
   justify-content: flex-end;
   gap: 24px;
 }
-.pop-up-make-announcement {
+.pop-up-add-missing-attendanc {
   position: relative;
   border-radius: 20px;
   background-color: #fff;
@@ -158,9 +159,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 16px;
   text-align: left;
-  font-size: 14px;
-  color: #000;
+  font-size: 20px;
+  color: #232325;
   font-family: Inter;
 }
