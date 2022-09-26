@@ -1,8 +1,15 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-    MakeAnnouncement
+    
+    MakeAnnouncement popup
+    
 *@
-<link rel="stylesheet" href="~/PopUpMakeAnnouncement.css" />
+
+@{ 
+    ViewBag.Title = "Make Announcement";
+}
+
+
 <style>
 
     .make-announcement-b1 {
@@ -191,13 +198,14 @@
     }
 
 </style>
+
 <form class="pop-up-make-announcement">
     <div class="title-make-announcement">
         
         <div class="frame-div9">
-            <b class="make-announcement-b1">Make Announcement</b>
+            <b class="make-announcement-b1">@ViewBag.Title</b>
             <!--Suppose to close the popup-->
-            <button>
+            <button style="background-color: transparent; border: 0px">
                 <img class="x-circle-icon" alt="" src="./Assets/IconCloseCircle.svg" />
             </button>
         
