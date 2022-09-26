@@ -41,7 +41,6 @@ namespace Director.Controllers
             return View();
         }
 
-        // GET: AnnouncementController/Create
         // GET: AnnouncementController/MakeAnnouncement
          public async Task<ActionResult> MakeAnnouncementAsync(AddAnnouncement.AnnouncementsFormAndData indexModel)
          {
@@ -55,7 +54,6 @@ namespace Director.Controllers
 
          }
 
-         // POST: AnnouncementController/Create
          // POST: AnnouncementController/MakeAnnouncement
 
         /*
