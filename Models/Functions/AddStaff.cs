@@ -53,7 +53,7 @@ namespace Director.Models.Functions
             {
                 Teacher staff = new Teacher
                 {
-                    //object members must be insitialized like this, otherwise they're will throw a null instance exception.
+                    //object members must be initialized like this, otherwise they're will throw a null instance exception.
                     Classes = new List<Class> { new Class { GradeId = model.Grade, SectionId = model.Section } },
                     SubjectForGrade = new SubjectForGrade { GradeId = model.Grade, SubjectId = model.Subject }
                 };
