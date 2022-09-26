@@ -45,7 +45,7 @@ namespace Director.Controllers
             _teacherService = ts;
         }
         
-        //Appointments, Notifications, & Staff lists are on the My Staff page
+        //Appointments, Teachers & OfficeStaff lists are on the My Staff page
 
         public async Task<ActionResult> IndexAsync()
         {
@@ -66,46 +66,7 @@ namespace Director.Controllers
             return View(myStaff);
 
         }
-      
-
-        //Returns the subject name for a specific teacher or staff(they don't have one so it returns "-")
-        /* public ArrayList ReturnSubjectName(dynamic myStaff)
-         {
-             ArrayList subjectName = new ArrayList();
-             foreach (var staff in myStaff.Staffs)
-             {
-
-                 foreach (var subject in staff.Subjects)
-                 {
-                     if (subject.StaffId == staff.Id)
-                     {
-                         if (subject.SubjectName = null) 
-                         {
-                             subjectName[subject.StaffId] = "-";
-                             return subjectName[subject.StaffId];
-
-                         }
-                         else
-                         {
-                             return subjectName[subject.StaffId] = subject.SubjectName;
-                         }
-                     }
-                 }
-             }
-             return subjectName;
-         }
-        */
-
-
-
         
-        // GET: StaffController
-       /* public async Task<ActionResult> IndexAsync() //the details page
-        {
-            var data = await _staffService.GetAllAsync();
-            return View(data);
-        }
-        */
         public async Task<ActionResult> AddStaffAsync(FormModel model)
         {
             if (!ModelState.IsValid)

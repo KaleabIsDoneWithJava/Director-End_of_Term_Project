@@ -6,11 +6,13 @@ namespace Director.Models.Forms
 {
     public class AnnouncementFormModel
     {
-        [DisplayName("First Name")]
+        [DisplayName("Title")]
         public string Title { get; set; }
 
-        [DisplayName("First Name")]
+        [DisplayName("Details")]
         public string Details { get; set; }
 
     }
+
+    
 }

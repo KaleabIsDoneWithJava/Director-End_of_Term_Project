@@ -19,7 +19,14 @@ namespace Director.Models.Functions
             allAnnouncements.Detail = model.Details;
 
             return allAnnouncements;
-        } 
+        }
+
+        public class AnnouncementsFormAndData
+        {
+            //In order to pass these to models as one to the Index of the announcements conroller
+            public AnnouncementFormModel Form { get; set; }
+            public IEnumerable<Announcement> allAnnouncements { get; set; }
+        }
 
     }
 }

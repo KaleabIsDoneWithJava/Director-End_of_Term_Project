@@ -1,5 +1,5 @@
 ﻿
-@model dynamic;
+@model Director.Models.Functions.AddAnnouncement.AnnouncementsFormAndData;
 
 @{
     /*Announcements Index page*/
@@ -103,7 +103,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: transparent; border: 0px; " >
             @{
-                Html.RenderPartial("MakeAnnouncement");
+                Html.RenderPartial("MakeAnnouncement", Model);
                
             }
         </div><!-- /.modal-content -->
@@ -157,7 +157,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var announcement in Model.announcements)
+                @foreach (var announcement in Model.allAnnouncements)
                 {
                     <tr>
                         <td class="displayTitle"><b>@announcement.Title</b></td>
