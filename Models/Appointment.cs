@@ -12,7 +12,7 @@ namespace Director.Models
         public int Id { get; set; }
         public DateTime AppointmentDate { get; set; }
         public string Detail { get; set; }
-        public int OfficeStaffId { get; set; }
+        public int? OfficeStaffId { get; set; }
         public int StudentId { get; set; }
 
         public virtual OfficeStaff OfficeStaff { get; set; }
