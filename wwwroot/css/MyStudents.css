@@ -1,0 +1,460 @@
+
+.my-students-b1 {
+  align-self: stretch;
+  position: relative;
+  font-size: 48px;
+  line-height: 60px;
+  display: inline-block;
+}
+.input-field-default-with-i {
+  border: 1px solid #000;
+  background-color: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  position: relative;
+  width: 332px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.helper-button-label {
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.chevron-down-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.helper-button-icon {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.dropdown-default-basic {
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.search-filter {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000;
+}
+.button-label,
+.lower-primary-b {
+  position: relative;
+  display: inline-block;
+}
+.lower-primary-b {
+  flex: 1;
+  line-height: 32px;
+}
+.button-label {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: Inter;
+  color: #fff;
+  text-align: left;
+}
+.button-add-student,
+.lower-primary-label-button {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+.button-add-student {
+  cursor: pointer;
+  border: 1px solid #232325;
+  padding: 12px 20px;
+  background-color: #232325;
+  border-radius: 8px;
+  position: relative;
+  justify-content: center;
+}
+.lower-primary-label-button {
+  align-self: stretch;
+  padding: 10px 0 10px 10px;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.grade-span {
+  font-size: 24px;
+}
+.grade-p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.span {
+  font-size: 36px;
+}
+.p {
+  margin: 0;
+}
+.grade-1,
+.grade-1-b {
+  align-self: stretch;
+  position: relative;
+}
+.grade-1-b {
+  display: inline-block;
+  font-family: Inter;
+  color: #232325;
+  text-align: center;
+}
+.grade-1 {
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 15px;
+  background-color: #f7f7f7;
+  flex: 1;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.p3 {
+  margin: 0;
+  font-size: 36px;
+}
+.grade-4,
+.grade-4-b {
+  align-self: stretch;
+  position: relative;
+}
+.grade-4-b {
+  display: inline-block;
+}
+.grade-4 {
+  flex: 1;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.lower-primary-div,
+.lower-primary-grades {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+}
+.lower-primary-grades {
+  height: 120px;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: 20px 0 10px;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+.lower-primary-div {
+  background-color: #fff;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.middle-primary-b {
+  position: relative;
+  line-height: 32px;
+  display: inline-block;
+}
+.middle-primary-grades,
+.middle-primary-label {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+}
+.middle-primary-grades {
+  height: 120px;
+  flex-shrink: 0;
+  padding: 20px 0 10px;
+  gap: 50px;
+}
+.middle-primary-div,
+.middle-primary-upper-primary {
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+}
+.middle-primary-div {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.middle-primary-upper-primary {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+.main-panel-div {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 30px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 24px;
+}
+.icon-bell {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.baseline-div,
+.header-notifications {
+  align-self: stretch;
+  position: relative;
+  box-sizing: border-box;
+}
+.header-notifications {
+  border-radius: 20px 20px 0 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 24px;
+  color: #000;
+}
+.baseline-div {
+  border-top: 1px solid #000;
+  height: 1px;
+  flex-shrink: 0;
+}
+.divider-solid {
+  align-self: stretch;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.weeks-left-div {
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  color: #f32d2d;
+  display: inline-block;
+}
+.text-group-basic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.mins-div {
+  position: relative;
+  letter-spacing: -0.01em;
+  font-weight: 300;
+  display: inline-block;
+}
+.frame-div,
+.notifications-row-1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.frame-div {
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 10px;
+  color: #000;
+}
+.notifications-row-1 {
+  flex-direction: row;
+  padding: 5px 20px;
+  align-items: center;
+  gap: 10px;
+}
+.baseline-div1,
+.divider-solid1,
+.notifications-row-1 {
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.baseline-div1 {
+  position: relative;
+  border-top: 1px solid #d6d6d6;
+  height: 1px;
+  flex-shrink: 0;
+}
+.divider-solid1 {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 20px;
+  align-items: center;
+  justify-content: center;
+}
+.sports-day-will-be-held-on-mar {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.notifications-div {
+  align-self: stretch;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.vector-complaints {
+  position: relative;
+  width: 16px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.icon-complaints {
+  display: flex;
+  flex-direction: row;
+  padding: 3px 5px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+.iconaddappointment {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.label-button {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px 0 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+.mr-levi-ackermann {
+  flex: 1;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.text-group-basic3 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.apr-11-at-130pm,
+.days-left-div {
+  align-self: stretch;
+  position: relative;
+  display: inline-block;
+}
+.apr-11-at-130pm {
+  font-size: 14px;
+  line-height: 24px;
+  color: #2e65f3;
+}
+.days-left-div {
+  font-size: 12px;
+  color: #f32d2d;
+}
+.appointments-row-1,
+.view-complaints-div {
+  align-self: stretch;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+.appointments-row-1 {
+  display: flex;
+  padding: 5px 20px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+.view-complaints-div {
+  flex: 1;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  position: relative;
+  font-size: 20px;
+}
+.my-students-div,
+.right-panel-div,
+.view-complaints-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.right-panel-div {
+  align-self: stretch;
+  width: 400px;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  gap: 50px;
+  font-size: 16px;
+}
+.my-students-div {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  flex-direction: row;
+  text-align: left;
+  font-size: 14px;
+  color: #232325;
+  font-family: Inter;
+}

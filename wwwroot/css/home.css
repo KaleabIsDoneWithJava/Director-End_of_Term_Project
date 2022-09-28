@@ -58,11 +58,12 @@ svg:active {
     stroke: inherit;
 }
 
-.home-b1 {
-  align-self: stretch;
-  position: relative;
-  line-height: 60px;
-  display: inline-block;
+.home-b1 {/*Page Title container for Home*/
+    align-self: stretch;
+    position: relative;
+    line-height: 60px;
+    font-size: 48px;
+    display: inline-block;
 }
 .dashboard-div,
 .main-panel-upper {

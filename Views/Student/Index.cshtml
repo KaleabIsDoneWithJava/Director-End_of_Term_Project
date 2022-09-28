@@ -3,11 +3,214 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-<button class="btn-light">
-    <a asp-controller="Student" asp-action="AddStudent">
-        Add Students
-    </a>
+<div class="my-students-div">
 
-</button>
+    <div class="main-panel-div">
+        <b class="my-students-b1">My Students</b>
+        <div class="search-filter">
+            <input class="input-field-default-with-i"
+                   type="search"
+                   placeholder="Office staff or teachers..."
+                   autofocus />
+            <div class="dropdown-default-basic">
+                <div class="helper-button-icon">
+                    <div class="helper-button-label">Order by...</div>
+                    <img class="chevron-down-icon"
+                         alt=""
+                         src="~/Assets/IconChevronDown.svg" />
+                </div>
+            </div>
+        </div>
+        <div class="lower-primary-div">
+            <div class="lower-primary-label-button">
+                <b class="lower-primary-b">Lower Primary</b>
+                <button class="button-add-student" autofocus id="buttonAddStudent">
+                    <a asp-controller="Student" asp-action="AddStudent">
+                        <b class="button-label">Add Students</b>
+                    </a>
+                </button>
+            </div>
+            <div class="lower-primary-grades">
+                <button class="grade-1">
+                    <b class="grade-1-b">
+                        <p class="grade-p"><span class="grade-span">Grade </span></p>
+                        <p class="p"><span class="span">1</span></p>
+                    </b>
+                </button><button class="grade-1">
+                    <b class="grade-1-b">
+                        <p class="grade-p"><span class="grade-span">Grade </span></p>
+                        <p class="p"><span class="span">2</span></p>
+                    </b>
+                </button><button class="grade-1">
+                    <b class="grade-1-b">
+                        <p class="grade-p"><span class="grade-span">Grade </span></p>
+                        <p class="p"><span class="span">3</span></p>
+                    </b>
+                </button>
+                <div class="grade-4">
+                    <b class="grade-4-b">
+                        <p class="grade-p"><span>Grade </span></p>
+                        <p class="p3"><span>4</span></p>
+                    </b>
+                </div>
+            </div>
+        </div>
+        <div class="middle-primary-upper-primary">
+            <div class="middle-primary-div">
+                <div class="middle-primary-label">
+                    <b class="middle-primary-b">Middle Primary</b>
+                </div>
+                <div class="middle-primary-grades">
+                    <button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">5</span></p>
+                        </b>
+                    </button><button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">6</span></p>
+                        </b>
+                    </button>
+                </div>
+            </div>
+            <div class="middle-primary-div">
+                <div class="middle-primary-label">
+                    <b class="middle-primary-b">Upper Primary</b>
+                </div>
+                <div class="middle-primary-grades">
+                    <button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">7</span></p>
+                        </b>
+                    </button><button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">8</span></p>
+                        </b>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="middle-primary-upper-primary">
+            <div class="middle-primary-div">
+                <div class="middle-primary-label">
+                    <b class="middle-primary-b">Lower Secondary </b>
+                </div>
+                <div class="middle-primary-grades">
+                    <button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">9</span></p>
+                        </b>
+                    </button><button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">10</span></p>
+                        </b>
+                    </button>
+                </div>
+            </div>
+            <div class="middle-primary-div">
+                <div class="middle-primary-label">
+                    <b class="middle-primary-b">Preparatory</b>
+                </div>
+                <div class="middle-primary-grades">
+                    <button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">11</span></p>
+                        </b>
+                    </button><button class="grade-1">
+                        <b class="grade-1-b">
+                            <p class="grade-p"><span class="grade-span">Grade </span></p>
+                            <p class="p"><span class="span">12</span></p>
+                        </b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="right-panel-div">
+        <div class="notifications-div" id="Table - Notifications">
+            <div class="header-notifications">
+                <img class="icon-bell" alt="" src="~/Assets/IconBell.svg" />
+                <b class="lower-primary-b">Notifications</b>
+            </div>
+            <div class="divider-solid"><div class="baseline-div"></div></div>
+            <div class="notifications-row-1">
+                <div class="text-group-basic">
+                    <div class="sports-day-will-be-held-on-mar">
+                        Final Exam is on Feb 26
+                    </div>
+                    <div class="weeks-left-div">2 weeks left</div>
+                </div>
+                <div class="frame-div"><div class="mins-div">05 mins</div></div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="notifications-row-1">
+                <div class="text-group-basic">
+                    <div class="sports-day-will-be-held-on-mar">
+                        Sports day will be held on Mar 16
+                    </div>
+                    <div class="weeks-left-div">3 weeks left</div>
+                </div>
+                <div class="frame-div"><div class="mins-div">25 mins</div></div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="notifications-row-1">
+                <div class="text-group-basic">
+                    <div class="sports-day-will-be-held-on-mar">
+                        Watch found on the 1st floor.
+                    </div>
+                    <div class="weeks-left-div">
+                        Go to the lost and found on the...
+                    </div>
+                </div>
+                <div class="frame-div"><div class="mins-div">2 hrs</div></div>
+            </div>
+        </div>
+        <div class="view-complaints-div" id="Table - Appointments">
+            <div class="header-notifications">
+                <div class="icon-complaints">
+                    <img class="vector-complaints"
+                         alt=""
+                         src="~/Assets/IconAppointments.svg" />
+                </div>
+                <div class="label-button">
+                    <b class="middle-primary-b">Appointments</b>
+                    <img class="iconaddappointment"
+                         alt=""
+                         src="~/Assets/IconAddAppointment.svg" />
+                </div>
+            </div>
+            <div class="divider-solid"><div class="baseline-div"></div></div>
+            <div class="appointments-row-1">
+                <div class="text-group-basic3">
+                    <div class="mr-levi-ackermann">Mr. Levi Ackermann</div>
+                </div>
+                <div class="apr-11-at-130pm">Apr 11 at 1:30pm</div>
+                <div class="days-left-div">2 days left</div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="appointments-row-1">
+                <div class="text-group-basic3">
+                    <div class="mr-levi-ackermann">Mrs. Kuchel Ackermann</div>
+                </div>
+                <div class="apr-11-at-130pm">Apr 13 at 1:30pm</div>
+                <div class="days-left-div">4 days left</div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+            <div class="appointments-row-1" id="Appointment Row #3">
+                <div class="text-group-basic3">
+                    <div class="mr-levi-ackermann">Dr. Eren Jager</div>
+                </div>
+                <div class="apr-11-at-130pm">Apr 18 at 1:30pm</div>
+                <div class="days-left-div">9 days left</div>
+            </div>
+            <div class="divider-solid1"><div class="baseline-div1"></div></div>
+        </div>
+    </div>
+</div>
