@@ -47,14 +47,18 @@ namespace Director.Controllers
             AddAnnouncement addAnnouncement = new();
 
             //Add the new announcement written in the MakeAnnouncement partial view to the db. 
-            await _announcementService.AddAsync(addAnnouncement.PassAnnouncement(indexModel.Form));
-            
-            return RedirectToAction("Index");//Redirects you back the My Announcement page after you add the item into the db
-            
+            if (indexModel.Form.Title != null && indexModel.Form.Details != null)
+            {
+                await _announcementService.AddAsync(addAnnouncement.PassAnnouncement(indexModel.Form));
+            }
 
-         }
+            return View();
 
-         // POST: AnnouncementController/MakeAnnouncement
+
+
+        }
+
+        // POST: AnnouncementController/MakeAnnouncement
 
         /*
          [HttpPost]

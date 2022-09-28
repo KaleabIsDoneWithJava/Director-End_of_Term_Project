@@ -202,8 +202,8 @@
 
         <div class="frame-div9">
             <b class="make-announcement-b1">@ViewBag.Title</b>
-            <!--Suppose to close the popup-->
-            <button style="background-color: transparent; border: 0px">
+            <!--Suppose to close the popup using bootstrap (data-dismiss & aria-label)-->
+            <button style="background-color: transparent; border: 0px" data-dismiss="modal" aria-label="Close">
                 <img class="x-circle-icon" alt="" src="./Assets/IconCloseCircle.svg" />
             </button>
 
@@ -214,6 +214,7 @@
         <div class="title-label-and-input" id="Container - Title">
             <div class="title-div1"><label asp-for="Form.Title"></label></div>
             <input class="input-announcement-title"
+                   required
                    type="text"
                    asp-for="Form.Title"
                    placeholder="Enter Title here..." />
@@ -222,13 +223,14 @@
     <div class="details-div1">
         <div class="title-div1"><label asp-for="Form.Details"></label></div>
         <textarea class="text-area-announcement-detai"
+                  required
                   asp-for="Form.Details"
                   placeholder="Enter Announcement Details Here..."></textarea>
     </div>
     <div class="buttons-post-and-cancel">
 
-        <!--Suppose to close the popup-->
-        <button class="button-cancel1" id="Button - Cancel">
+        <!--Suppose to close the popup using bootstrap (data-dismiss & aria-label)-->
+        <button class="button-cancel1" id="Button - Cancel" data-dismiss="modal" aria-label="Close">
             <b class="button-label5">Cancel</b>
         </button>
 
