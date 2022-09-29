@@ -1,0 +1,160 @@
+
+.make-appointment-b {
+  position: relative;
+  line-height: 28px;
+  display: inline-block;
+}
+.iconclosecircle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.title-icon {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.make-an-appointment-with-stud {
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000;
+  display: inline-block;
+}
+.title-add-missing-attendance {
+  align-self: stretch;
+  border-radius: 12px 12px 0 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 40px 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+}
+.input-label-div,
+.student-name-div {
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+.student-name-div {
+  font-weight: 600;
+}
+.input-label-div {
+  align-self: stretch;
+}
+.input-appointment-detail,
+.input-field-default-withou,
+.studentid-div {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.input-field-default-withou {
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  padding: 12px 16px;
+  justify-content: center;
+  font-size: 16px;
+}
+.input-appointment-detail,
+.studentid-div {
+  justify-content: flex-start;
+  gap: 8px;
+}
+.input-appointment-detail {
+  padding: 24px 40px;
+  box-sizing: border-box;
+  gap: 40px;
+  font-size: 14px;
+  color: #000;
+}
+.button-label2 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  display: inline-block;
+  color: #000;
+  text-align: left;
+}
+.button-cancel {
+    cursor: pointer;
+    border: 1px solid #000;
+    padding: 12px;
+    background-color: transparent;
+    border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100px;
+    height: 48px;
+    flex-shrink: 0;
+    /*display: flex;*/
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.button-label3 {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  display: inline-block;
+  color: #fff;
+  text-align: left;
+}
+.button-done,
+.buttons-done-and-cancel {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+.button-done {
+  cursor: pointer;
+  border: 0;
+  padding: 12px;
+  background-color: #000;
+  border-radius: 8px;
+  width: 100px;
+  height: 48px;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.buttons-done-and-cancel {
+  align-self: stretch;
+  border-radius: 0 0 12px 12px;
+  background-color: #fbfbfb;
+  padding: 16px 40px;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.pop-up-make-appointment {
+  position: relative;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  text-align: left;
+  font-size: 20px;
+  color: #232325;
+}
