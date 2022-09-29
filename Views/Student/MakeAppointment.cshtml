@@ -1,0 +1,48 @@
+﻿
+
+@{ 
+    ViewBag.Title = "Make Appointment";
+}
+
+<div class="pop-up-make-appointment">
+    <div class="title-add-missing-attendance">
+        <div class="title-icon">
+            <b class="make-appointment-b">@ViewBag.Title</b>
+            <button data-dismiss="modal" aria-label="Close">
+                <img class="iconclosecircle"
+                     alt=""
+                     src="~/Assets/IconCloseCircle.svg" />
+            </button>
+        </div>
+        <div class="make-an-appointment-with-stud">
+            Make an Appointment using the students name and the parent will be notified.
+        </div>
+    </div>
+    <div class="input-appointment-detail">
+        <div class="studentid-div">
+            <div class="student-name-div">Student Name</div>
+            <div class="input-field-default-withou">
+                <div class="input-label-div">Enter the period...</div>
+            </div>
+        </div>
+        <div class="studentid-div" id="Container - Subject">
+            <div class="student-name-div">Reason For Appointment</div>
+            <div class="input-field-default-withou">
+                <div class="input-label-div">Enter Subject Here...</div>
+            </div>
+        </div>
+        <div class="studentid-div" id="Container - Date">
+            <div class="student-name-div">Date</div>
+            <div class="input-field-default-withou">
+                <div class="input-label-div">DD/MM/YYYY</div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons-done-and-cancel">
+        <button class="button-cancel" id="Button - Cancel">
+            <b class="button-label2">Cancel</b>
+        </button><button class="button-done" autofocus id="Button - Done">
+            <b class="button-label3">Done</b>
+        </button>
+    </div>
+</div>

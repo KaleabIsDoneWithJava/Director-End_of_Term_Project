@@ -30,6 +30,12 @@ namespace Director.Controllers
             return View();
         }
 
+        public ActionResult MakeAppointment()
+        {
+            return View();
+        }
+
+
         // GET: StudentController/Details/5
         public ActionResult Details(int id)
         {

@@ -204,7 +204,6 @@ a, a:hover{
   position: relative;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #232325;
   text-align: left;
   display: inline-block;
@@ -226,7 +225,6 @@ a, a:hover{
   position: relative;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #232325;
   text-align: left;
   display: inline-block;
@@ -280,7 +278,6 @@ a, a:hover{
   position: relative;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #000;
   text-align: left;
   display: inline-block;
@@ -320,7 +317,6 @@ a, a:hover{
   align-self: stretch;
   position: relative;
   font-size: 16px;
-  font-family: Inter;
   color: #000;
   text-align: left;
   display: inline-block;
@@ -346,7 +342,6 @@ a, a:hover{
 .sections-div {
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #000;
   text-align: left;
   align-items: center;
@@ -367,7 +362,6 @@ a, a:hover{
   flex: 1;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #000;
   text-align: center;
   display: flex;
@@ -400,7 +394,6 @@ a, a:hover{
   flex: 1;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #000;
   text-align: center;
   display: inline-block;
@@ -468,7 +461,6 @@ a, a:hover{
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
-  font-family: Inter;
   color: #fff;
   text-align: left;
 }
@@ -492,7 +484,7 @@ a, a:hover{
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
-  font-family: Inter;
+  
   color: #232325;
   text-align: left;
 }
@@ -827,7 +819,7 @@ a, a:hover{
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
-  font-family: Inter;
+  
   color: #2e65f3;
   text-align: left;
 }
@@ -886,5 +878,5 @@ a, a:hover{
   text-align: center;
   font-size: 14px;
   color: #2e65f3;
-  font-family: Inter;
+  
 }

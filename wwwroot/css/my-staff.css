@@ -74,7 +74,7 @@ tbody {
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
-  font-family: Inter;
+  
   color: #fff;
   text-align: left;
 }
@@ -407,7 +407,7 @@ tbody {
   position: relative;
   font-size: 16px;
   display: inline-block;
-  font-family: Inter;
+  
   color: #232325;
   text-align: left;
 }
@@ -654,5 +654,5 @@ tbody {
   text-align: left;
   font-size: 16px;
   color: #232325;
-  font-family: Inter;
+  
 }

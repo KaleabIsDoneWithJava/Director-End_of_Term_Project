@@ -161,7 +161,6 @@ body {
 }
 .student-details-b {
   font-size: 24px;
-  font-family: Inter;
   color: #232325;
   text-align: left;
 }
@@ -181,7 +180,6 @@ body {
   position: relative;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #232325;
   text-align: left;
   display: inline-block;
@@ -220,7 +218,6 @@ body {
   position: relative;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #232325;
   text-align: left;
   display: inline-block;
@@ -293,7 +290,6 @@ body {
   position: relative;
   font-size: 16px;
   line-height: 28px;
-  font-family: Inter;
   color: #000;
   text-align: left;
   display: inline-block;
@@ -388,7 +384,6 @@ body {
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
-  font-family: Inter;
   color: #232325;
   text-align: left;
 }
@@ -412,7 +407,6 @@ body {
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
-  font-family: Inter;
   color: #fff;
   text-align: left;
 }
@@ -469,5 +463,4 @@ body {
     text-align: center;
     font-size: 14px;
     color: #2e65f3;
-    font-family: Inter;
 }
