@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Director.Models.Forms;
@@ -23,7 +24,7 @@ namespace Director.Models.Functions
         {
             //In order to pass these to models as one to the Index of the Student controller
             public AppointmentFormModel Form { get; set; }
-            public IEnumerable<TempStudent> allStudentsWithParents { get; set; }
+            public IEnumerable allStudentsWithParents { get; set; }
         }
     }
 }

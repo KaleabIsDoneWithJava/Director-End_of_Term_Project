@@ -24,6 +24,7 @@ namespace Director.Models.Functions
         public class AnnouncementsFormAndData
         {
             //In order to pass these to models as one to the Index of the announcement controller
+            //The Appointment model will also be included in due time
             public AnnouncementFormModel Form { get; set; }
             public IEnumerable<Announcement> allAnnouncements { get; set; }
         }

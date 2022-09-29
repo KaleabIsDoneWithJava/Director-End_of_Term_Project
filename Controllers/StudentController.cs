@@ -16,18 +16,28 @@ namespace Director.Controllers
         // that are involved in the student class interacting with the database.
         private readonly IStudentService _studentService;
         private readonly IClassService _classService;
+        private readonly IAppointmentService _appointmentService;
 
-        public StudentController(IStudentService studentService, IClassService classService)
+        public StudentController(IStudentService studentService, IClassService classService, IAppointmentService appointmentService)
         {
             // the service is instantiated in the controller's constructor
             _studentService = studentService;
             _classService = classService;
+            _appointmentService = appointmentService;
         }
 
         // GET: StudentController
         public ActionResult Index()
         {
-            return View();
+            AddAppointment.AppointmentFormAndStudentData model = new();
+            
+            //Gets all students along with their parents info from the db synchronously
+            model.allStudentsWithParents = _studentService.GetAllStudentDetail();
+
+            //Doing this because the MakeAppointment popup is a partial view.
+            model.Form = new AppointmentFormModel();
+
+            return View(model);
         }
 
         public ActionResult MakeAppointment()

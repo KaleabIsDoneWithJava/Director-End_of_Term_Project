@@ -23,16 +23,16 @@ namespace Director.Controllers
         // GET: AnnouncementController
         public async Task<ActionResult> IndexAsync()
         {
-            //Using dynamic type because the Appointment entity will also be passed on to the index view.
-            AddAnnouncement.AnnouncementsFormAndData indexModel = new();
-            
-            //Gets all the announcements in the db asynchronously
-            indexModel.allAnnouncements = await _announcementService.GetAllAsync();
-            
+            //Using AnnouncementsFormAndData type because the Appointment entity will also be passed on to the index view.
+            AddAnnouncement.AnnouncementsFormAndData model = new();
+
+            //Gets all the announcements from the db asynchronously
+            model.allAnnouncements = await _announcementService.GetAllAsync();
+
             //Doing this because the MakeAnnouncement popup is a partial view.
-            indexModel.Form = new AnnouncementFormModel ();
+            model.Form = new AnnouncementFormModel ();
             
-            return View(indexModel);
+            return View(model);
         }
 
         // GET: AnnouncementController/Details/5
@@ -42,14 +42,14 @@ namespace Director.Controllers
         }
 
         // GET: AnnouncementController/MakeAnnouncement
-         public async Task<ActionResult> MakeAnnouncementAsync(AddAnnouncement.AnnouncementsFormAndData indexModel)
+         public async Task<ActionResult> MakeAnnouncementAsync(AddAnnouncement.AnnouncementsFormAndData model)
          {
             AddAnnouncement addAnnouncement = new();
 
             //Add the new announcement written in the MakeAnnouncement partial view to the db. 
-            if (indexModel.Form.Title != null && indexModel.Form.Details != null)
+            if (model.Form.Title != null && model.Form.Details != null)
             {
-                await _announcementService.AddAsync(addAnnouncement.PassAnnouncement(indexModel.Form));
+                await _announcementService.AddAsync(addAnnouncement.PassAnnouncement(model.Form));
             }
 
             return View();
