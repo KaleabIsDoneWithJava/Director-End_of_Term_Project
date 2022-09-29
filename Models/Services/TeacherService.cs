@@ -20,7 +20,7 @@ namespace Director.Models.Services
         }
 
         //class used to return the data from the join in GetAllTeacherDetail()
-        public class temp
+        public class TempTeacher
         {
             public int Id;
             public string FirstName;
@@ -42,7 +42,7 @@ namespace Director.Models.Services
                           join g in _context.Grades
                           on sg.GradeId equals g.Id
                           orderby t.FirstName ascending
-                          select new temp
+                          select new TempTeacher
                           {
                               Id = t.Id,
                               FirstName = t.FirstName,

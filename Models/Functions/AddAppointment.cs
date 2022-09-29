@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Director.Models.Forms;
-
+using static Director.Models.Services.StudentService;
 
 namespace Director.Models.Functions
 {
@@ -23,7 +23,7 @@ namespace Director.Models.Functions
         {
             //In order to pass these to models as one to the Index of the Student controller
             public AppointmentFormModel Form { get; set; }
-            public IEnumerable<Student> allStudents { get; set; }
+            public IEnumerable<TempStudent> allStudentsWithParents { get; set; }
         }
     }
 }
