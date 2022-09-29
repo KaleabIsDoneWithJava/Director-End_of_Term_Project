@@ -182,7 +182,12 @@
                 <div class="label-button">
                     <b class="middle-primary-b">Appointments</b>
 
-                    <a asp-controller="Student" asp-action="MakeAppointment" style="text-decoration: none">
+                    <a asp-controller="Student" asp-action="MakeAppointment"
+                       style="text-decoration: none;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-end;">
+
                         <img class="iconaddappointment"
                              alt=""
                              src="~/Assets/IconAddAppointment.svg" />
