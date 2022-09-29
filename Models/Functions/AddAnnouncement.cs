@@ -14,16 +14,16 @@ namespace Director.Models.Functions
 
         public Announcement PassAnnouncement(AnnouncementFormModel model)
         {
-            Announcement allAnnouncements = new Announcement();
-            allAnnouncements.Title = model.Title;
-            allAnnouncements.Detail = model.Details;
+            Announcement oneAnnouncement = new Announcement();
+            oneAnnouncement.Title = model.Title;
+            oneAnnouncement.Detail = model.Details;
 
-            return allAnnouncements;
+            return oneAnnouncement;
         }
 
         public class AnnouncementsFormAndData
         {
-            //In order to pass these to models as one to the Index of the announcements conroller
+            //In order to pass these to models as one to the Index of the announcement controller
             public AnnouncementFormModel Form { get; set; }
             public IEnumerable<Announcement> allAnnouncements { get; set; }
         }
