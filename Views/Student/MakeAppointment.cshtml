@@ -1,6 +1,7 @@
 ﻿
+@model Director.Models.Functions.AddAppointment.AppointmentFormAndStudentData;
 
-@{ 
+@{
     ViewBag.Title = "Make Appointment";
 }
 
@@ -21,15 +22,15 @@
     <div class="input-appointment-detail">
         <div class="studentid-div">
             <div class="student-name-div">Student Name</div>
-            <input class="input-field-default-withou" placeholder="Enter Student's Name Here..."/>
+            <input class="input-field-default-withou" placeholder="Enter Student's Name Here..." required/>
         </div>
         <div class="studentid-div" id="Container - Subject">
             <div class="student-name-div">Reason For Appointment</div>
-            <textarea class="input-field-default-withou">Enter The Reason For The Appointment Here...</textarea>
+            <textarea class="input-field-default-withou" required>Enter The Reason For The Appointment Here...</textarea>
         </div>
         <div class="studentid-div" id="Container - Date">
             <div class="student-name-div">Date</div>
-            <input class="input-field-default-withou" type="date" />
+            <input class="input-field-default-withou" type="date" required/>
         </div>
     </div>
     <div class="buttons-done-and-cancel">

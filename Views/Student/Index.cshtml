@@ -1,5 +1,5 @@
 ﻿
-
+@model Director.Models.Functions.AddAppointment.AppointmentFormAndStudentData;
 
 @{
     ViewBag.Title = "My Students";
@@ -10,7 +10,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: transparent; border: 0px; ">
             @{
-                Html.RenderPartial("MakeAppointment");
+                Html.RenderPartial("MakeAppointment", Model);
 
             }
         </div><!-- /.modal-content -->
