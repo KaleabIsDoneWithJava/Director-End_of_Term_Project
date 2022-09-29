@@ -1,12 +1,26 @@
 ﻿
+
+
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = "My Students";
 }
+
+
+<div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: transparent; border: 0px; ">
+            @{
+                Html.RenderPartial("MakeAppointment");
+
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div class="my-students-div">
 
     <div class="main-panel-div">
-        <b class="my-students-b1">My Students</b>
+        <b class="my-students-b1">@ViewBag.Title</b>
         <div class="search-filter">
             <input class="input-field-default-with-i"
                    type="search"
@@ -181,16 +195,15 @@
                 </div>
                 <div class="label-button">
                     <b class="middle-primary-b">Appointments</b>
-                    <a asp-controller="Student" asp-action="MakeAppointment"
-                       style="text-decoration: none;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: flex-end;">
-
+                    <button data-toggle="modal" data-target="#showmodal"
+                            autofocus style="text-decoration: none;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: flex-end;">
                         <img class="iconaddappointment"
                              alt=""
                              src="~/Assets/IconAddAppointment.svg" />
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="divider-solid"><div class="baseline-div"></div></div>
