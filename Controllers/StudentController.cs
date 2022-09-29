@@ -34,19 +34,28 @@ namespace Director.Controllers
             //Gets all students along with their parents info from the db synchronously
             model.allStudentsWithParents = _studentService.GetAllStudentDetail();
 
-            //Doing this because the MakeAppointment popup is a partial view.
+            //Doing this because the MakeAppointment popup is a partial view and you can't pass an object without an instance
             model.Form = new AppointmentFormModel();
 
             return View(model);
         }
 
+        //modal popup. Interface already implemented
         public ActionResult MakeAppointment()
-        {
+        { //Yet to be implemented
+          //Need to iterate through the list of student's like a drop down or something in
+          //the view and make the director select the student name that he/she desires.
+          //Only after that should the StudentId will get passed to identify the parent so that
+          //we can display parent name and contact info(hopefully!) in the appointment display table on the right panel of most of the pages
+          //.
             return View();
         }
 
 
         // GET: StudentController/Details/5
+        // Probably gonna use this to see every student detail...ViewStudent.P.s. Should be renamed to ViewStudentDetail
+        // Also gonna make use of the model.allStudentsWithParents because, parent detail will also be displayed.
+
         public ActionResult Details(int id)
         {
             return View();
