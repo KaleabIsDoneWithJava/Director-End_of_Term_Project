@@ -59,6 +59,7 @@
   align-items: flex-start;
 }
 .input-field-default-withou {
+  flex-direction: row;
   border-radius: 8px;
   background-color: #fff;
   border: 1px solid #000;
