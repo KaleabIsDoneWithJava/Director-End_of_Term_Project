@@ -41,13 +41,20 @@ namespace Director.Controllers
         }
 
         //modal popup. Interface already implemented
-        public ActionResult MakeAppointment()
+       /* public ActionResult MakeAppointment()
         { //Yet to be implemented
           //Need to iterate through the list of student's like a drop down or something in
           //the view and make the director select the student name that he/she desires.
           //Only after that should the StudentId will get passed to identify the parent so that
           //we can display parent name and contact info(hopefully!) in the appointment display table on the right panel of most of the pages
           //.
+            return View();
+        }*/
+
+        public ActionResult MakeAppointment()
+        {
+
+
             return View();
         }
 

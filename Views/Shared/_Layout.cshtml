@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="~/css/AddStudent.css" />
     <link rel="stylesheet" href="~/css/Announcements.css" />
     <link rel="stylesheet" href="~/css/MyStudents.css" />
-    <link rel="stylesheet" href="~/css/MakeAppointment.css"/>
-    <link rel="stylesheet" href="~/css/Profile.css"/>
+    <link rel="stylesheet" href="~/css/MakeAppointment.css" />
+    <link rel="stylesheet" href="~/css/Profile.css" />
     <!--<link rel="stylesheet" href="~/css/PopUpMakeAnnouncement.css" />-->
+    <script src="~/lib/jquery-mentions-input/jquery.mentionsInput.js" type="text/javascript"></script>
 
     <style>
         .active {
@@ -152,7 +153,7 @@
 
 
     <main class="rendered-body">
-        <main class ="RenderedBody" role="main">
+        <main class="RenderedBody" role="main">
             @RenderBody()
         </main>
     </main>
@@ -162,8 +163,8 @@
              &copy; 2022 - Director - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
          </div>
     </footer>
-    -->
 
+    -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -180,6 +181,7 @@
                 this.className += " active";
             });
         }
+
     </script>
 
 

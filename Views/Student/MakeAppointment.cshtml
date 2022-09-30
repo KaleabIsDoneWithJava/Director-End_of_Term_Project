@@ -5,7 +5,10 @@
     ViewBag.Title = "Make Appointment";
 }
 
-<div class="pop-up-make-appointment">
+
+
+
+<form class="pop-up-make-appointment">
     <div class="title-add-missing-attendance">
         <div class="title-icon">
             <b class="make-appointment-b">@ViewBag.Title</b>
@@ -22,22 +25,49 @@
     <div class="input-appointment-detail">
         <div class="studentid-div">
             <div class="student-name-div">Student Name</div>
-            <input class="input-field-default-withou" placeholder="Enter Student's Name Here..." required/>
-        </div>
-        <div class="studentid-div" id="Container - Subject">
-            <div class="student-name-div">Reason For Appointment</div>
-            <textarea class="input-field-default-withou" required>Enter The Reason For The Appointment Here...</textarea>
-        </div>
-        <div class="studentid-div" id="Container - Date">
-            <div class="student-name-div">Date</div>
-            <input class="input-field-default-withou" type="date" required/>
+            <input id="StudentName" class="input-field-default-withou" placeholder="Enter Student's Name Here..."
+                   required
+                   onkeyup="checkSearchChanged()" />
+
+            <div class="studentid-div" id="Container - Subject">
+                <div class="student-name-div">Reason For Appointment</div>
+                <textarea class="input-field-default-withou"
+                          required
+                          placeholder="Enter The Reason For The Appointment Here..."
+                          style="height: 150px;"></textarea>
+            </div>
+            <div class="studentid-div" id="Container - Date">
+                <div class="student-name-div">Date</div>
+                <input class="input-field-default-withou" type="date" required />
+            </div>
         </div>
     </div>
     <div class="buttons-done-and-cancel">
         <button class="button-cancel" id="Button - Cancel" data-dismiss="modal" aria-label="Close">
             <b class="button-cancel-label2">Cancel</b>
-        </button><button class="button-done" autofocus id="Button - Done">
+        </button><button class="button-done" autofocus id="Button - Done" type="submit">
             <b class="button-label3">Done</b>
         </button>
     </div>
-</div>
+</form>
+
+
+<script>
+    $('#StudentName').mentionsInput({
+        onDataRequest: function (mode, query, callback) {
+            var data = [
+                { id: 1, name: 'Kenneth Auchenberg', 'avatar': 'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type': 'contact' },
+                { id: 2, name: 'Jon Froda', 'avatar': 'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type': 'contact' },
+                { id: 3, name: 'Anders Pollas', 'avatar': 'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type': 'contact' },
+                { id: 4, name: 'Kasper Hulthin', 'avatar': 'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type': 'contact' },
+                { id: 5, name: 'Andreas Haugstrup', 'avatar': 'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type': 'contact' },
+                { id: 6, name: 'Pete Lacey', 'avatar': 'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type': 'contact' }
+            ];
+
+            data = _.filter(data, function (item) { return item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 });
+
+            callback.call(this, data);
+        }
+    });
+
+</script>
