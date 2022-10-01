@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -7,9 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Director.Models
 {
-    //Inheriting IdentityDbContext instead of DbContext in order to use login and register functionalities
-    //IdentityDbContext itself inherits the DbContext class.
-    public partial class SMSContext : IdentityDbContext<ApplicationUser>
+    public partial class SMSContext : DbContext
     {
         public SMSContext()
         {
@@ -34,14 +31,14 @@ namespace Director.Models
         public virtual DbSet<SubjectForGrade> SubjectForGrades { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
 
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;");
             }
-        }*/
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -64,7 +61,6 @@ namespace Director.Models
                 entity.HasOne(d => d.OfficeStaff)
                     .WithMany(p => p.Announcements)
                     .HasForeignKey(d => d.OfficeStaffId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Announcem__Offic__34C8D9D1");
             });
 
@@ -82,7 +78,6 @@ namespace Director.Models
                 entity.HasOne(d => d.OfficeStaff)
                     .WithMany(p => p.Appointments)
                     .HasForeignKey(d => d.OfficeStaffId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Appointme__Offic__403A8C7D");
 
                 entity.HasOne(d => d.Student)
@@ -150,7 +145,6 @@ namespace Director.Models
                 entity.HasOne(d => d.Homeroom)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.HomeroomId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Class__HomeroomI__398D8EEE");
 
                 entity.HasOne(d => d.Section)
@@ -367,8 +361,6 @@ namespace Director.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Teacher__Subject__300424B4");
             });
-            
-            base.OnModelCreating(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);
         }
