@@ -367,6 +367,8 @@ namespace Director.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Teacher__Subject__300424B4");
             });
+            
+            base.OnModelCreating(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);
         }

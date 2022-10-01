@@ -31,7 +31,8 @@ namespace Director
             services.AddDbContext<SMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<SMSContext>();
+                .AddEntityFrameworkStores<SMSContext>()
+                .AddDefaultTokenProviders();
 
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IOfficeStaffService, OfficeStaffService>();
