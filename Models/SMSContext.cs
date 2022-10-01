@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -6,7 +7,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Director.Models
 {
-    public partial class SMSContext : DbContext
+    //Inheriting IdentityDbContext instead of DbContext in order to use login and register functionalities
+    //IdentityDbContext itself inherits the DbContext class.
+    public partial class SMSContext : IdentityDbContext<ApplicationUser>
     {
         public SMSContext()
         {
