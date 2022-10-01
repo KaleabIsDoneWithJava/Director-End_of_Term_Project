@@ -34,12 +34,12 @@ namespace Director.Models.Services
         //Returns the joined data from the db as a temp object
         public IEnumerable GetAllTeacherDetail()
         {
-            var result =  (from t in _context.Teachers
-                          join sg in _context.SubjectForGrades
+            var result =  (from t in _context.Teacher
+                          join sg in _context.SubjectForGrade
                           on t.SubjectForGradeId equals sg.Id
-                          join s in _context.Subjects
+                          join s in _context.Subject
                           on sg.SubjectId equals s.Id
-                          join g in _context.Grades
+                          join g in _context.Grade
                           on sg.GradeId equals g.Id
                           orderby t.FirstName ascending
                           select new TempTeacher

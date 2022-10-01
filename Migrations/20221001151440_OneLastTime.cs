@@ -2,7 +2,7 @@
 
 namespace Director.Migrations
 {
-    public partial class IdentityThirdTry : Migration
+    public partial class OneLastTime : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

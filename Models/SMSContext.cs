@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Director.Models
 {
-    public partial class SMSContext : DbContext
+    public partial class SMSContext : IdentityDbContext<ApplicationUser>
     {
         public SMSContext()
         {
@@ -17,32 +18,33 @@ namespace Director.Models
         {
         }
 
-        public virtual DbSet<Announcement> Announcements { get; set; }
-        public virtual DbSet<Appointment> Appointments { get; set; }
-        public virtual DbSet<Assessment> Assessments { get; set; }
-        public virtual DbSet<AttendanceMissed> AttendanceMisseds { get; set; }
-        public virtual DbSet<Class> Classes { get; set; }
-        public virtual DbSet<Grade> Grades { get; set; }
-        public virtual DbSet<OfficeStaff> OfficeStaffs { get; set; }
-        public virtual DbSet<Parent> Parents { get; set; }
-        public virtual DbSet<Section> Sections { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<SubjectForGrade> SubjectForGrades { get; set; }
-        public virtual DbSet<Teacher> Teachers { get; set; }
+        public virtual DbSet<Announcement> Announcement { get; set; }
+        public virtual DbSet<Appointment> Appointment { get; set; }
+        public virtual DbSet<Assessment> Assessment { get; set; }
+        public virtual DbSet<AttendanceMissed> AttendanceMissed { get; set; }
+        public virtual DbSet<Class> Class { get; set; }
+        public virtual DbSet<Grade> Grade { get; set; }
+        public virtual DbSet<OfficeStaff> OfficeStaff { get; set; }
+        public virtual DbSet<Parent> Parent { get; set; }
+        public virtual DbSet<Section> Section { get; set; }
+        public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<Subject> Subject { get; set; }
+        public virtual DbSet<SubjectForGrade> SubjectForGrade { get; set; }
+        public virtual DbSet<Teacher> Teacher { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SMS;Integrated Security=True;Pooling=False;");
             }
-        }
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Announcement>(entity =>
             {
