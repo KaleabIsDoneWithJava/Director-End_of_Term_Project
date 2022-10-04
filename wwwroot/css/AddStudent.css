@@ -1,156 +1,4 @@
-/*
-body {
-  margin: 0;
-  line-height: normal;
-}
-.student-management-system5 {
-  align-self: stretch;
-  position: relative;
-  letter-spacing: 0.1em;
-  line-height: 20px;
-  text-transform: uppercase;
-  display: inline-block;
-}
-.logo-div5 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.vector-icon14 {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-.auto-layout-home5 {
-  display: flex;
-  flex-direction: row;
-  padding: 3px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.home-b6 {
-  position: relative;
-  letter-spacing: 0.1em;
-  line-height: 20px;
-  text-transform: uppercase;
-  display: inline-block;
-}
-.my-staff-div5 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  padding: 8px 10px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.icon-staff11 {
-  position: relative;
-  width: 22px;
-  height: 18px;
-  flex-shrink: 0;
-}
-.auto-layout-students5 {
-  padding: 4px 2px;
-}
-.announcements-div6,
-.auto-layout-announcements5,
-.auto-layout-students5,
-.home-div6,
-.nav-items-div5 {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.home-div6 {
-  align-self: stretch;
-  background-color: #fff;
-  box-shadow: 4px 0 0#2e65f3 inset;
-  padding: 8px 10px;
-  gap: 8px;
-  color: #2e65f3;
-}
-.announcements-div6,
-.auto-layout-announcements5,
-.nav-items-div5 {
-  padding: 3px;
-}
-.announcements-div6,
-.nav-items-div5 {
-  align-self: stretch;
-  padding: 8px 10px;
-  gap: 8px;
-  color: #232325;
-}
-.nav-items-div5 {
-  flex: 1;
-  padding: 0 0 50px;
-  gap: 20px;
-  font-size: 12px;
-  color: #000;
-}
-.icon-profile5 {
-  position: relative;
-  width: 29.25px;
-  height: 29.25px;
-  flex-shrink: 0;
-}
-.auto-layout-profile5 {
-  flex: 1;
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  padding: 4px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-.vector-icon15 {
-  position: relative;
-  width: 28px;
-  height: 24.5px;
-  flex-shrink: 0;
-}
-.logout-div5,
-.navigation-primary-left5,
-.profile-logout5 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  align-items: center;
-}
-.logout-div5 {
-  flex: 1;
-  padding: 5px 4px;
-  justify-content: center;
-}
-.navigation-primary-left5,
-.profile-logout5 {
-  background-color: #e6e6e6;
-  flex-shrink: 0;
-}
-.profile-logout5 {
-  height: 135px;
-  padding: 10px;
-  justify-content: center;
-  gap: 20px;
-}
-.navigation-primary-left5 {
-  width: 140px;
-  padding: 20px 0;
-  justify-content: flex-start;
-}
-*/
+
 .add-student-b,
 .student-details-b {
   position: relative;
@@ -375,17 +223,17 @@ body {
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
-.button-label3 {
-  position: relative;
-  font-size: 16px;
-  line-height: 24px;
-  display: inline-block;
-  color: #232325;
-  text-align: left;
+.buttonLabelClear {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    display: inline-block;
+    color: #232325;
+    text-align: left;
 }
 .button-clear {
   cursor: pointer;
@@ -430,9 +278,9 @@ body {
 }
 .buttons-add-clear1 {
   align-self: stretch;
-  padding: 5px 0;
   justify-content: flex-end;
   gap: 20px;
+  padding-bottom: 10px;
 }
 .add-student-div,
 .main-panel-div5 {
@@ -443,13 +291,14 @@ body {
   flex: 1;
   align-self: stretch;
   flex-direction: column;
-  padding: 30px 20px 20px;
+  padding-right: 20px;
+  padding-left: 20px;
   box-sizing: border-box;
   align-items: flex-start;
-  gap: 15px;
   text-align: left;
   font-size: 36px;
   color: #232325;
+  gap: 10px;
 }
 .add-student-div {
     position: relative;

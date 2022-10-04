@@ -17,7 +17,7 @@ namespace Director.Models.Services
         //returns the classId from the db given the gradeId and SectionId from the model class
         public int GetClassId(int GradeId, int SectionId)
         {
-            var result =  (from c in _context.Classes
+            var result =  (from c in _context.Class
                                 where c.GradeId == GradeId 
                                 where c.SectionId == SectionId
                                 select c.Id).First();
