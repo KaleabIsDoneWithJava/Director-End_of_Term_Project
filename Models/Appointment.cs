@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Director.Models.Base;
 
-
 #nullable disable
 
 namespace Director.Models

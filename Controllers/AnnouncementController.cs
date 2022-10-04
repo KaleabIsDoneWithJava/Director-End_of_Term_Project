@@ -30,6 +30,7 @@ namespace Director.Controllers
             model.allAnnouncements = await _announcementService.GetAllAsync();
 
             //Doing this because the MakeAnnouncement popup is a partial view.
+            //Only instatiate it, since we're using it to accept input from the user.
             model.Form = new AnnouncementFormModel ();
             
             return View(model);
@@ -56,7 +57,7 @@ namespace Director.Controllers
 
 
 
-        }
+         }
 
         // POST: AnnouncementController/MakeAnnouncement
 

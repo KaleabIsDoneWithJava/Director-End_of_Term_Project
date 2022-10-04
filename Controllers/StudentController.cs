@@ -33,6 +33,7 @@ namespace Director.Controllers
             
             //Gets all students along with their parents info from the db synchronously
             model.allStudentsWithParents = _studentService.GetAllStudentDetail();
+            
 
             //Doing this because the MakeAppointment popup is a partial view and you can't pass an object without an instance
             model.Form = new AppointmentFormModel();

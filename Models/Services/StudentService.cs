@@ -30,8 +30,8 @@ namespace Director.Models.Services
         //Returns the joined data from the db as a temp object
         public IEnumerable<TempStudent> GetAllStudentDetail()
         {
-            var result = (from s in _context.Students
-                          join p in _context.Parents
+            var result = (from s in _context.Student
+                          join p in _context.Parent
                           on s.ParentId equals p.Id
                           select new TempStudent
                           {
